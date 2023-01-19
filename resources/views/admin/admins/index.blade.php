@@ -64,66 +64,65 @@
                                             ?>
                                             <td class="center">{!! $activate !!}</td>
                                             <td class="center">
-                                                <select class="form-control">
-                                                    <option>actions</option>
-                                                    <option>
-                                                        <button href="" class="openActivationFrom" data-toggle="modal" data-target="#myModalActivation" data-id="{{$admin->id}}">
-                                                            activation
-                                                        </button>
-                                                    </option>
-                                                    <option>
-                                                        <button href="" class="openDeleteFrom" data-toggle="modal" data-target="#myModalDelete" data-id="{{$admin->id}}">
+                                                <div class="btn-group">
+                                                    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        Actions
+                                                    </button>
+                                                    <div class="dropdown-menu">
+                                                        <a class="dropdown-item" href="#" class="openDeleteFrom" data-toggle="modal" data-target="#myModalDelete" data-id="{{$admin->id}}">
                                                             delete
-                                                        </button>
-                                                    </option>
-                                                </select>
+                                                        </a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a class="dropdown-item" href="#" class="openActivationFrom" data-toggle="modal" data-target="#myModalActivation" data-id="{{$admin->id}}">
+                                                            activation
+                                                        </a>
+                                                    </div>
+                                                </div>
                                             </td>
                                         </tr>
                                     @endforeach
                                 @endisset
                             </tbody>
                         </table>
-                        <div class="modal fade" id="myModalActivation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title f-w-600" id="exampleModalLabel">activation Confirmation</h5>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form role="form" action="{{url(route('admins/activate'))}}" class="" method="post"
-                                            enctype="multipart/form-data">
-                                            {{ csrf_field() }}
-                                            <p>Are You Sure To Update This Record ?</p>
-                                            <input id="activation_record_id" name="record_id" type="hidden">
-                                            <div class="modal-footer">
-                                                <button class="btn btn-primary" type="submit">Sure</button>
-                                                <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Cancel</button>
-                                            </div>
-                                        </form>
-                                    </div>
+                    </div>
+                    <div class="modal fade" id="myModalDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabell"
+                        aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title f-w-600" id="exampleModalLabell">Delete Confirmation</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <form role="form" action="{{url(route('admins/activate'))}}" class="" method="post"
+                                        enctype="multipart/form-data">
+                                        {{ csrf_field() }}
+                                        <p>Are You Sure To Update This Record ?</p>
+                                        <input id="delete_record_id" name="record_id" type="hidden">
+                                        <div class="modal-footer">
+                                            <button class="btn btn-primary" type="submit">Sure</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
-                        <div class="modal fade" id="myModalDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabell"
-                            aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title f-w-600" id="exampleModalLabell">delete Confirmation</h5>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form role="form" action="{{url(route('admins/activate'))}}" class="" method="post"
-                                            enctype="multipart/form-data">
-                                            {{ csrf_field() }}
-                                            <p>Are You Sure To Update This Record ?</p>
-                                            <input id="delete_record_id" name="record_id" type="hidden">
-                                            <div class="modal-footer">
-                                                <button class="btn btn-primary" type="submit">Sure</button>
-                                                <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Cancel</button>
-                                            </div>
-                                        </form>
-                                    </div>
+                    </div>
+                    <div class="modal fade" id="myModalActivation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title f-w-600" id="exampleModalLabel">Activation Confirmation</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <form role="form" action="{{url(route('admins/activate'))}}" class="" method="post"
+                                        enctype="multipart/form-data">
+                                        {{ csrf_field() }}
+                                        <p>Are You Sure To Update This Record ?</p>
+                                        <input id="activation_record_id" name="record_id" type="hidden">
+                                        <div class="modal-footer">
+                                            <button class="btn btn-primary" type="submit">Sure</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -139,16 +138,18 @@
 @endsection
 <!-- custom js -->
 @section('script')
-<script>
-    $(document).on('click', '.openActivationFrom', function() {
-        var id = $(this).attr('data-id');
-        $('#activation_record_id').val(id);
-        $('#myModalActivation').modal('show')
-    });
-    $(document).on('click', '.openActivationFrom', function() {
-        var id = $(this).attr('data-id');
-        $('#delete_record_id').val(id);
-        $('#myModalDelete').modal('show')
-    });
-</script>
+    <script>
+        $(document).on('click', '.openDeleteFrom', function() {
+            var id = $(this).attr('data-id');
+            console.log(id);
+            $('#delete_record_id').val(id);
+            $('#myModalDelete').modal('show')
+        });
+        $(document).on('click', '.openActivationFrom', function() {
+            var id = $(this).attr('data-id');
+            console.log(id)
+            $('#activation_record_id').val(id);
+            $('#myModalActivation').modal('show')
+        });
+    </script>
 @endsection
