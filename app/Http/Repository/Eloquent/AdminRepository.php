@@ -79,7 +79,7 @@ class AdminRepository extends AbstractRepository
         }
     }
 
-    public function AdminInfo($id)
+    public function AdminInfo()
     {
         try{
             $admin = auth()->guard('admin')->user();
@@ -90,23 +90,23 @@ class AdminRepository extends AbstractRepository
         }
     }
 
-    public function AdminUpdateInfo($request, $id)
+    public function AdminUpdateInfo($request)
     {
         try{
-            // validation 
-            $validator = validator()->make($request->all(),[
-                'email' => ['required', 'email', Rule::unique('admins', 'email')->ignore($id,'id')],
-                'name' => 'required',
-                'phone' => ['required', Rule::unique('admins', 'phone')->ignore($id,'id')],
-            ]);
-            if($validator->fails()){
-                flash()->error($validator->errors()->first());
-                return back();
-            }
             // get admin
             $admin = auth()->guard('admin')->user();
             if(!$admin){
                 flash()->error("There IS Somrthing Wrong");
+                return back();
+            }
+            // validation 
+            $validator = validator()->make($request->all(),[
+                'email' => ['required', 'email', Rule::unique('admins', 'email')->ignore($admin->id,'id')],
+                'name' => 'required',
+                'phone' => ['required', Rule::unique('admins', 'phone')->ignore($admin->id,'id')],
+            ]);
+            if($validator->fails()){
+                flash()->error($validator->errors()->first());
                 return back();
             }
             // updaet information 
@@ -145,7 +145,7 @@ class AdminRepository extends AbstractRepository
             // update password
             $admin->password = bcrypt($request->input('password'));
             $admin->save();
-            flash()->success("The Change Has Been Done");
+            flash()->success("Success");
             return back();
         }catch(\Exception $ex){
             flash()->error("There Is Somrthing Wrong , Please Contact Technical Support");
@@ -170,10 +170,10 @@ class AdminRepository extends AbstractRepository
         }
     }
 
-    public function AdminDelete($id)
+    public function AdminDelete($request)
     {
         try{
-            $admin = $this->model->findOrFail($id);
+            $admin = $this->model->findOrFail($request->record_id);
             $admin->delete();
             flash()->success("The Deleted Has Been Done");
             return back();
@@ -195,10 +195,6 @@ class AdminRepository extends AbstractRepository
             if($admins && count($admins) > 0){
                 foreach($admins as $admin ){
                     $admin->photo = asset($admin->photo);
-                    $admin->role_id = optional($admin->role)->name;
-                    $admin->urlRouteActivate = route('admins/activate', $admin->id);
-                    $admin->urlRouteDelete = route('admins/delete', $admin->id);
-                    $admin->urlRouteRole = route('admins/role', $admin->id);
                     $alladmins [] = $admin;
                 }
             }
@@ -225,10 +221,6 @@ class AdminRepository extends AbstractRepository
             if($admins && count($admins) > 0){
                 foreach($admins as $admin ){
                     $admin->photo = asset($admin->photo);
-                    $admin->role_id = optional($admin->role)->name;
-                    $admin->urlRouteActivate = route('admins/activate', $admin->id);
-                    $admin->urlRouteDelete = route('admins/delete', $admin->id);
-                    $admin->urlRouteRole = route('admins/role', $admin->id);
                     if( $query != '' ){
                         $admin->searchButton = 0;
                     }else{

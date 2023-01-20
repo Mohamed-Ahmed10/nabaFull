@@ -56,12 +56,12 @@ class AdminController extends Controller
         return $this->admin->AdminUpdateRole($id, $request);
     }
 
-    public function info($id){
-        return $this->admin->AdminInfo($id);
+    public function info(){
+        return $this->admin->AdminInfo();
     }
 
-    public function info_update(Request $request, $id){
-        return $this->admin->AdminUpdateInfo($request, $id);
+    public function info_update(Request $request){
+        return $this->admin->AdminUpdateInfo($request);
     }  
 
     public function change_password(AdminChangePasswordRequest $request){
@@ -72,8 +72,8 @@ class AdminController extends Controller
         return $this->admin->AdminActivate($request);
     }
 
-    public function delete($id){
-        return $this->admin->AdminDelete($id);
+    public function delete(Request $request){
+        return $this->admin->AdminDelete($request);
     }
 
     public function search(Request $request){

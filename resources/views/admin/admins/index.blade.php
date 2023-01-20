@@ -24,11 +24,12 @@
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
+                    @include('flash::message')
                     <div class="row">
                         <div class="col-sm-6"></div>
                         <div class="col-sm-6 text-right">
                             <div id="dataTables-example_filter" class="dataTables_filter">
-                                <label><input placeholder="search" type="search" class="form-control input-sm" placeholder="" aria-controls="dataTables-example"></label>
+                                <label><input id="data_search" placeholder="search" type="search" class="form-control input-sm" aria-controls="dataTables-example"></label>
                             </div>
                         </div>
                     </div>
@@ -45,7 +46,7 @@
                                     <th>Actions</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="tableShowData">
                                 @isset($admins)
                                     @foreach($admins as $admin)
                                         <tr class="odd gradeX">
@@ -64,26 +65,42 @@
                                             ?>
                                             <td class="center">{!! $activate !!}</td>
                                             <td class="center">
-                                                <div class="btn-group">
-                                                    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        Actions
-                                                    </button>
-                                                    <div class="dropdown-menu">
-                                                        <a class="dropdown-item" href="#" class="openDeleteFrom" data-toggle="modal" data-target="#myModalDelete" data-id="{{$admin->id}}">
-                                                            delete
+                                                <ul class="nav navbar-center navbar-top-links" style="border-radius: 15px;">
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                                            <i class="fa-align-justify"></i> actions <b class="caret"></b>
                                                         </a>
-                                                        <div class="dropdown-divider"></div>
-                                                        <a class="dropdown-item" href="#" class="openActivationFrom" data-toggle="modal" data-target="#myModalActivation" data-id="{{$admin->id}}">
-                                                            activation
-                                                        </a>
-                                                    </div>
-                                                </div>
+                                                        <ul class="dropdown-menu dropdown-user">
+                                                            <li>
+                                                                <button class="dropdown-item btn btn-danger openDeleteFrom" data-toggle="modal" data-target="#myModalDelete" data-id="{{$admin->id}}">
+                                                                    delete
+                                                                </button>
+                                                            </li>
+                                                            <li class="divider"></li>
+                                                            <li>
+                                                                <button class="dropdown-item btn btn-priamry openActivationFrom" data-toggle="modal" data-target="#myModalActivation" data-id="{{$admin->id}}">
+                                                                    activation
+                                                                </button>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
                                             </td>
                                         </tr>
                                     @endforeach
                                 @endisset
                             </tbody>
                         </table>
+                        <div style="margin-top: 20px; font-weight: 600; font-size: 16px;">
+                            Showing 1 to <span id="showItems"></span> of <span>{{App\Models\Admin::count()}}</span> entries
+                        </div>
+                        <div class="ltn__pagination-area text-center mt-5">
+                            <div class="ltn__pagination text-center">
+                                <div id="load_more">
+                                    <button type="button" name="load_more_button" style="width: 350px;" class="btn btn-info form-control px-5" data-id="'.$last_id.'" id="load_more_button">عرض المزيد</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="modal fade" id="myModalDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabell"
                         aria-hidden="true">
@@ -93,8 +110,7 @@
                                     <h5 class="modal-title f-w-600" id="exampleModalLabell">Delete Confirmation</h5>
                                 </div>
                                 <div class="modal-body">
-                                    <form role="form" action="{{url(route('admins/activate'))}}" class="" method="post"
-                                        enctype="multipart/form-data">
+                                    <form role="form" action="{{url(route('admins/delete'))}}" method="get">
                                         {{ csrf_field() }}
                                         <p>Are You Sure To Update This Record ?</p>
                                         <input id="delete_record_id" name="record_id" type="hidden">
@@ -114,8 +130,7 @@
                                     <h5 class="modal-title f-w-600" id="exampleModalLabel">Activation Confirmation</h5>
                                 </div>
                                 <div class="modal-body">
-                                    <form role="form" action="{{url(route('admins/activate'))}}" class="" method="post"
-                                        enctype="multipart/form-data">
+                                    <form role="form" action="{{url(route('admins/activate'))}}" method="get">
                                         {{ csrf_field() }}
                                         <p>Are You Sure To Update This Record ?</p>
                                         <input id="activation_record_id" name="record_id" type="hidden">
@@ -141,15 +156,171 @@
     <script>
         $(document).on('click', '.openDeleteFrom', function() {
             var id = $(this).attr('data-id');
-            console.log(id);
             $('#delete_record_id').val(id);
-            $('#myModalDelete').modal('show')
         });
         $(document).on('click', '.openActivationFrom', function() {
             var id = $(this).attr('data-id');
-            console.log(id)
             $('#activation_record_id').val(id);
-            $('#myModalActivation').modal('show')
+        });
+    </script>
+    <script>
+        let dataLen = @json($admins);
+        let showItems = document.getElementById("showItems");
+        showItems.innerHTML = dataLen.data.length
+        let length = dataLen.data.length
+
+        $(document).ready(function() {
+            $(document).on('click', '#load_more_button', function() {
+                let records = ``
+                var _token = $('input[name="_token"]').val();
+                var id = $(this).attr('data-id');
+                let lastId = ''
+                $('#load_more_button').html('<b>Loading... </b>');
+                load_data(id, _token);
+
+                function load_data(id = "", _token) {
+                    $.ajax({
+                        url: "{{ route('admin/getMore') }}",
+                        method: "POST",
+                        data: {
+                            id: id,
+                            _token: _token,
+                        },
+                        success: function(data) {
+                            if (data.length > 0) {
+                                for (let i = 0; i < data.length; i++) {
+                                    lastId = data[i].id
+                                    records += `
+                                        <tr>
+                                            <td>${data[i].id}</td>
+                                            <td>
+                                                <div class="ml-2 d-flex">
+                                                    <img src="${data[i].photo}" alt="" class="img-fluid img-50 rounded-circle blur-up lazyloaded">
+                                                </div>
+                                            </td>
+                                            <td>${data[i].name}</td>
+                                            <td>${data[i].email}</td>
+                                            <td>${data[i].phone}</td>
+                                            <td>${data[i].is_activate == 1 ? '<span class="badge badge-info">active</span>' : '<span class="badge badge-danger">un active</span>'}</td>
+                                            <td>
+                                                <ul class="nav navbar-center navbar-top-links" style="border-radius: 15px;">
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                                            <i class="fa-align-justify"></i> actions <b class="caret"></b>
+                                                        </a>
+                                                        <ul class="dropdown-menu dropdown-user">
+                                                            <li>
+                                                                <button class="dropdown-item btn btn-danger openDeleteFrom" data-toggle="modal" data-target="#myModalDelete" data-id="${data[i].id}">
+                                                                    delete
+                                                                </button>
+                                                            </li>
+                                                            <li class="divider"></li>
+                                                            <li>
+                                                                <button class="dropdown-item btn btn-priamry openActivationFrom" data-toggle="modal" data-target="#myModalActivation" data-id="${data[i].id}">
+                                                                    activation
+                                                                </button>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    `
+                                }
+                                document.getElementById("tableShowData").innerHTML += records
+                                length += data.length
+                                showItems.innerHTML = Number(length)
+                                let btnData = `<button type="button" name="load_more_button" style="width: 350px;" class="btn btn-info form-control px-5" data-id=${length} id="load_more_button">عرض المزيد</button>`
+                                $('#load_more_button').remove();
+                                document.getElementById("load_more").innerHTML = btnData
+                            } else if (data.length === 0) {
+                                let btnNoData = `<button type="button" name="load_more_button" style="width: 350px;" class="btn btn-primary form-control px-5" id="load_more_button_remove">No Data</button>`
+                                $('#load_more_button').remove();
+                                document.getElementById("load_more").innerHTML = btnNoData
+                            }
+                        }
+                    })
+                }
+            });
+        });
+        
+        $(document).on('keyup', '#data_search', function() {
+            var query = $(this).val();
+            var _token = $('input[name="_token"]').val();
+            let records = ``
+            event.preventDefault();
+            $.ajax({
+                url: "{{ route('admin/search') }}",
+                method: "POST",
+                data: {
+                    query: query,
+                    _token: _token
+                },
+                success: function(data) {
+                    console.log(data);
+                    if (data.length > 0) {
+                        for (let i = 0; i < data.length; i++) {
+                            records += `
+                                <tr>
+                                    <td>${data[i].id}</td>
+                                    <td>
+                                        <div class="ml-2 d-flex">
+                                            <img src="${data[i].photo}" alt="" class="img-fluid img-50 rounded-circle blur-up lazyloaded">
+                                        </div>
+                                    </td>
+                                    <td>${data[i].name}</td>
+                                    <td>${data[i].email}</td>
+                                    <td>${data[i].phone}</td>
+                                    <td>${data[i].is_activate == 1 ? '<span class="badge badge-info">active</span>' : '<span class="badge badge-danger">un active</span>'}</td>
+                                    <td>
+                                        <ul class="nav navbar-center navbar-top-links" style="border-radius: 15px;">
+                                            <li class="dropdown">
+                                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                                    <i class="fa-align-justify"></i> actions <b class="caret"></b>
+                                                </a>
+                                                <ul class="dropdown-menu dropdown-user">
+                                                    <li>
+                                                        <button class="dropdown-item btn btn-danger openDeleteFrom" data-toggle="modal" data-target="#myModalDelete" data-id="${data[i].id}">
+                                                            delete
+                                                        </button>
+                                                    </li>
+                                                    <li class="divider"></li>
+                                                    <li>
+                                                        <button class="dropdown-item btn btn-priamry openActivationFrom" data-toggle="modal" data-target="#myModalActivation" data-id="${data[i].id}">
+                                                            activation
+                                                        </button>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            `
+                        }
+                        if (data[0].searchButton == 1) {
+                            printSearchButton = 1;
+                        } else {
+                            printSearchButton = 0;
+                        }
+                        document.getElementById("tableShowData").style.display = null
+                        document.getElementById("tableShowData").innerHTML = records
+                        $('#load_more_button').remove();
+                        $('#load_more_button_remove').remove();
+                        length = data.length
+                        showItems.innerHTML = Number(length)
+                        if (printSearchButton == 1) {
+                            let btnData = `<button type="button" name="load_more_button" style="width: 350px;" class="btn btn-info form-control px-5" data-id=${length} id="load_more_button">عرض المزيد</button>`
+                            document.getElementById("load_more").innerHTML = btnData
+                        }
+                    } else if (data.length === 0) {
+                        length = data.length
+                        showItems.innerHTML = Number(length)
+                        document.getElementById("tableShowData").style.display = 'none'
+                        let btnNoData = `<button type="button" name="load_more_button" style="width: 350px;" class="btn btn-primary form-control px-5" id="load_more_button_remove">No Data</button>`
+                        document.getElementById("load_more").innerHTML = btnNoData
+                    }
+                }
+            })
         });
     </script>
 @endsection
