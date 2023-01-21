@@ -25,6 +25,29 @@
                         <a href="{{route('admins/create')}}">Add Admin</a>
                     </li>
                 </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-wrench fa-fw"></i> Sliders<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="{{route('admin/sliders/index')}}">Sliders</a>
+                    </li>
+                    <li>
+                        <a href="{{route('admin/sliders/create')}}">Add Slider</a>
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-wrench fa-fw"></i> Articles<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="{{route('admin/articles/index')}}">Articles</a>
+                    </li>
+                    <li>
+                        <a href="{{route('admin/articles/create')}}">Add Article</a>
+                    </li>
+                </ul>
                 <!-- /.nav-second-level -->
             </li>
             <!-- <li>

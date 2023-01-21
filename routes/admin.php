@@ -39,6 +39,29 @@ Route::group([ 'namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin' 
         Route::get('admins/activate', 'AdminController@activate')->name('admins/activate');
         Route::get('admins/delete', 'AdminController@delete')->name('admins/delete');
 
+        // slider routes 
+        Route::get('sliders/index', 'SlidersController@index')->name('admin/sliders/index');
+        Route::get('sliders/create', 'SlidersController@create')->name('admin/sliders/create');
+        Route::post('sliders/create', 'SlidersController@store')->name('admin/sliders/store');
+        Route::get('sliders/edit/{id?}', 'SlidersController@edit')->name('admin/sliders/edit');
+        Route::post('sliders/edit/{id}', 'SlidersController@update')->name('admin/sliders/update');
+        Route::get('sliders/activate', 'SlidersController@activate')->name('admin/sliders/activate');
+        Route::get('sliders/delete', 'SlidersController@delete')->name('admin/sliders/delete');
+        Route::post('sliders/getMore', 'SlidersController@getMore')->name('admin/sliders/getMore');
+        Route::post('sliders/search', 'SlidersController@search')->name('admin/sliders/search');
+
+        // article routes 
+        Route::get('articles/index', 'ArticlesController@index')->name('admin/articles/index');
+        Route::get('articles/create', 'ArticlesController@create')->name('admin/articles/create');
+        Route::post('articles/create', 'ArticlesController@store')->name('admin/articles/store');
+        Route::get('articles/edit/{id?}', 'ArticlesController@edit')->name('admin/articles/edit');
+        Route::post('articles/edit/{id}', 'ArticlesController@update')->name('admin/articles/update');
+        Route::get('articles/activate', 'ArticlesController@activate')->name('admin/articles/activate');
+        Route::get('articles/delete', 'ArticlesController@delete')->name('admin/articles/delete');
+        Route::post('articles/getMore', 'ArticlesController@getMore')->name('admin/articles/getMore');
+        Route::post('articles/search', 'ArticlesController@search')->name('admin/articles/search');
+
+
     });
 
 });
