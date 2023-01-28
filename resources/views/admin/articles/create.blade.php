@@ -18,28 +18,33 @@
     <!-- /.row -->
     <div class="row">
         <div class="col-lg-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    Article Form
+            @include('flash::message')
+            <div class="panel tabbed-panel panel-info">
+                <div class="panel-heading clearfix">
+                    <div class="panel-title pull-left">Article Form</div>
+                    <div class="pull-right">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#article_ar" data-toggle="tab">Article AR</a></li>
+                            <li><a href="#article_en" data-toggle="tab">Article EN</a></li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="panel-body">
-                    <div class="row">
-                        <div class="col-lg-9">
-                            <form role="form" action="{{url(route('admin/articles/create'))}}" method="post" enctype="multipart/form-data">
-                                @csrf
-                                @include('flash::message')
+                    <form role="form" action="{{url(route('admin/articles/create'))}}" method="post" enctype="multipart/form-data">
+                        <div class="tab-content">
+                            @csrf
+                            <div class="tab-pane fade in active" id="article_ar">
                                 <div class="form-group input-group">
                                     <span class="input-group-addon" style="color: red;">*</span>
-                                    <input name="title" type="text" class="form-control" placeholder="Title" value="{{ old('title') }}">
-                                    @error('title')
+                                    <input name="title_ar" type="text" class="form-control" placeholder="Title AR" value="{{ old('title_ar') }}">
+                                    @error('title_ar')
                                         <span class="text-danger">{{$message}}</span>
                                     @enderror
                                 </div>
                                 <div class="form-group input-group">
                                     <span class="input-group-addon" style="color: red;">*</span>
-                                    <!-- <input name="description" type="text" class="form-control" placeholder="Description" value="{{ old('description') }}"> -->
-                                    <textarea class="form-control" name="description" placeholder="Description" rows="2">{{ old('description') }}</textarea>
-                                    @error('description')
+                                    <textarea class="form-control" name="description_ar" placeholder="Description AR" rows="2">{{ old('description_ar') }}</textarea>
+                                    @error('description_ar')
                                         <span class="text-danger">{{$message}}</span>
                                     @enderror
                                 </div>
@@ -50,19 +55,31 @@
                                         <span class="text-danger">{{$message}}</span>
                                     @enderror
                                 </div>
-                                <button type="submit" class="btn btn-success">Submit Button</button>
-                                <button type="reset" class="btn btn-primary">Reset Button</button>
-                            </form>
+                            </div>
+                            <div class="tab-pane fade" id="article_en">
+                                <div class="form-group input-group">
+                                    <span class="input-group-addon" style="color: red;">*</span>
+                                    <input name="title_en" type="text" class="form-control" placeholder="Title EN" value="{{ old('title_en') }}">
+                                    @error('title_en')
+                                        <span class="text-danger">{{$message}}</span>
+                                    @enderror
+                                </div>
+                                <div class="form-group input-group">
+                                    <span class="input-group-addon" style="color: red;">*</span>
+                                    <textarea class="form-control" name="description_en" placeholder="Description EN" rows="2">{{ old('description_en') }}</textarea>
+                                    @error('description_en')
+                                        <span class="text-danger">{{$message}}</span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-success">Submit Button</button>
+                            <button type="reset" class="btn btn-primary">Reset Button</button>                    
                         </div>
-                        <!-- /.col-lg-6 (nested) -->
-                    </div>
-                    <!-- /.row (nested) -->
+                    </form>
                 </div>
-                <!-- /.panel-body -->
             </div>
-            <!-- /.panel -->
         </div>
-        <!-- /.col-lg-12 -->
+        <!-- /.col-lg-6 -->
     </div>
 
 @endsection

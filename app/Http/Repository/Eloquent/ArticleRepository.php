@@ -19,10 +19,17 @@ class ArticleRepository extends AbstractRepository
     {
         try{
             // validation 
-            // create new city 
+            // create new article 
             $article = new $this->model();
-            $article->title = $request->title;
-            $article->description = $request->description;
+
+            // article translation ar
+            $article->translateOrNew('ar')->title = $request->title_ar;
+            $article->translateOrNew('ar')->description = $request->description_ar;
+            // article translation en
+            if(!$request->title_en == null && !$request->description_en == null){
+                $article->translateOrNew('en')->title = $request->title_en;
+                $article->translateOrNew('en')->description = $request->description_en;
+            }
             //save image
             if (!$request->hasFile('image') == null) {
                 $file = uploadIamge( $request->file('image'), 'articles'); // function on helper file to upload file
@@ -33,6 +40,7 @@ class ArticleRepository extends AbstractRepository
             flash()->success("Added Has Been Done");
             return back();
         }catch(\Exception $ex){
+            return $ex;
             flash()->error("There IS Somrthing Wrong , Please Contact Technical Support");
             return back();
         }
@@ -49,17 +57,24 @@ class ArticleRepository extends AbstractRepository
             // dd($request->all());
             // validation 
             $validator = validator()->make($request->all(),[
-                'title' => ['required'],
-                'description' => ['required'],
+                'title_ar' => ['required'],
+                'description_ar' => ['required'],
             ]);
             if($validator->fails()){
                 flash()->error($validator->errors()->first());
                 return back();
             }
-            // get city by id
+            // get article by id
             $article = $this->model->findOrFail($id);
-            $article->title = $request->title;
-            $article->description = $request->description;
+
+            // article translation ar
+            $article->translateOrNew('ar')->title = $request->title_ar;
+            $article->translateOrNew('ar')->description = $request->description_ar;
+            // article translation en
+            if(!$request->title_en == null && !$request->description_en == null){
+                $article->translateOrNew('en')->title = $request->title_en;
+                $article->translateOrNew('en')->description = $request->description_en;
+            }
             //save image
             if (!$request->hasFile('image') == null) {
                 $file = uploadIamge( $request->file('image'), 'articles'); // function on helper file to upload file

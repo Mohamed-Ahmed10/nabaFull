@@ -21,9 +21,15 @@ class SliderRepository extends AbstractRepository
             // validation 
             // create new city 
             $slider = new $this->model();
-            $slider->title = $request->title;
+            // slider translation ar
+            $slider->translateOrNew('ar')->title = $request->title_ar;
+            $slider->translateOrNew('ar')->description = $request->description_ar;
+            // slider translation en
+            if(!$request->title_en == null && !$request->description_en == null){
+                $slider->translateOrNew('en')->title = $request->title_en;
+                $slider->translateOrNew('en')->description = $request->description_en;
+            }
             $slider->link = $request->link;
-            $slider->description = $request->description;
             //save image
             if (!$request->hasFile('image') == null) {
                 $file = uploadIamge( $request->file('image'), 'sliders'); // function on helper file to upload file
@@ -50,9 +56,9 @@ class SliderRepository extends AbstractRepository
             // dd($request->all());
             // validation 
             $validator = validator()->make($request->all(),[
-                'title' => ['required'],
+                'title_ar' => ['required'],
                 'link' => ['required'],
-                'description' => ['required'],
+                'description_ar' => ['required'],
             ]);
             if($validator->fails()){
                 flash()->error($validator->errors()->first());
@@ -60,9 +66,14 @@ class SliderRepository extends AbstractRepository
             }
             // get city by id
             $slider = $this->model->findOrFail($id);
-            $slider->title = $request->title;
+            $slider->translateOrNew('ar')->title = $request->title_ar;
+            $slider->translateOrNew('ar')->description = $request->description_ar;
+            // slider translation en
+            if(!$request->title_en == null && !$request->description_en == null){
+                $slider->translateOrNew('en')->title = $request->title_en;
+                $slider->translateOrNew('en')->description = $request->description_en;
+            }
             $slider->link = $request->link;
-            $slider->description = $request->description;
             //save image
             if (!$request->hasFile('image') == null) {
                 $file = uploadIamge( $request->file('image'), 'sliders'); // function on helper file to upload file

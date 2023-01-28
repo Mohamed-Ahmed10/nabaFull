@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\Admin\SliderRequests\SliderStoreRequest;
 use App\Http\Repository\Eloquent\SliderRepository;
 
-class ArticlesController extends Controller
+class SlidersController extends Controller
 {
 
     public $slider;

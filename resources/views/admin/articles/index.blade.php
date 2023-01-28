@@ -54,7 +54,7 @@
                                                     <img src="{{asset($article->image)}}" alt="" class="img-fluid img-50 rounded-circle blur-up lazyloaded">
                                                 </div>
                                             </td>
-                                            <td>{{$article->title}}</td>
+                                            <td>{{ $article->title }}</td>
                                             <?php 
                                                 if($article->is_activate == 1){$activate = '<span class="badge badge-info">active</span>';}
                                                 else{$activate = '<span class="badge badge-danger">un active</span>';} 

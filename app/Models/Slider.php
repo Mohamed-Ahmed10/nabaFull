@@ -2,13 +2,19 @@
 
 namespace App\Models;
 
+use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
+use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 
-class Slider extends Model {
+class Slider extends Model implements TranslatableContract 
+{
+	use Translatable;
 
 	protected $table = 'sliders';
 	public $timestamps = true;
-	protected $fillable = array('title', 'image', 'description', 'link', 'is_activate');
+	protected $fillable = array('image', 'link', 'is_activate');
+    protected $translatedAttributes = ['title', 'description'];
+    protected $hidden = ['translations'];
 
 	public function scopeActive($query){
 		return $query->where('is_activate', 1);
