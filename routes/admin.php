@@ -18,6 +18,7 @@ Route::group([ 'namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin' 
     Route::get('login', 'AuthController@login')->name('admin/login');
     Route::post('login', 'AuthController@check_login')->name('admin/check-login');
     
+    Route::get('get/categories', 'HomeController@categories')->name('get/categories');
     Route::group(['middleware' => 'adminLogin'],function(){
         
         Route::get('/home', 'HomeController@home')->name('admin/index');
@@ -49,6 +50,28 @@ Route::group([ 'namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin' 
         Route::get('sliders/delete', 'SlidersController@delete')->name('admin/sliders/delete');
         Route::post('sliders/getMore', 'SlidersController@getMore')->name('admin/sliders/getMore');
         Route::post('sliders/search', 'SlidersController@search')->name('admin/sliders/search');
+
+        // category routes 
+        Route::get('categories/index', 'CategoriesController@index')->name('admin/categories/index');
+        Route::get('categories/create', 'CategoriesController@create')->name('admin/categories/create');
+        Route::post('categories/create', 'CategoriesController@store')->name('admin/categories/store');
+        Route::get('categories/edit/{id?}', 'CategoriesController@edit')->name('admin/categories/edit');
+        Route::post('categories/edit/{id}', 'CategoriesController@update')->name('admin/categories/update');
+        Route::get('categories/activate', 'CategoriesController@activate')->name('admin/categories/activate');
+        Route::get('categories/delete', 'CategoriesController@delete')->name('admin/categories/delete');
+        Route::post('categories/getMore', 'CategoriesController@getMore')->name('admin/categories/getMore');
+        Route::post('categories/search', 'CategoriesController@search')->name('admin/categories/search');
+
+        // product routes 
+        Route::get('products/index', 'ProductsController@index')->name('admin/products/index');
+        Route::get('products/create', 'ProductsController@create')->name('admin/products/create');
+        Route::post('products/create', 'ProductsController@store')->name('admin/products/store');
+        Route::get('products/edit/{id?}', 'ProductsController@edit')->name('admin/products/edit');
+        Route::post('products/edit/{id}', 'ProductsController@update')->name('admin/products/update');
+        Route::get('products/activate', 'ProductsController@activate')->name('admin/products/activate');
+        Route::get('products/delete', 'ProductsController@delete')->name('admin/products/delete');
+        Route::post('products/getMore', 'ProductsController@getMore')->name('admin/products/getMore');
+        Route::post('products/search', 'ProductsController@search')->name('admin/products/search');
 
         // article routes 
         Route::get('articles/index', 'ArticlesController@index')->name('admin/articles/index');

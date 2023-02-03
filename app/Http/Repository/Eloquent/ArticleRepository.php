@@ -35,12 +35,12 @@ class ArticleRepository extends AbstractRepository
                 $file = uploadIamge( $request->file('image'), 'articles'); // function on helper file to upload file
                 $article->image = $file;
             }
-            $article->is_activate = 1;
+            $article->is_activate = 1; 
+            $article->added_by = auth()->guard('admin')->user()->id;
             $article->save();
             flash()->success("Added Has Been Done");
             return back();
         }catch(\Exception $ex){
-            return $ex;
             flash()->error("There IS Somrthing Wrong , Please Contact Technical Support");
             return back();
         }
@@ -80,6 +80,7 @@ class ArticleRepository extends AbstractRepository
                 $file = uploadIamge( $request->file('image'), 'articles'); // function on helper file to upload file
                 $article->image = $file;
             }
+            $article->edited_by = auth()->guard('admin')->user()->id;
             $article->save();
             flash()->success("Edited Has Been Done");
             return back();
@@ -127,11 +128,11 @@ class ArticleRepository extends AbstractRepository
             }else{
                 $articles = $this->model->latest()->skip(PAGINATION_COUNT)->limit(PAGINATION_COUNT)->get();
             }
-            $addData = NULL;
+            $all_data = NULL;
             if($articles && count($articles) > 0){
-                $addData = $articles;
+                $all_data = $articles;
             }
-            return $addData;
+            return $all_data;
         }catch(\Exception $ex){
             return responseJson(0, 'error');
         }
@@ -144,12 +145,12 @@ class ArticleRepository extends AbstractRepository
             $articles = NULL;
             if($query != ''){
                 $articles = $this->model->latest()->where('id', 'LIKE', '%'. $query .'%')
-                                                ->orWhere('title', 'LIKE', '%'. $query .'%')
+                                                ->orWhereTranslationLike('title', '%'. $query .'%')
                                                 ->get();
             }else{
                 $articles = $this->model->latest()->limit(PAGINATION_COUNT)->get();
             }
-            $addData = NULL;
+            $all_data = NULL;
             if($articles && count($articles) > 0){
                 if( $query != '' ){
                     $articles[0]->searchButton = 0;
@@ -158,7 +159,7 @@ class ArticleRepository extends AbstractRepository
                 }
                 return $articles;
             }
-            return $addData;
+            return $all_data;
         }catch(\Exception $ex){
             return responseJson(0, 'error');
         }

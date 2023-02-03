@@ -126,11 +126,11 @@ class SliderRepository extends AbstractRepository
             }else{
                 $sliders = $this->model->latest()->skip(PAGINATION_COUNT)->limit(PAGINATION_COUNT)->get();
             }
-            $allSliders = NULL;
+            $all_data = NULL;
             if($sliders && count($sliders) > 0){
-                $allSliders = $sliders;
+                $all_data = $sliders;
             }
-            return $allSliders;
+            return $all_data;
         }catch(\Exception $ex){
             return responseJson(0, 'error');
         }
@@ -143,12 +143,12 @@ class SliderRepository extends AbstractRepository
             $sliders = NULL;
             if($query != ''){
                 $sliders = $this->model->latest()->where('id', 'LIKE', '%'. $query .'%')
-                                                ->orWhere('title', 'LIKE', '%'. $query .'%')
+                                                ->orWhereTranslationLike('title', '%'. $query .'%')
                                                 ->get();
             }else{
                 $sliders = $this->model->latest()->limit(PAGINATION_COUNT)->get();
             }
-            $allSliders = NULL;
+            $all_data = NULL;
             if($sliders && count($sliders) > 0){
                 if( $query != '' ){
                     $sliders[0]->searchButton = 0;
@@ -157,7 +157,7 @@ class SliderRepository extends AbstractRepository
                 }
                 return $sliders;
             }
-            return $allSliders;
+            return $all_data;
         }catch(\Exception $ex){
             return responseJson(0, 'error');
         }

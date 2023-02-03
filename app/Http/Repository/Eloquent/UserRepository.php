@@ -86,15 +86,15 @@ class UserRepository extends AbstractRepository
             }else{
                 $users = $this->model->latest()->skip(PAGINATION_COUNT)->limit(PAGINATION_COUNT)->get();
             }
-            $allUsers = [];
+            $all_data = [];
             if($users && count($users) > 0){
                 foreach($users as $user ){
                     $user->urlRouteActivate = route('admin/users/activate', $user->id);
                     $user->urlRouteDelete = route('admin/users/delete', $user->id);
-                    $allUsers [] = $user;
+                    $all_data [] = $user;
                 }
             }
-            return $allUsers;
+            return $all_data;
         }catch(\Exception $ex){
             return response()->json("Error");
         }
@@ -114,7 +114,7 @@ class UserRepository extends AbstractRepository
             }else{
                 $users = $this->model->latest()->paginate(PAGINATION_COUNT);
             }
-            $allUsers = [];
+            $all_data = [];
             if($users && count($users) > 0){
                 foreach($users as $user ){
                     $user->urlRouteActivate = route('admin/users/activate', $user->id);
@@ -124,10 +124,10 @@ class UserRepository extends AbstractRepository
                     }else{
                         $user->searchButton = 1;
                     }
-                    $allUsers [] = $user;
+                    $all_data [] = $user;
                 }
             }
-            return $allUsers;
+            return $all_data;
         }catch(\Exception $ex){
             return response()->json("Error");
         }

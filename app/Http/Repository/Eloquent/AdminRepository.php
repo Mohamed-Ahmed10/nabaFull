@@ -40,7 +40,6 @@ class AdminRepository extends AbstractRepository
             flash()->success("Success Add");
             return back();
         }catch(\Exception $ex){
-            return $ex;
             flash()->error("There IS Something Wrong , Please Contact Technical Support");
             return back();
         }
@@ -191,14 +190,14 @@ class AdminRepository extends AbstractRepository
             }else{
                 $admins = $this->model->latest()->skip(PAGINATION_COUNT)->limit(PAGINATION_COUNT)->get();
             }
-            $alladmins = [];
+            $all_data = [];
             if($admins && count($admins) > 0){
                 foreach($admins as $admin ){
                     $admin->photo = asset($admin->photo);
-                    $alladmins [] = $admin;
+                    $all_data [] = $admin;
                 }
             }
-            return $alladmins;
+            return $all_data;
         }catch(\Exception $ex){
             return responseJson(0, 'error');
         }
@@ -217,7 +216,7 @@ class AdminRepository extends AbstractRepository
             }else{
                 $admins = $this->model->latest()->paginate(PAGINATION_COUNT);
             }
-            $alladmins = [];
+            $all_data = [];
             if($admins && count($admins) > 0){
                 foreach($admins as $admin ){
                     $admin->photo = asset($admin->photo);
@@ -226,10 +225,10 @@ class AdminRepository extends AbstractRepository
                     }else{
                         $admin->searchButton = 1;
                     }
-                    $alladmins [] = $admin;
+                    $all_data [] = $admin;
                 }
             }
-            return $alladmins;
+            return $all_data;
         }catch(\Exception $ex){
             return responseJson(0, 'error');
         }

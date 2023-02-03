@@ -39,6 +39,30 @@
                 <!-- /.nav-second-level -->
             </li>
             <li>
+                <a href="#"><i class="fa fa-wrench fa-fw"></i> Categories<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="{{route('admin/categories/index')}}">Categories</a>
+                    </li>
+                    <li>
+                        <a href="{{route('admin/categories/create')}}">Add Category</a>
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-wrench fa-fw"></i> Products<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="{{route('admin/products/index')}}">Products</a>
+                    </li>
+                    <li>
+                        <a href="{{route('admin/products/create')}}">Add Product</a>
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+            <li>
                 <a href="#"><i class="fa fa-wrench fa-fw"></i> Articles<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
