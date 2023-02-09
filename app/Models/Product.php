@@ -13,7 +13,7 @@ class Product extends Model implements TranslatableContract
 	protected $table = 'products';
 	public $timestamps = true;
 	protected $fillable = array('category_id', 'video_link', 'added_by', 'edited_by', 'is_activate');
-    protected $translatedAttributes = ['title', 'description'];
+    protected $translatedAttributes = ['title', 'description', 'second_description', 'video_title', 'video_description'];
     protected $hidden = ['translations'];
 
 	public function scopeActive($query){

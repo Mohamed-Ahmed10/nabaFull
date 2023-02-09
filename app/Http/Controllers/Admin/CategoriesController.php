@@ -23,7 +23,6 @@ class CategoriesController extends Controller
             $categories = $this->category->GetAll();
             return view('admin.categories.index', compact('categories'));
         }catch(\Exception $ex){
-            return $ex;
             flash()->error("There Is Something Wrong , Please Contact Technical Support");
             return back();
         }

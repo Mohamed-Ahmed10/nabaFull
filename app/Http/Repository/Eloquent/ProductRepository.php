@@ -24,10 +24,24 @@ class ProductRepository extends AbstractRepository
             // product translation ar
             $product->translateOrNew('ar')->title = $request->title_ar;
             $product->translateOrNew('ar')->description = $request->description_ar;
+            $product->translateOrNew('ar')->second_description = $request->second_description_ar;
+            $product->translateOrNew('ar')->video_title = $request->video_title_ar;
+            $product->translateOrNew('ar')->video_description = $request->video_description_ar;
             // product translation en
-            if(!$request->title_en == null && !$request->description_en == null){
+            if(!$request->title_en == NULL){
                 $product->translateOrNew('en')->title = $request->title_en;
+            }
+            if(!$request->description_en == NULL){
                 $product->translateOrNew('en')->description = $request->description_en;
+            }
+            if(!$request->second_description_en == NULL){
+                $product->translateOrNew('en')->second_description = $request->second_description_en;
+            }
+            if(!$request->video_title_en == NULL){
+                $product->translateOrNew('en')->video_title = $request->video_title_en;
+            }
+            if(!$request->video_description_en == NULL){
+                $product->translateOrNew('en')->video_description = $request->video_description_en;
             }
             $product->video_link = $request->video_link;
             $product->category_id = $request->category_id;
@@ -55,6 +69,9 @@ class ProductRepository extends AbstractRepository
             $validator = validator()->make($request->all(),[
                 'title_ar' => ['required'],
                 'description_ar' => ['required'],
+                'second_description_ar' => ['required'],
+                'video_title_ar' => ['required'],
+                'video_description_ar' => ['required'],
                 'video_link' => ['required'],
                 'category_id' => ['required', 'exists:categories,id'],
             ]);
@@ -67,10 +84,24 @@ class ProductRepository extends AbstractRepository
             // product translation ar
             $product->translateOrNew('ar')->title = $request->title_ar;
             $product->translateOrNew('ar')->description = $request->description_ar;
+            $product->translateOrNew('ar')->second_description = $request->second_description_ar;
+            $product->translateOrNew('ar')->video_title = $request->video_title_ar;
+            $product->translateOrNew('ar')->video_description = $request->video_description_ar;
             // product translation en
-            if(!$request->title_en == null && !$request->description_en == null){
+            if(!$request->title_en == NULL){
                 $product->translateOrNew('en')->title = $request->title_en;
+            }
+            if(!$request->description_en == NULL){
                 $product->translateOrNew('en')->description = $request->description_en;
+            }
+            if(!$request->second_description_en == NULL){
+                $product->translateOrNew('en')->second_description = $request->second_description_en;
+            }
+            if(!$request->video_title_en == NULL){
+                $product->translateOrNew('en')->video_title = $request->video_title_en;
+            }
+            if(!$request->video_description_en == NULL){
+                $product->translateOrNew('en')->video_description = $request->video_description_en;
             }
             $product->video_link = $request->video_link;
             $product->category_id = $request->category_id;

@@ -23,7 +23,6 @@ class ArticlesController extends Controller
             $articles = $this->article->GetAll();
             return view('admin.articles.index', compact('articles'));
         }catch(\Exception $ex){
-            return $ex;
             flash()->error("There Is Something Wrong , Please Contact Technical Support");
             return back();
         }

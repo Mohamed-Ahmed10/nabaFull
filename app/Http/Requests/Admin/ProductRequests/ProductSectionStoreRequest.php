@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin\ProductRequests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ProductStoreRequest extends FormRequest
+class ProductSectionStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,11 +26,8 @@ class ProductStoreRequest extends FormRequest
         return [
             'title_ar' => 'required',
             'description_ar' => 'required',
-            'second_description_ar' => 'required',
-            'video_title_ar' => 'required',
-            'video_description_ar' => 'required',
-            'category_id' => 'required|exists:categories,id',
-            'video_link' => 'required',
+            'icon' => 'required',
+            'section_no' => 'required'
         ];
     }
 }

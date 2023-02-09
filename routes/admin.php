@@ -73,6 +73,15 @@ Route::group([ 'namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin' 
         Route::post('products/getMore', 'ProductsController@getMore')->name('admin/products/getMore');
         Route::post('products/search', 'ProductsController@search')->name('admin/products/search');
 
+        // product section routes 
+        Route::get('products/section/index/{id?}', 'ProductSectionController@index')->name('admin/products/section/index');
+        Route::get('products/section/create{id}', 'ProductSectionController@create')->name('admin/products/section/create');
+        Route::post('products/section/create/{id}', 'ProductSectionController@store')->name('admin/products/section/store');
+        Route::get('products/section/edit/{id?}', 'ProductSectionController@edit')->name('admin/products/section/edit');
+        Route::post('products/section/edit/{id}', 'ProductSectionController@update')->name('admin/products/section/update');
+        Route::get('products/section/activate', 'ProductSectionController@activate')->name('admin/products/section/activate');
+        Route::get('products/section/delete', 'ProductSectionController@delete')->name('admin/products/section/delete');
+
         // article routes 
         Route::get('articles/index', 'ArticlesController@index')->name('admin/articles/index');
         Route::get('articles/create', 'ArticlesController@create')->name('admin/articles/create');

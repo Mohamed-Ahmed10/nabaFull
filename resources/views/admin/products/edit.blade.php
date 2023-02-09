@@ -53,6 +53,13 @@
                                     </div>
                                     <div class="form-group input-group">
                                         <span class="input-group-addon" style="color: red;">*</span>
+                                        <input name="second_description_ar" type="text" class="form-control" placeholder="Second Description AR" value="{{ $product->translate('ar')->second_description }}">
+                                        @error('second_description_ar')
+                                            <span class="text-danger">{{$message}}</span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group input-group">
+                                        <span class="input-group-addon" style="color: red;">*</span>
                                         <select class="form-control" name="category_id" id="categories">
                                             <?php 
                                                 if($product->category_id > 0){
@@ -62,6 +69,20 @@
                                             <option value="">Categories</option>
                                         </select>                          
                                         @error('category_id')
+                                            <span class="text-danger">{{$message}}</span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group input-group">
+                                        <span class="input-group-addon" style="color: red;">*</span>
+                                        <input name="video_title_ar" type="text" class="form-control" placeholder="Video Title AR" value="{{ $product->translate('ar')->video_title_ar }}">
+                                        @error('video_title_ar')
+                                            <span class="text-danger">{{$message}}</span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group input-group">
+                                        <span class="input-group-addon" style="color: red;">*</span>
+                                        <input name="video_description_ar" type="text" class="form-control" placeholder="Video Description AR" value="{{ $product->translate('ar')->video_description_ar }}">
+                                        @error('video_description_ar')
                                             <span class="text-danger">{{$message}}</span>
                                         @enderror
                                     </div>
@@ -85,6 +106,27 @@
                                         <span class="input-group-addon" style="color: red;">*</span>
                                         <input name="description_en" type="text" class="form-control" placeholder="Description EN" value="{{ optional($product->translate('en'))->description }}">
                                         @error('description_en')
+                                            <span class="text-danger">{{$message}}</span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group input-group">
+                                        <span class="input-group-addon" style="color: red;">*</span>
+                                        <input name="second_description_en" type="text" class="form-control" placeholder="Second Description EN" value="{{ optional($product->translate('en'))->second_description }}">
+                                        @error('second_description_en')
+                                            <span class="text-danger">{{$message}}</span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group input-group">
+                                        <span class="input-group-addon" style="color: red;">*</span>
+                                        <input name="video_title_en" type="text" class="form-control" placeholder="Video Title EN" value="{{ optional($product->translate('en'))->video_title_en }}">
+                                        @error('video_title_en')
+                                            <span class="text-danger">{{$message}}</span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group input-group">
+                                        <span class="input-group-addon" style="color: red;">*</span>
+                                        <input name="video_description_en" type="text" class="form-control" placeholder="Video Description EN" value="{{ optional($product->translate('en'))->video_description_en }}">
+                                        @error('video_description_en')
                                             <span class="text-danger">{{$message}}</span>
                                         @enderror
                                     </div>

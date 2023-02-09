@@ -23,7 +23,6 @@ class SlidersController extends Controller
             $sliders = $this->slider->GetAll();
             return view('admin.sliders.index', compact('sliders'));
         }catch(\Exception $ex){
-            return $ex;
             flash()->error("There Is Something Wrong , Please Contact Technical Support");
             return back();
         }

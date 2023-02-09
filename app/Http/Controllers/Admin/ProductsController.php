@@ -23,7 +23,6 @@ class ProductsController extends Controller
             $products = $this->product->GetAll();
             return view('admin.products.index', compact('products'));
         }catch(\Exception $ex){
-            return $ex;
             flash()->error("There Is Something Wrong , Please Contact Technical Support");
             return back();
         }

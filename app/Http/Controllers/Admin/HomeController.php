@@ -27,7 +27,6 @@ class HomeController extends Controller
             }
             return response()->json($categories);
         }catch(Exception $ex){
-            return $ex;
             return response()->json(['error' => 'There IS Something Wrong , Please Concat Technical Support']);
         }
     }

@@ -62,6 +62,12 @@
                                                         </a>
                                                         <ul class="dropdown-menu dropdown-user">
                                                             <li>
+                                                                <a href="{{route('admin/products/section/index', $product->id)}}" style="text-decoration: none; color: white; width: 64px;" class="btn btn-info">
+                                                                    options
+                                                                </a>
+                                                            </li>
+                                                            <li class="divider"></li>
+                                                            <li>
                                                                 <a href="{{route('admin/products/edit', $product->id)}}" style="text-decoration: none; color: white; width: 64px;" class="btn btn-success">
                                                                     edit
                                                                 </a>
@@ -187,6 +193,7 @@
                                 for (let i = 0; i < data.length; i++) {
                                     lastId = data[i].id
                                     edit_route =  "{{ route('admin/products/edit') }}" + '/' + data[i].id;
+                                    options_route =  "{{ route('admin/products/section/index') }}" + '/' + data[i].id;
                                     records += `
                                         <tr>
                                             <td>${data[i].id}</td>
@@ -199,6 +206,12 @@
                                                             <i class="fa-align-justify"></i> actions <b class="caret"></b>
                                                         </a>
                                                         <ul class="dropdown-menu dropdown-user">
+                                                            <li>
+                                                                <a href="${options_route}" style="text-decoration: none; color: white; width: 64px;" class="btn btn-info">
+                                                                    options
+                                                                </a>
+                                                            </li>
+                                                            <li class="divider"></li>
                                                             <li>
                                                                 <a href="${edit_route}" style="text-decoration: none; color: white; width: 64px;" class="btn btn-success">
                                                                     edit
@@ -256,6 +269,7 @@
                     if (data.length > 0) {
                         for (let i = 0; i < data.length; i++) {
                             edit_route =  "{{ route('admin/products/edit') }}" + '/' + data[i].id;
+                            options_route =  "{{ route('admin/products/section/index') }}" + '/' + data[i].id;
                             records += `
                                 <tr>
                                     <td>${data[i].id}</td>
@@ -268,6 +282,12 @@
                                                     <i class="fa-align-justify"></i> actions <b class="caret"></b>
                                                 </a>
                                                 <ul class="dropdown-menu dropdown-user">
+                                                    <li>
+                                                        <a href="${options_route}" style="text-decoration: none; color: white; width: 64px;" class="btn btn-info">
+                                                            options
+                                                        </a>
+                                                    </li>
+                                                    <li class="divider"></li>
                                                     <li>
                                                         <a href="${edit_route}" style="text-decoration: none; color: white; width: 64px;" class="btn btn-success">
                                                             edit
