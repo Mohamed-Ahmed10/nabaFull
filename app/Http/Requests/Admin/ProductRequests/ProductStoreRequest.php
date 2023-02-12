@@ -31,6 +31,7 @@ class ProductStoreRequest extends FormRequest
             'video_description_ar' => 'required',
             'category_id' => 'required|exists:categories,id',
             'video_link' => 'required',
+            'image' => 'required',
         ];
     }
 }

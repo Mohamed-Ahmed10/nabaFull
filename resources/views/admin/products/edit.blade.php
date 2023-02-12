@@ -93,6 +93,13 @@
                                             <span class="text-danger">{{$message}}</span>
                                         @enderror
                                     </div>
+                                    <div class="form-group input-group">
+                                        <span class="input-group-addon" style="color: red;">*</span>
+                                        <input name="image" type="file" class="form-control" placeholder="Upload Image">
+                                        @error('image')
+                                            <span class="text-danger">{{$message}}</span>
+                                        @enderror
+                                    </div>
                                 </div>
                                 <div class="tab-pane fade" id="product_en">
                                     <div class="form-group input-group">

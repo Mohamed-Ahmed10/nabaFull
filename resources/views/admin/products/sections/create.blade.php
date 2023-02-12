@@ -31,7 +31,7 @@
                 </div>
                 <div class="panel-body">
                     @isset($id)
-                        <form role="form" action="{{url(route('admin/products/section/store', $id))}}" method="post">
+                        <form role="form" action="{{url(route('admin/products/section/store', $id))}}" method="post" enctype="multipart/form-data">
                             <div class="tab-content">
                                 @csrf
                                 <div class="tab-pane fade in active" id="section_ar">
@@ -51,11 +51,18 @@
                                     </div>
                                     <div class="form-group input-group">
                                         <span class="input-group-addon" style="color: red;">*</span>
-                                        <input name="icon" type="text" class="form-control" placeholder="Icon" value="{{ old('icon') }}">
+                                        <input name="icon" type="file" class="form-control" placeholder="Upload Icon">
                                         @error('icon')
                                             <span class="text-danger">{{$message}}</span>
                                         @enderror
                                     </div>
+                                    <!-- <div class="form-group input-group">
+                                        <span class="input-group-addon" style="color: red;">*</span>
+                                        <input name="icon" type="text" class="form-control" placeholder="Icon" value="{{ old('icon') }}">
+                                        @error('icon')
+                                            <span class="text-danger">{{$message}}</span>
+                                        @enderror
+                                    </div> -->
                                     <div class="form-group input-group">
                                         <span class="input-group-addon" style="color: red;">*</span>
                                         <select class="form-control" name="section_no" id="section_no">

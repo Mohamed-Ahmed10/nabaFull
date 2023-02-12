@@ -20,4 +20,9 @@ class ProductSection extends Model implements TranslatableContract
 		return $query->where('is_activate', 1);
 	}
 
+	public function product()
+	{
+		return $this->belongsTo(Product::class, 'product_id');
+	}
+
 }

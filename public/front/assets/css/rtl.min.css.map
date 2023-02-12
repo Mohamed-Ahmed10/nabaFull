@@ -1,0 +1,12 @@
+{
+"version": 3,
+<<<<<<< HEAD
+"mappings": "",
+"sources": [],
+=======
+"mappings": "AAAA,IAAK,CACD,SAAS,CAAE,GAAG",
+"sources": ["scss/rtl.min.scss"],
+>>>>>>> main
+"names": [],
+"file": "rtl.min.css"
+}

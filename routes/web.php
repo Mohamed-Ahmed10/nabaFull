@@ -13,6 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::group([
+    'prefix' => LaravelLocalization::setLocale(),
+    'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+], function(){ 
+    Route::group([ 'namespace' => 'App\Http\Controllers\Front' ],function(){
+        Route::get('/', 'HomeController@home');
+        Route::get('/home', 'HomeController@home')->name('front/index');
+        Route::get('/products', 'ProductController@products')->name('front/products');
+        Route::get('/product-details/{id}', 'ProductController@product')->name('front/product');
+    });
 });

@@ -42,7 +42,12 @@ class ProductSectionRepository extends AbstractRepository
                 $product_section->translateOrNew('en')->description = $request->description_en;
             }
             $product_section->is_activate = 1; 
-            $product_section->icon = $request->icon; 
+            //save icon
+            if (!$request->hasFile('icon') == null) {
+                $file = uploadIamge( $request->file('icon'), 'products'); // function on helper file to upload file
+                $product_section->icon = $file;
+            }
+            // $product_section->icon = $request->icon; 
             $product_section->section_no = $request->section_no; 
             $product_section->product_id = $id; 
             $product_section->added_by = auth()->guard('admin')->user()->id;
@@ -87,7 +92,12 @@ class ProductSectionRepository extends AbstractRepository
                 $product_section->translateOrNew('en')->title = $request->title_en;
                 $product_section->translateOrNew('en')->description = $request->description_en;
             }
-            $product_section->icon = $request->icon; 
+            //save icon
+            if (!$request->hasFile('icon') == null) {
+                $file = uploadIamge( $request->file('icon'), 'products'); // function on helper file to upload file
+                $product_section->icon = $file;
+            }
+            // $product_section->icon = $request->icon; 
             $product_section->section_no = $request->section_no; 
             $product_section->edited_by = auth()->guard('admin')->user()->id;
             $product_section->save();

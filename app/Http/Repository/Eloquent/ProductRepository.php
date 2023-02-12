@@ -43,6 +43,11 @@ class ProductRepository extends AbstractRepository
             if(!$request->video_description_en == NULL){
                 $product->translateOrNew('en')->video_description = $request->video_description_en;
             }
+            //save image
+            if (!$request->hasFile('image') == null) {
+                $file = uploadIamge( $request->file('image'), 'products'); // function on helper file to upload file
+                $product->image = $file;
+            }
             $product->video_link = $request->video_link;
             $product->category_id = $request->category_id;
             $product->added_by = auth()->guard('admin')->user()->id;
@@ -102,6 +107,11 @@ class ProductRepository extends AbstractRepository
             }
             if(!$request->video_description_en == NULL){
                 $product->translateOrNew('en')->video_description = $request->video_description_en;
+            }
+            //save image
+            if (!$request->hasFile('image') == null) {
+                $file = uploadIamge( $request->file('image'), 'products'); // function on helper file to upload file
+                $product->image = $file;
             }
             $product->video_link = $request->video_link;
             $product->category_id = $request->category_id;
