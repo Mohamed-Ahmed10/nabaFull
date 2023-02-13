@@ -5,13 +5,14 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class ProductController extends Controller
 {
     public function products()
     {
         try{
-            $products = Product::active()->with('category')->get();
+            $products = Product::translatedIn(LaravelLocalization::setLocale())->active()->with('category')->get();
             return view('front.products', compact('products'));
         }catch(\Exception $ex){
             flash()->error("There Is Something Wrong , Please Concatt Technical Support");
