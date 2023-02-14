@@ -30,9 +30,9 @@
 												endowments</a></li>
 									</ul>
 								</li>
-								<li><a href="#">Articles </a>
+								<li><a href="{{route('front/articles')}}">Articles </a>
 									<ul class="sub-menu">
-										<li><a href="articles.html">All articles</a></li>
+										<li><a href="{{route('front/articles')}}">All articles</a></li>
 										<li><a href="show-article.html">article</a></li>
 										<li><a href="show-article.html">article</a></li>
 										<li><a href="show-article.html">article</a></li>
@@ -40,9 +40,9 @@
 										<li><a href="show-article.html">article</a></li>
 									</ul>
 								</li>
-								<li><a href="#">Webinars </a>
+								<li><a href="{{route('front/webinars')}}">Webinars </a>
 									<ul class="sub-menu">
-										<li><a href="webinars.html">All webinars</a></li>
+										<li><a href="{{route('front/webinars')}}">All webinars</a></li>
 										<li><a href="show-webinar.html">webinar</a></li>
 										<li><a href="show-webinar.html">webinar</a></li>
 										<li><a href="show-webinar.html">webinar</a></li>

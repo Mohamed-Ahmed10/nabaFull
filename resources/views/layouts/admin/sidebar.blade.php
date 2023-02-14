@@ -36,9 +36,8 @@
                         <a href="{{route('admin/sliders/create')}}">Add Slider</a>
                     </li>
                 </ul>
-                <!-- /.nav-second-level -->
             </li>
-            <li>
+            <!-- <li>
                 <a href="#"><i class="fa fa-wrench fa-fw"></i> Categories<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
@@ -48,8 +47,7 @@
                         <a href="{{route('admin/categories/create')}}">Add Category</a>
                     </li>
                 </ul>
-                <!-- /.nav-second-level -->
-            </li>
+            </li> -->
             <li>
                 <a href="#"><i class="fa fa-wrench fa-fw"></i> Products<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
@@ -60,7 +58,6 @@
                         <a href="{{route('admin/products/create')}}">Add Product</a>
                     </li>
                 </ul>
-                <!-- /.nav-second-level -->
             </li>
             <li>
                 <a href="#"><i class="fa fa-wrench fa-fw"></i> Articles<span class="fa arrow"></span></a>
@@ -72,7 +69,17 @@
                         <a href="{{route('admin/articles/create')}}">Add Article</a>
                     </li>
                 </ul>
-                <!-- /.nav-second-level -->
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-wrench fa-fw"></i> Webinars<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="{{route('admin/webinars/index')}}">Webinars</a>
+                    </li>
+                    <li>
+                        <a href="{{route('admin/webinars/create')}}">Add Webinar</a>
+                    </li>
+                </ul>
             </li>
             <!-- <li>
                 <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>

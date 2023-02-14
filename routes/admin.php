@@ -93,6 +93,16 @@ Route::group([ 'namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin' 
         Route::post('articles/getMore', 'ArticlesController@getMore')->name('admin/articles/getMore');
         Route::post('articles/search', 'ArticlesController@search')->name('admin/articles/search');
 
+        // webinar routes 
+        Route::get('webinars/index', 'WebinarsController@index')->name('admin/webinars/index');
+        Route::get('webinars/create', 'WebinarsController@create')->name('admin/webinars/create');
+        Route::post('webinars/create', 'WebinarsController@store')->name('admin/webinars/store');
+        Route::get('webinars/edit/{id?}', 'WebinarsController@edit')->name('admin/webinars/edit');
+        Route::post('webinars/edit/{id}', 'WebinarsController@update')->name('admin/webinars/update');
+        Route::get('webinars/activate', 'WebinarsController@activate')->name('admin/webinars/activate');
+        Route::get('webinars/delete', 'WebinarsController@delete')->name('admin/webinars/delete');
+        Route::post('webinars/getMore', 'WebinarsController@getMore')->name('admin/webinars/getMore');
+        Route::post('webinars/search', 'WebinarsController@search')->name('admin/webinars/search');
 
     });
 

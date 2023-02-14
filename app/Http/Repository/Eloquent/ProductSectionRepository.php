@@ -74,7 +74,7 @@ class ProductSectionRepository extends AbstractRepository
             $validator = validator()->make($request->all(),[
                 'title_ar' => ['required'],
                 'description_ar' => ['required'],
-                'icon' => ['required'],
+                // 'icon' => ['required'],
                 'section_no' => ['required'],
             ]);
             if($validator->fails()){

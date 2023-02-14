@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Admin\ProductRequests;
+namespace App\Http\Requests\Admin\WebinarRequests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ProductStoreRequest extends FormRequest
+class WebinarStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,15 +24,13 @@ class ProductStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'title_ar' => 'required',
-            'second_title_ar' => 'required',
-            'description_ar' => 'required',
-            'second_description_ar' => 'required',
-            'video_title_ar' => 'required',
-            'video_description_ar' => 'required',
-            // 'category_id' => 'required|exists:categories,id',
-            'video_link' => 'required',
             'image' => 'required',
+            'date' => 'required',
+            'time_started' => 'required',
+            'hours' => 'required',
+            'name_ar' => 'required',
+            'title_ar' => 'required',
+            'description_ar' => 'required',
         ];
     }
 }

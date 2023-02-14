@@ -19,8 +19,8 @@
 				<div class="row">
 					<div class="col-lg-8 offset-lg-2 text-center">
 						<div class="breadcrumb-text">
-							<span>THE PROFESSIONAL®</span>
-							<h1>{{$product->title}}</h1>
+							<span>{{$product->title}}®</span>
+							<h1>{{$product->second_title}}</h1>
 							<p>{{$product->description}}</p>
 							<a href="#join" class="btn btn-primary btn-lg">Join us</a>
 						</div>
@@ -87,10 +87,11 @@
 			<div class="container">
 				<div class="row">
 					<div class="my-3 col-lg-6 col-12">
-						<iframe class="video_iframe" width="560" height="315"
+						<!-- <iframe class="video_iframe" width="560" height="315"
 							src="{{$product->video_link}}" title="YouTube video player" frameborder="0"
 							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-							allowfullscreen></iframe>
+							allowfullscreen></iframe> -->
+						{!! $product->video_link !!}
 					</div>
 					<div class="my-3 col-lg-6 col-12">
 						<h3>{{$product->video_title}}</h2>

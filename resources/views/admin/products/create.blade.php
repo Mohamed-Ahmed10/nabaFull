@@ -45,6 +45,13 @@
                                 </div>
                                 <div class="form-group input-group">
                                     <span class="input-group-addon" style="color: red;">*</span>
+                                    <input name="second_title_ar" type="text" class="form-control" placeholder="Second Title AR" value="{{ old('second_title_ar') }}">
+                                    @error('second_title_ar')
+                                        <span class="text-danger">{{$message}}</span>
+                                    @enderror
+                                </div>
+                                <div class="form-group input-group">
+                                    <span class="input-group-addon" style="color: red;">*</span>
                                     <input name="description_ar" type="text" class="form-control" placeholder="Description AR" value="{{ old('description_ar') }}">
                                     @error('description_ar')
                                         <span class="text-danger">{{$message}}</span>
@@ -57,7 +64,7 @@
                                         <span class="text-danger">{{$message}}</span>
                                     @enderror
                                 </div>
-                                <div class="form-group input-group">
+                                <!-- <div class="form-group input-group">
                                     <span class="input-group-addon" style="color: red;">*</span>
                                     <select class="form-control" name="category_id" id="categories">
                                         <option value="">Categories</option>
@@ -65,7 +72,7 @@
                                     @error('category_id')
                                         <span class="text-danger">{{$message}}</span>
                                     @enderror
-                                </div>
+                                </div> -->
                                 <div class="form-group input-group">
                                     <span class="input-group-addon" style="color: red;">*</span>
                                     <input name="video_title_ar" type="text" class="form-control" placeholder="Video Title AR" value="{{ old('video_title_ar') }}">
@@ -100,6 +107,13 @@
                                     <span class="input-group-addon" style="color: red;">*</span>
                                     <input name="title_en" type="text" class="form-control" placeholder="Title EN" value="{{ old('title_en') }}">
                                     @error('title_en')
+                                        <span class="text-danger">{{$message}}</span>
+                                    @enderror
+                                </div>
+                                <div class="form-group input-group">
+                                    <span class="input-group-addon" style="color: red;">*</span>
+                                    <input name="second_title_en" type="text" class="form-control" placeholder="Second Title EN" value="{{ old('second_title_en') }}">
+                                    @error('second_title_en')
                                         <span class="text-danger">{{$message}}</span>
                                     @enderror
                                 </div>
