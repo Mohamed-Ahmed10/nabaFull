@@ -39,7 +39,7 @@
 								<div class="date"><i class="fas fa-calendar"></i> {{$webinar->date}}</div>
 								<div class="date"><i class="far fa-clock"></i> {{$webinar->time_started}}</div>
 								<div class="date"><i class="fas fa-stopwatch"></i></i> {{$webinar->hours}}</div>
-								<?php 
+								<?php
 									if((int)$webinar->cost > 0){ $cost = '<h6><span class="badge badge-warning">Paid</span> $ '. $webinar->cost .'</h6>'; }
 									else{ $cost = '<h6><span class="badge badge-success">Free</span></h6>'; }
 								?>
@@ -95,7 +95,7 @@
 									<option value="Other - Record the international phone number">Other - Record the
 										international phone number</option>
 								</select>
-								<input type="tel" placeholder="Mobile numer" name="phone" id="phone" required>
+								<input type="tel" placeholder="Mobile number" name="phone" id="phone" required>
 							</div>
 							<div class="m-3">
 								<textarea name="" id="" cols="30" rows="10" placeholder="Enter your message"></textarea>

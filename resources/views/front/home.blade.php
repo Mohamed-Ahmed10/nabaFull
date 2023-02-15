@@ -29,15 +29,14 @@
 				</div>
 			</div>
 		</div>
-		<!-- single home slider -->
-		<div class="single-homepage-slider homepage-bg-2">
+        <div class="single-homepage-slider homepage-bg-1">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-10 offset-lg-1 text-center">
+					<div class="col-md-12 col-lg-7 offset-lg-1 offset-xl-0">
 						<div class="hero-text">
 							<div class="hero-text-tablecell">
-								<p class="subtitle">Fresh Everyday</p>
-								<h1>100% Organic Collection</h1>
+								<p class="subtitle">Fresh & Organic</p>
+								<h1>Delicious Seasonal Fruits</h1>
 								<div class="hero-btns">
 									<a href="contact.html" class="boxed-btn">Contact Us</a>
 								</div>
@@ -47,15 +46,14 @@
 				</div>
 			</div>
 		</div>
-		<!-- single home slider -->
-		<div class="single-homepage-slider homepage-bg-3">
+        <div class="single-homepage-slider homepage-bg-1">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-10 offset-lg-1 text-right">
+					<div class="col-md-12 col-lg-7 offset-lg-1 offset-xl-0">
 						<div class="hero-text">
 							<div class="hero-text-tablecell">
-								<p class="subtitle">Mega Sale Going On!</p>
-								<h1>Get December Discount</h1>
+								<p class="subtitle">Fresh & Organic</p>
+								<h1>Delicious Seasonal Fruits</h1>
 								<div class="hero-btns">
 									<a href="contact.html" class="boxed-btn">Contact Us</a>
 								</div>
@@ -65,6 +63,7 @@
 				</div>
 			</div>
 		</div>
+
 	</div>
 	<!-- end home page slider -->
 	@include('flash::message')
@@ -270,7 +269,7 @@
 									<option value="Other - Record the international phone number">Other - Record the
 										international phone number</option>
 								</select>
-								<input type="tel" placeholder="Mobile numer" name="phone" id="phone" required>
+								<input type="tel" placeholder="Mobile number" name="phone" id="phone" required>
 							</div>
 							<div class="m-3">
 								<textarea name="" id="" cols="30" rows="10" placeholder="Enter your message"></textarea>
@@ -285,44 +284,6 @@
 		</div>
 	</div>
 	<!-- end contact form -->
-
-	<!-- footer -->
-	<div class="footer-area">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-9 col-md-12">
-					<div class="footer-box about-widget">
-						<h2 class="widget-title">About us</h2>
-						<p>Naba Computer was established in the year 2000 as a specialist in computer technologies with
-							all its categories. Naba provides technical, informational and research support in hardware,
-							systems and networks for all the government and private sector companies and establishments.
-							The basic rule that governs the company's work is concentrating on the quality, because the
-							high quality is the main target of the company, and we believe that the human factor is the
-							most important element in the quality performance. Therefore the company always seeks to
-							attract the best experts and specialists providing them with incentives in order to raise
-							the productivity level, in addition to its concern with the work accuracy and the punctual
-							commitment of implementation. For these reasons the various tasks are subjected to the
-							reviewing and investigation in more than one stage and with different means to avoid even
-							the smallest errors. And we tend to sign long-term contracts with our customers, which mean
-							our full commitment with all what we give to them to insure our products permanency.</p>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-12">
-					<div class="footer-box pages">
-						<h2 class="widget-title">Pages</h2>
-						<ul>
-							<li><a href="">Products</a></li>
-							<li><a href="">Articles</a></li>
-							<li><a href="">Webinars</a></li>
-							<li><a href="">Services</a></li>
-							<li><a href="">Trainings</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- end footer -->
 
 @endsection
 <!-- custom js -->
