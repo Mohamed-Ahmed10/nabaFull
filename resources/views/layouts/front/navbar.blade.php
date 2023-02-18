@@ -7,7 +7,7 @@
 						<!-- logo -->
 						<div class="site-logo">
 							<a href="{{route('front/index')}}">
-								<img src="{{asset('front/assets/img/naba_logo.jpeg')}}" alt="This is the site logo" width="70">
+								<img src="{{asset('front/assets/img/naba_logo.jpeg')}}" alt="This is the site logo" width="50">
 							</a>
 						</div>
 						<!-- logo -->
