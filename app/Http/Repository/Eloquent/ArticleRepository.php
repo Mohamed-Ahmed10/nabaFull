@@ -111,6 +111,7 @@ class ArticleRepository extends AbstractRepository
     {
         try{
             $article =  $this->model->findOrFail($request->record_id);
+            $article->deleteTranslations();
             $article->delete();
             flash()->success("Deleted Has Been Done");
             return back();

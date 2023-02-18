@@ -26,8 +26,8 @@
                     <div class="panel-title pull-left">Product Form</div>
                     <div class="pull-right">
                         <ul class="nav nav-tabs">
-                            <li class="active"><a href="#product_ar" data-toggle="tab">Product AR</a></li>
-                            <li><a href="#product_en" data-toggle="tab">Product EN</a></li>
+                            <li class="active"><a href="#section_ar" data-toggle="tab">Product AR</a></li>
+                            <li><a href="#section_en" data-toggle="tab">Product EN</a></li>
                         </ul>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
                     <form role="form" action="{{url(route('admin/products/create'))}}" method="post" enctype="multipart/form-data">
                         <div class="tab-content">
                             @csrf
-                            <div class="tab-pane fade in active" id="product_ar">
+                            <div class="tab-pane fade in active" id="section_ar">
                                 <div class="form-group input-group">
                                     <span class="input-group-addon" style="color: red;">*</span>
                                     <input name="title_ar" type="text" class="form-control" placeholder="Title AR" value="{{ old('title_ar') }}">
@@ -102,7 +102,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="product_en">
+                            <div class="tab-pane fade" id="section_en">
                                 <div class="form-group input-group">
                                     <span class="input-group-addon" style="color: red;">*</span>
                                     <input name="title_en" type="text" class="form-control" placeholder="Title EN" value="{{ old('title_en') }}">

@@ -34,5 +34,11 @@ Route::group([
 
         Route::get('/webinars', 'WebinarsController@webinars')->name('front/webinars');
         Route::get('/webinar-details/{id}', 'WebinarsController@webinar')->name('front/webinar');
+
+        Route::get('/services', 'ServicesController@services')->name('front/services');
+        Route::get('/service-details/{id}', 'ServicesController@service')->name('front/service');
+
+        Route::get('/trainings', 'TrainingsController@trainings')->name('front/trainings');
+        Route::get('/training-details/{id}', 'TrainingsController@training')->name('front/training');
     });
 });

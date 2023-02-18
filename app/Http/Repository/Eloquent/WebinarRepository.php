@@ -131,6 +131,7 @@ class WebinarRepository extends AbstractRepository
     {
         try{
             $webinar =  $this->model->findOrFail($request->record_id);
+            $webinar->deleteTranslations();
             $webinar->delete();
             flash()->success("Deleted Has Been Done");
             return back();

@@ -155,6 +155,7 @@ class ProductRepository extends AbstractRepository
     {
         try{
             $product =  $this->model->findOrFail($request->record_id);
+            $product->deleteTranslations();
             $product->delete();
             flash()->success("Deleted Has Been Done");
             return back();

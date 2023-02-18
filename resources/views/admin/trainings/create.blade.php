@@ -2,7 +2,7 @@
 
 <!-- title page -->
 @section('title')
-    <title>Webinars</title>
+    <title>Trainings</title>
 @endsection
 <!-- custom page -->
 @section('css')
@@ -11,7 +11,7 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Add New Webinar</h1>
+            <h1 class="page-header">Add New Training</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -21,16 +21,16 @@
             @include('flash::message')
             <div class="panel tabbed-panel panel-info">
                 <div class="panel-heading clearfix">
-                    <div class="panel-title pull-left">Webinar Form</div>
+                    <div class="panel-title pull-left">Training Form</div>
                     <div class="pull-right">
                         <ul class="nav nav-tabs">
-                            <li class="active"><a href="#section_ar" data-toggle="tab">Webinar AR</a></li>
-                            <li><a href="#section_en" data-toggle="tab">Webinar EN</a></li>
+                            <li class="active"><a href="#section_ar" data-toggle="tab">Training AR</a></li>
+                            <li><a href="#section_en" data-toggle="tab">Training EN</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="panel-body">
-                    <form role="form" action="{{url(route('admin/webinars/create'))}}" method="post" enctype="multipart/form-data">
+                    <form role="form" action="{{url(route('admin/trainings/create'))}}" method="post" enctype="multipart/form-data">
                         <div class="tab-content">
                             @csrf
                             <div class="tab-pane fade in active" id="section_ar">
@@ -57,22 +57,22 @@
                                 </div>
                                 <div class="form-group input-group">
                                     <span class="input-group-addon" style="color: red;">*</span>
-                                    <input name="date" type="date" class="form-control" placeholder="Date" value="{{ old('date') }}">
-                                    @error('date')
+                                    <input name="instructor" type="text" class="form-control" placeholder="Instructor" value="{{ old('instructor') }}">
+                                    @error('instructor')
                                         <span class="text-danger">{{$message}}</span>
                                     @enderror
                                 </div>
                                 <div class="form-group input-group">
                                     <span class="input-group-addon" style="color: red;">*</span>
-                                    <input name="hours" type="text" class="form-control" placeholder="Hours" value="{{ old('hours') }}">
-                                    @error('hours')
+                                    <input name="date_from" type="date" class="form-control" placeholder="Date From" value="{{ old('date_from') }}">
+                                    @error('date_from')
                                         <span class="text-danger">{{$message}}</span>
                                     @enderror
                                 </div>
                                 <div class="form-group input-group">
                                     <span class="input-group-addon" style="color: red;">*</span>
-                                    <input name="time_started" type="text" class="form-control" placeholder="Time Started" value="{{ old('time_started') }}">
-                                    @error('time_started')
+                                    <input name="date_to" type="date" class="form-control" placeholder="Date To" value="{{ old('date_to') }}">
+                                    @error('date_to')
                                         <span class="text-danger">{{$message}}</span>
                                     @enderror
                                 </div>

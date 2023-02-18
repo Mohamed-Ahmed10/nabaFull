@@ -104,6 +104,28 @@ Route::group([ 'namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin' 
         Route::post('webinars/getMore', 'WebinarsController@getMore')->name('admin/webinars/getMore');
         Route::post('webinars/search', 'WebinarsController@search')->name('admin/webinars/search');
 
+        // service routes 
+        Route::get('services/index', 'ServicesController@index')->name('admin/services/index');
+        Route::get('services/create', 'ServicesController@create')->name('admin/services/create');
+        Route::post('services/create', 'ServicesController@store')->name('admin/services/store');
+        Route::get('services/edit/{id?}', 'ServicesController@edit')->name('admin/services/edit');
+        Route::post('services/edit/{id}', 'ServicesController@update')->name('admin/services/update');
+        Route::get('services/activate', 'ServicesController@activate')->name('admin/services/activate');
+        Route::get('services/delete', 'ServicesController@delete')->name('admin/services/delete');
+        Route::post('services/getMore', 'ServicesController@getMore')->name('admin/services/getMore');
+        Route::post('services/search', 'ServicesController@search')->name('admin/services/search');
+
+        // traning routes 
+        Route::get('trainings/index', 'TrainingsController@index')->name('admin/trainings/index');
+        Route::get('trainings/create', 'TrainingsController@create')->name('admin/trainings/create');
+        Route::post('trainings/create', 'TrainingsController@store')->name('admin/trainings/store');
+        Route::get('trainings/edit/{id?}', 'TrainingsController@edit')->name('admin/trainings/edit');
+        Route::post('trainings/edit/{id}', 'TrainingsController@update')->name('admin/trainings/update');
+        Route::get('trainings/activate', 'TrainingsController@activate')->name('admin/trainings/activate');
+        Route::get('trainings/delete', 'TrainingsController@delete')->name('admin/trainings/delete');
+        Route::post('trainings/getMore', 'TrainingsController@getMore')->name('admin/trainings/getMore');
+        Route::post('trainings/search', 'TrainingsController@search')->name('admin/trainings/search');
+
     });
 
 });

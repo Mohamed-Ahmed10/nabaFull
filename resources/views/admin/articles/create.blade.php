@@ -24,8 +24,8 @@
                     <div class="panel-title pull-left">Article Form</div>
                     <div class="pull-right">
                         <ul class="nav nav-tabs">
-                            <li class="active"><a href="#article_ar" data-toggle="tab">Article AR</a></li>
-                            <li><a href="#article_en" data-toggle="tab">Article EN</a></li>
+                            <li class="active"><a href="#section_ar" data-toggle="tab">Article AR</a></li>
+                            <li><a href="#section_en" data-toggle="tab">Article EN</a></li>
                         </ul>
                     </div>
                 </div>
@@ -33,7 +33,7 @@
                     <form role="form" action="{{url(route('admin/articles/create'))}}" method="post" enctype="multipart/form-data">
                         <div class="tab-content">
                             @csrf
-                            <div class="tab-pane fade in active" id="article_ar">
+                            <div class="tab-pane fade in active" id="section_ar">
                                 <div class="form-group input-group">
                                     <span class="input-group-addon" style="color: red;">*</span>
                                     <input name="title_ar" type="text" class="form-control" placeholder="Title AR" value="{{ old('title_ar') }}">
@@ -56,7 +56,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="article_en">
+                            <div class="tab-pane fade" id="section_en">
                                 <div class="form-group input-group">
                                     <span class="input-group-addon" style="color: red;">*</span>
                                     <input name="title_en" type="text" class="form-control" placeholder="Title EN" value="{{ old('title_en') }}">

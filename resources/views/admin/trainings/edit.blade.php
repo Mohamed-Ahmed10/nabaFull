@@ -2,7 +2,7 @@
 
 <!-- title page -->
 @section('title')
-    <title>Webinars</title>
+    <title>Trainings</title>
 @endsection
 <!-- custom page -->
 @section('css')
@@ -12,7 +12,7 @@
 
     <div class="row">
         <div class="col-lg-12">
-        <h1 class="page-header">Webinar Edit</h1>
+        <h1 class="page-header">Training Edit</h1>
         </div>
         <!-- /.col-lg-12 -->
     </div>
@@ -22,20 +22,20 @@
             @include('flash::message')
             <div class="panel tabbed-panel panel-info">
                 <div class="panel-heading clearfix">
-                    <div class="panel-title pull-left">Webinar Form</div>
+                    <div class="panel-title pull-left">Training Form</div>
                     <div class="pull-right">
                         <ul class="nav nav-tabs">
-                            <li class="active"><a href="#section_ar" data-toggle="tab">Webinar AR</a></li>
-                            <li><a href="#section_en" data-toggle="tab">Webinar EN</a></li>
+                            <li class="active"><a href="#section_ar" data-toggle="tab">Training AR</a></li>
+                            <li><a href="#section_en" data-toggle="tab">Training EN</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="panel-body">
-                    @isset($webinar)
-                        <form role="form" action="{{url(route('admin/webinars/update', $webinar->id))}}" method="post" enctype="multipart/form-data">
+                    @isset($training)
+                        <form role="form" action="{{url(route('admin/trainings/update', $training->id))}}" method="post" enctype="multipart/form-data">
                             <div class="form-group input-group">
                                 <div class="m-2 d-flex">
-                                    <img src="{{asset($webinar->image)}}" alt="" class="img-fluid img-50 rounded-circle blur-up lazyloaded">
+                                    <img src="{{asset($training->image)}}" alt="" class="img-fluid img-50 rounded-circle blur-up lazyloaded">
                                 </div>
                             </div>
                             <div class="tab-content">
@@ -43,49 +43,49 @@
                                 <div class="tab-pane fade in active" id="section_ar">
                                     <div class="form-group input-group">
                                         <span class="input-group-addon" style="color: red;">*</span>
-                                        <input name="name_ar" type="text" class="form-control" placeholder="Name AR" value="{{ $webinar->translate('ar')->name }}">
+                                        <input name="name_ar" type="text" class="form-control" placeholder="Name AR" value="{{ $training->translate('ar')->name }}">
                                         @error('name_ar')
                                             <span class="text-danger">{{$message}}</span>
                                         @enderror
                                     </div>
                                     <div class="form-group input-group">
                                         <span class="input-group-addon" style="color: red;">*</span>
-                                        <input name="title_ar" type="text" class="form-control" placeholder="Title AR" value="{{ $webinar->translate('ar')->title }}">
+                                        <input name="title_ar" type="text" class="form-control" placeholder="Title AR" value="{{ $training->translate('ar')->title }}">
                                         @error('title_ar')
                                             <span class="text-danger">{{$message}}</span>
                                         @enderror
                                     </div>
                                     <div class="form-group input-group">
                                         <span class="input-group-addon" style="color: red;">*</span>
-                                        <textarea class="form-control" name="description_ar" placeholder="Description AR" rows="2">{{ $webinar->translate('ar')->description }}</textarea>
+                                        <textarea class="form-control" name="description_ar" placeholder="Description AR" rows="2">{{ $training->translate('ar')->description }}</textarea>
                                         @error('description_ar')
                                             <span class="text-danger">{{$message}}</span>
                                         @enderror
                                     </div>
                                     <div class="form-group input-group">
                                         <span class="input-group-addon" style="color: red;">*</span>
-                                        <input name="date" type="date" class="form-control" placeholder="Date" value="{{ $webinar->date }}">
-                                        @error('date')
+                                        <input name="instructor" type="text" class="form-control" placeholder="Instructor" value="{{ $training->instructor }}">
+                                        @error('instructor')
                                             <span class="text-danger">{{$message}}</span>
                                         @enderror
                                     </div>
                                     <div class="form-group input-group">
                                         <span class="input-group-addon" style="color: red;">*</span>
-                                        <input name="hours" type="text" class="form-control" placeholder="Hours" value="{{ $webinar->hours }}">
-                                        @error('hours')
+                                        <input name="date_from" type="date" class="form-control" placeholder="Date From" value="{{ $training->date_from }}">
+                                        @error('date_from')
                                             <span class="text-danger">{{$message}}</span>
                                         @enderror
                                     </div>
                                     <div class="form-group input-group">
                                         <span class="input-group-addon" style="color: red;">*</span>
-                                        <input name="time_started" type="text" class="form-control" placeholder="Time Started" value="{{ $webinar->time_started }}">
-                                        @error('time_started')
+                                        <input name="date_to" type="date" class="form-control" placeholder="Date To" value="{{ $training->date_to }}">
+                                        @error('date_to')
                                             <span class="text-danger">{{$message}}</span>
                                         @enderror
                                     </div>
                                     <div class="form-group input-group">
                                         <span class="input-group-addon" style="color: red;">*</span>
-                                        <input name="cost" type="number" class="form-control" placeholder="Cost" value="{{ $webinar->cost }}">
+                                        <input name="cost" type="number" class="form-control" placeholder="Cost" value="{{ $training->cost }}">
                                         @error('cost')
                                             <span class="text-danger">{{$message}}</span>
                                         @enderror
@@ -101,21 +101,21 @@
                                 <div class="tab-pane fade" id="section_en">
                                     <div class="form-group input-group">
                                         <span class="input-group-addon" style="color: red;">*</span>
-                                        <input name="name_en" type="text" class="form-control" placeholder="Name EN" value="{{ optional($webinar->translate('en'))->name }}">
+                                        <input name="name_en" type="text" class="form-control" placeholder="Name EN" value="{{ optional($training->translate('en'))->name }}">
                                         @error('name_en')
                                             <span class="text-danger">{{$message}}</span>
                                         @enderror
                                     </div>
                                     <div class="form-group input-group">
                                         <span class="input-group-addon" style="color: red;">*</span>
-                                        <input name="title_en" type="text" class="form-control" placeholder="Title EN" value="{{ optional($webinar->translate('en'))->title }}">
+                                        <input name="title_en" type="text" class="form-control" placeholder="Title EN" value="{{ optional($training->translate('en'))->title }}">
                                         @error('title_en')
                                             <span class="text-danger">{{$message}}</span>
                                         @enderror
                                     </div>
                                     <div class="form-group input-group">
                                         <span class="input-group-addon" style="color: red;">*</span>
-                                        <textarea class="form-control" name="description_en" placeholder="Description EN" rows="2">{{ optional($webinar->translate('en'))->description }}</textarea>
+                                        <textarea class="form-control" name="description_en" placeholder="Description EN" rows="2">{{ optional($training->translate('en'))->description }}</textarea>
                                         @error('description_en')
                                             <span class="text-danger">{{$message}}</span>
                                         @enderror

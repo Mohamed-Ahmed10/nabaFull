@@ -81,6 +81,28 @@
                     </li>
                 </ul>
             </li>
+            <li>
+                <a href="#"><i class="fa fa-wrench fa-fw"></i> Services<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="{{route('admin/services/index')}}">Services</a>
+                    </li>
+                    <li>
+                        <a href="{{route('admin/services/create')}}">Add Service</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-wrench fa-fw"></i> Trainings<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="{{route('admin/trainings/index')}}">Trainings</a>
+                    </li>
+                    <li>
+                        <a href="{{route('admin/trainings/create')}}">Add Training</a>
+                    </li>
+                </ul>
+            </li>
             <!-- <li>
                 <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">

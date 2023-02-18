@@ -130,6 +130,7 @@ class ProductSectionRepository extends AbstractRepository
     {
         try{
             $product_section =  $this->model->findOrFail($request->record_id);
+            $product_section->deleteTranslations();
             $product_section->delete();
             flash()->success("Deleted Has Been Done");
             return back();

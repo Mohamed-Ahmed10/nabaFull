@@ -93,6 +93,7 @@ class CategoryRepository extends AbstractRepository
     {
         try{
             $category =  $this->model->findOrFail($request->record_id);
+            $category->deleteTranslations();
             $category->delete();
             flash()->success("Deleted Has Been Done");
             return back();

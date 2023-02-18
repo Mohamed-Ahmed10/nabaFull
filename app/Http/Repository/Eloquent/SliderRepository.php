@@ -109,6 +109,7 @@ class SliderRepository extends AbstractRepository
     {
         try{
             $slider =  $this->model->findOrFail($request->record_id);
+            $slider->deleteTranslations();
             $slider->delete();
             flash()->success("Deleted Has Been Done");
             return back();

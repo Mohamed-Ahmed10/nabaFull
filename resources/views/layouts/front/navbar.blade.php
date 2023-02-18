@@ -50,9 +50,9 @@
 										<li><a href="show-webinar.html">webinar</a></li>
 									</ul>
 								</li>
-								<li><a href="#">Services</a>
+								<li><a href="{{route('front/services')}}">Services</a>
 									<ul class="sub-menu">
-										<li><a href="services.html">All services</a></li>
+										<li><a href="{{route('front/services')}}">All services</a></li>
 										<li><a href="show-service.html">Employee training</a></li>
 										<li><a href="show-service.html">Fully operational</a></li>
 										<li><a href="show-service.html">Technical support</a></li>
@@ -60,9 +60,9 @@
 										<li><a href="show-service.html">Consulting</a></li>
 									</ul>
 								</li>
-								<li><a href="#">Training </a>
+								<li><a href="{{route('front/trainings')}}">Training </a>
 									<ul class="sub-menu">
-										<li><a href="trainings.html">All trainings</a></li>
+										<li><a href="{{route('front/trainings')}}">All Trainings</a></li>
 										<li><a href="show-training.html">training</a></li>
 										<li><a href="show-training.html">training</a></li>
 										<li><a href="show-training.html">training</a></li>
