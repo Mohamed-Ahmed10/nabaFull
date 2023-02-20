@@ -26,7 +26,7 @@
 								<div class="media-body">
 									<h2 class="mt-0">{{$article->title}}</h2>
 									<p>{{$article->description}}</p>
-									<img src="{{asset('front/assets/img/products/estate_investment.jpeg')}}" class="mr-3" alt="Article image">
+									<img src="{{asset($article->second_image)}}" class="mr-3" alt="Article image">
 								</div>
 								<button type="button" class="btn btn-outline-secondary mt-2 mb-2" tn
 									btn-outline-secondary mt-2 mb-2" onclick="copyArticleUrl()"> Copy link of article <i
@@ -50,6 +50,7 @@
 						</div>
 					</div>
 				</div>
+			@endisset
 			</div>
 		</div>
 	</div>
