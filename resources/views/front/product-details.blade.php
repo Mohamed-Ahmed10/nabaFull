@@ -49,7 +49,7 @@
 						@foreach($options_section_one_data as $option_one)
 							<div class="col-lg-4 col-sm-12 p-3">
 								<div class="card h-100 wow fadeInUp" data-wow-offset="300">
-									<i class="fas fa-home m-4 fa-4x"></i>
+                                    <img src="{{asset('front/assets/img/1.png')}}" width="70">
 									<div class="card-body">
 										<h5 class="card-title">{{$option_one->title}}</h5>
 										<p class="card-text">{{$option_one->description}}</p>

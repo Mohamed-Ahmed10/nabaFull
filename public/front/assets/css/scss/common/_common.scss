@@ -405,7 +405,7 @@ a.cart-btn {
         -ms-transition: .7s all ease-in-out;
         -o-transition: .7s all ease-in-out;
 
-        i {
+        img {
             @extend .card
         }
 
@@ -416,7 +416,7 @@ a.cart-btn {
             -ms-transform: scale(1.1);
             -o-transform: scale(1.1);
 
-            i {
+            img {
                 transform: rotateY(180deg);
                 -webkit-transform: rotateY(180deg);
                 -moz-transform: rotateY(180deg);
@@ -491,6 +491,3 @@ a.cart-btn {
     }
 }
 
-.breadcrumb {
-    float: right;
-}
