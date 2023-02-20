@@ -33,6 +33,7 @@ class ProductStoreRequest extends FormRequest
             // 'category_id' => 'required|exists:categories,id',
             'video_link' => 'required',
             'image' => 'required',
+            'color_title' => 'required',
         ];
     }
 }

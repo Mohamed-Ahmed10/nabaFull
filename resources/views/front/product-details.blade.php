@@ -23,7 +23,7 @@
 					<div class="col-lg-8 offset-lg-2 text-center">
 						<div class="breadcrumb-text">
                             <!-- Amr needs  -->
-							<span style="color:#F00">{{$product->title}}®</span>
+							<span style="color: {{$product->color_title}}">{{$product->title}}®</span>
 							<h1>{{$product->second_title}}</h1>
 							<p>{{$product->description}}</p>
 							<a href="#join" class="btn btn-primary btn-lg">Join us</a>

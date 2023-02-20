@@ -53,13 +53,11 @@ class ProductRepository extends AbstractRepository
                 $file = uploadIamge( $request->file('image'), 'products'); // function on helper file to upload file
                 $product->image = $file;
             }
+            $product->color_title = $request->color_title;
             $product->video_link = $request->video_link;
             // $product->category_id = $request->category_id;
             $product->added_by = auth()->guard('admin')->user()->id;
             $product->is_activate = 1;
-            if(Session::has('nav_products')) {
-                Session::forget("nav_products");
-            }
             $product->save();
             flash()->success("Added Has Been Done");
             return back();
@@ -87,6 +85,7 @@ class ProductRepository extends AbstractRepository
                 'video_title_ar' => ['required'],
                 'video_description_ar' => ['required'],
                 'video_link' => ['required'],
+                'color_title' => ['required'],
                 // 'category_id' => ['required', 'exists:categories,id'],
             ]);
             if($validator->fails()){
@@ -127,11 +126,9 @@ class ProductRepository extends AbstractRepository
                 $product->image = $file;
             }
             $product->video_link = $request->video_link;
+            $product->color_title = $request->color_title;
             // $product->category_id = $request->category_id;
             $product->edited_by = auth()->guard('admin')->user()->id;
-            if(Session::has('nav_products')) {
-                Session::forget("nav_products");
-            }
             $product->save();
             flash()->success("Edited Has Been Done");
             return back();

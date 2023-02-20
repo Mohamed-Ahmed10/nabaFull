@@ -27,7 +27,7 @@ class SettingStoreRequest extends FormRequest
             'title_ar' => 'required',
             'second_title_ar' => 'required',
             'video_link' => 'required',
-            'color_icon' => 'required',
+            // 'color_icon' => 'required',
         ];
     }
 }

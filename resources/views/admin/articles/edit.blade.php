@@ -33,9 +33,12 @@
                 <div class="panel-body">
                     @isset($article)
                         <form role="form" action="{{url(route('admin/articles/update', $article->id))}}" method="post" enctype="multipart/form-data">
-                            <div class="form-group input-group">
+                            <div class="form-group input-group row">
                                 <div class="m-2 d-flex">
                                     <img src="{{asset($article->image)}}" alt="" class="img-fluid img-50 rounded-circle blur-up lazyloaded">
+                                </div>
+                                <div class="m-2 d-flex">
+                                    <img src="{{asset($article->second_image)}}" alt="" class="img-fluid img-50 rounded-circle blur-up lazyloaded">
                                 </div>
                             </div>
                             <div class="tab-content">
@@ -59,6 +62,13 @@
                                         <span class="input-group-addon" style="color: red;">*</span>
                                         <input name="image" type="file" class="form-control" placeholder="Upload Image">
                                         @error('image')
+                                            <span class="text-danger">{{$message}}</span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group input-group">
+                                        <span class="input-group-addon" style="color: red;">*</span>
+                                        <input name="second_image" type="file" class="form-control" placeholder="Upload Second Image">
+                                        @error('second_image')
                                             <span class="text-danger">{{$message}}</span>
                                         @enderror
                                     </div>

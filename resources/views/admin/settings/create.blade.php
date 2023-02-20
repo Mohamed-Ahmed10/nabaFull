@@ -55,13 +55,13 @@
                                         <span class="text-danger">{{$message}}</span>
                                     @enderror
                                 </div>
-                                <div class="form-group input-group">
+                                <!-- <div class="form-group input-group">
                                     <span class="input-group-addon" style="color: red;">*</span>
                                     <input name="color_icon" type="color" id="favcolor" class="form-control" placeholder="Icon Color" value="{{ old('color_icon') }}">
                                     @error('color_icon')
                                         <span class="text-danger">{{$message}}</span>
                                     @enderror
-                                </div>
+                                </div> -->
                             </div>
                             <div class="tab-pane fade" id="section_en">
                                 <div class="form-group input-group">

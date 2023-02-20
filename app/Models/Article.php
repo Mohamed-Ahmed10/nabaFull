@@ -12,7 +12,7 @@ class Article extends Model implements TranslatableContract
 
 	protected $table = 'articles';
 	public $timestamps = true;
-	protected $fillable = array('image', 'description', 'added_by', 'edited_by', 'is_activate');
+	protected $fillable = array('image', 'second_image', 'description', 'added_by', 'edited_by', 'is_activate');
     protected $translatedAttributes = ['title', 'description'];
     protected $hidden = ['translations'];
 

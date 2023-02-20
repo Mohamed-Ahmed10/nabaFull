@@ -49,14 +49,10 @@ class TrainingRepository extends AbstractRepository
             $training->time_started = $request->time_started;
             $training->is_activate = 1; 
             $training->added_by = auth()->guard('admin')->user()->id;
-            if(Session::has('nav_services')) {
-                Session::forget("nav_services");
-            }
             $training->save();
             flash()->success("Added Has Been Done");
             return back();
         }catch(\Exception $ex){
-            return $ex;
             flash()->error("There IS Somrthing Wrong , Please Contact Technical Support");
             return back();
         }
@@ -111,9 +107,6 @@ class TrainingRepository extends AbstractRepository
             $training->days = $request->days;
             $training->time_started = $request->time_started;
             $training->edited_by = auth()->guard('admin')->user()->id;
-            if(Session::has('nav_services')) {
-                Session::forget("nav_services");
-            }
             $training->save();
             flash()->success("Edited Has Been Done");
             return back();

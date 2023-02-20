@@ -26,6 +26,7 @@ class ArticleStoreRequest extends FormRequest
         return [
             'title_ar' => 'required',
             'image' => 'required',
+            'second_image' => 'required',
             'description_ar' => 'required',
         ];
     }

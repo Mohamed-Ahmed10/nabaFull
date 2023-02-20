@@ -36,8 +36,10 @@ class ArticleRepository extends AbstractRepository
                 $file = uploadIamge( $request->file('image'), 'articles'); // function on helper file to upload file
                 $article->image = $file;
             }
-            if(Session::has('nav_articles')) {
-                Session::forget("nav_articles");
+            //save second image
+            if (!$request->hasFile('second_image') == null) {
+                $file = uploadIamge( $request->file('second_image'), 'articles'); // function on helper file to upload file
+                $article->second_image = $file;
             }
             $article->is_activate = 1; 
             $article->added_by = auth()->guard('admin')->user()->id;
@@ -84,8 +86,10 @@ class ArticleRepository extends AbstractRepository
                 $file = uploadIamge( $request->file('image'), 'articles'); // function on helper file to upload file
                 $article->image = $file;
             }
-            if(Session::has('nav_articles')) {
-                Session::forget("nav_articles");
+            //save second image
+            if (!$request->hasFile('second_image') == null) {
+                $file = uploadIamge( $request->file('second_image'), 'articles'); // function on helper file to upload file
+                $article->second_image = $file;
             }
             $article->edited_by = auth()->guard('admin')->user()->id;
             $article->save();

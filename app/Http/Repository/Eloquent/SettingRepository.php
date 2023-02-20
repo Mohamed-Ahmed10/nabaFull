@@ -32,7 +32,7 @@ class SettingRepository extends AbstractRepository
                 $setting->translateOrNew('en')->second_title = $request->second_title_en;
             }
             $setting->video_link = $request->video_link; 
-            $setting->color_icon = $request->color_icon; 
+            // $setting->color_icon = $request->color_icon; 
             $setting->added_by = auth()->guard('admin')->user()->id;
             $setting->save();
             flash()->success("Added Has Been Done");
@@ -57,7 +57,7 @@ class SettingRepository extends AbstractRepository
                 'title_ar' => ['required'],
                 'second_title_ar' => ['required'],
                 'video_link' => ['required'],
-                'color_icon' => ['required'],
+                // 'color_icon' => ['required'],
             ]);
             if($validator->fails()){
                 flash()->error($validator->errors()->first());
@@ -75,7 +75,7 @@ class SettingRepository extends AbstractRepository
                 $setting->translateOrNew('en')->second_title = $request->second_title_en;
             }
             $setting->video_link = $request->video_link; 
-            $setting->color_icon = $request->color_icon; 
+            // $setting->color_icon = $request->color_icon; 
             $setting->edited_by = auth()->guard('admin')->user()->id;
             $setting->save();
             flash()->success("Edited Has Been Done");

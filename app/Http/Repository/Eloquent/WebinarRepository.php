@@ -49,7 +49,6 @@ class WebinarRepository extends AbstractRepository
             flash()->success("Added Has Been Done");
             return back();
         }catch(\Exception $ex){
-            return $ex;
             flash()->error("There IS Somrthing Wrong , Please Contact Technical Support");
             return back();
         }
