@@ -48,13 +48,13 @@
                                             <span class="text-danger">{{$message}}</span>
                                         @enderror
                                     </div>
-                                    <div class="form-group input-group">
+                                    <!-- <div class="form-group input-group">
                                         <span class="input-group-addon" style="color: red;">*</span>
                                         <input name="title_ar" type="text" class="form-control" placeholder="Title AR" value="{{ $training->translate('ar')->title }}">
                                         @error('title_ar')
                                             <span class="text-danger">{{$message}}</span>
                                         @enderror
-                                    </div>
+                                    </div> -->
                                     <div class="form-group input-group">
                                         <span class="input-group-addon" style="color: red;">*</span>
                                         <textarea class="form-control" name="description_ar" placeholder="Description AR" rows="2">{{ $training->translate('ar')->description }}</textarea>
@@ -106,13 +106,13 @@
                                             <span class="text-danger">{{$message}}</span>
                                         @enderror
                                     </div>
-                                    <div class="form-group input-group">
+                                    <!-- <div class="form-group input-group">
                                         <span class="input-group-addon" style="color: red;">*</span>
                                         <input name="title_en" type="text" class="form-control" placeholder="Title EN" value="{{ optional($training->translate('en'))->title }}">
                                         @error('title_en')
                                             <span class="text-danger">{{$message}}</span>
                                         @enderror
-                                    </div>
+                                    </div> -->
                                     <div class="form-group input-group">
                                         <span class="input-group-addon" style="color: red;">*</span>
                                         <textarea class="form-control" name="description_en" placeholder="Description EN" rows="2">{{ optional($training->translate('en'))->description }}</textarea>

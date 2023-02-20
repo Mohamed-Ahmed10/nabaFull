@@ -41,13 +41,13 @@
                                         <span class="text-danger">{{$message}}</span>
                                     @enderror
                                 </div>
-                                <div class="form-group input-group">
+                                <!-- <div class="form-group input-group">
                                     <span class="input-group-addon" style="color: red;">*</span>
                                     <input name="title_ar" type="text" class="form-control" placeholder="Title AR" value="{{ old('title_ar') }}">
                                     @error('title_ar')
                                         <span class="text-danger">{{$message}}</span>
                                     @enderror
-                                </div>
+                                </div> -->
                                 <div class="form-group input-group">
                                     <span class="input-group-addon" style="color: red;">*</span>
                                     <textarea class="form-control" name="description_ar" placeholder="Description AR" rows="2">{{ old('description_ar') }}</textarea>
@@ -99,13 +99,13 @@
                                         <span class="text-danger">{{$message}}</span>
                                     @enderror
                                 </div>
-                                <div class="form-group input-group">
+                                <!-- <div class="form-group input-group">
                                     <span class="input-group-addon" style="color: red;">*</span>
                                     <input name="title_en" type="text" class="form-control" placeholder="Title EN" value="{{ old('title_en') }}">
                                     @error('title_en')
                                         <span class="text-danger">{{$message}}</span>
                                     @enderror
-                                </div>
+                                </div> -->
                                 <div class="form-group input-group">
                                     <span class="input-group-addon" style="color: red;">*</span>
                                     <textarea class="form-control" name="description_en" placeholder="Description EN" rows="2">{{ old('description_en') }}</textarea>

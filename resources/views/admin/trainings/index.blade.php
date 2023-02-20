@@ -40,7 +40,6 @@
                                     <th>ID</th>
                                     <th>Image</th>
                                     <th>Name</th>
-                                    <th>Title</th>
                                     <th>Cost</th>
                                     <th>Activation</th>
                                     <th>Actions</th>
@@ -57,7 +56,6 @@
                                                 </div>
                                             </td>
                                             <td>{{ $training->name }}</td>
-                                            <td>{{ $training->title }}</td>
                                             <td>{{ $training->cost }}</td>
                                             <?php 
                                                 if($training->is_activate == 1){$activate = '<span class="badge badge-info">active</span>';}
@@ -206,7 +204,8 @@
                                                     <img src="${image_path}" alt="" class="img-fluid img-50 rounded-circle blur-up lazyloaded">
                                                 </div>
                                             </td>
-                                            <td>${data[i].title}</td>
+                                            <td>${data[i].name}</td>
+                                            <td>${data[i].cost}</td>
                                             <td>${data[i].is_activate == 1 ? '<span class="badge badge-info">active</span>' : '<span class="badge badge-danger">un active</span>'}</td>
                                             <td>
                                                 <ul class="nav navbar-center navbar-top-links" style="border-radius: 15px;">
@@ -282,7 +281,6 @@
                                         </div>
                                     </td>
                                     <td>${data[i].name}</td>
-                                    <td>${data[i].title}</td>
                                     <td>${data[i].cost}</td>
                                     <td>${data[i].is_activate == 1 ? '<span class="badge badge-info">active</span>' : '<span class="badge badge-danger">un active</span>'}</td>
                                     <td>

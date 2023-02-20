@@ -26,12 +26,12 @@ class TrainingRepository extends AbstractRepository
 
             // training translation ar
             $training->translateOrNew('ar')->name = $request->name_ar;
-            $training->translateOrNew('ar')->title = $request->title_ar;
+            // $training->translateOrNew('ar')->title = $request->title_ar;
             $training->translateOrNew('ar')->description = $request->description_ar;
             // training translation en
-            if(!$request->name_en == null && !$request->title_en == null && !$request->description_en == null){
+            if(!$request->name_en == null && !$request->description_en == null){
                 $training->translateOrNew('en')->name = $request->name_en;
-                $training->translateOrNew('en')->title = $request->title_en;
+                // $training->translateOrNew('en')->title = $request->title_en;
                 $training->translateOrNew('en')->description = $request->description_en;
             }
             //save image
@@ -70,7 +70,7 @@ class TrainingRepository extends AbstractRepository
         try{
             // validation 
             $validator = validator()->make($request->all(),[
-                'title_ar' => ['required'],
+                'name_ar' => ['required'],
                 'description_ar' => ['required'],
             ]);
             if($validator->fails()){
@@ -82,12 +82,12 @@ class TrainingRepository extends AbstractRepository
 
             // training translation ar
             $training->translateOrNew('ar')->name = $request->name_ar;
-            $training->translateOrNew('ar')->title = $request->title_ar;
+            // $training->translateOrNew('ar')->title = $request->title_ar;
             $training->translateOrNew('ar')->description = $request->description_ar;
             // training translation en
-            if(!$request->name_en == null && !$request->title_en == null && !$request->description_en == null){
+            if(!$request->name_en == null && !$request->description_en == null){
                 $training->translateOrNew('en')->name = $request->name_en;
-                $training->translateOrNew('en')->title = $request->title_en;
+                // $training->translateOrNew('en')->title = $request->title_en;
                 $training->translateOrNew('en')->description = $request->description_en;
             }
             //save image
@@ -179,7 +179,7 @@ class TrainingRepository extends AbstractRepository
             $trainings = NULL;
             if($query != ''){
                 $trainings = $this->model->latest()->where('id', 'LIKE', '%'. $query .'%')
-                                                ->orWhereTranslationLike('title', '%'. $query .'%')
+                                                ->orWhereTranslationLike('name', '%'. $query .'%')
                                                 ->get();
             }else{
                 $trainings = $this->model->latest()->limit(PAGINATION_COUNT)->get();
