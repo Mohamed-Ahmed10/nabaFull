@@ -5,6 +5,7 @@ namespace App\Http\Repository\Eloquent;
 use App\Models\Service;
 use Illuminate\Validation\Rule;
 use DB;
+use Illuminate\Support\Facades\Session;
 
 class ServiceRepository extends AbstractRepository
 {
@@ -34,6 +35,9 @@ class ServiceRepository extends AbstractRepository
             if (!$request->hasFile('image') == null) {
                 $file = uploadIamge( $request->file('image'), 'services'); // function on helper file to upload file
                 $service->image = $file;
+            }
+            if(Session::has('nav_services')) {
+                Session::forget("nav_services");
             }
             $service->is_activate = 1; 
             $service->added_by = auth()->guard('admin')->user()->id;
@@ -80,6 +84,9 @@ class ServiceRepository extends AbstractRepository
                 $file = uploadIamge( $request->file('image'), 'services'); // function on helper file to upload file
                 $service->image = $file;
             }
+            if(Session::has('nav_services')) {
+                Session::forget("nav_services");
+            }
             $service->edited_by = auth()->guard('admin')->user()->id;
             $service->save();
             flash()->success("Edited Has Been Done");
@@ -99,6 +106,9 @@ class ServiceRepository extends AbstractRepository
             }else{
                 $service->update(['is_activate' => 0]);
             }
+            if(Session::has('nav_services')) {
+                Session::forget("nav_services");
+            }
             flash()->success("The Change Has Been Done");
             return back();
         }catch(\Exception $ex){
@@ -112,6 +122,9 @@ class ServiceRepository extends AbstractRepository
         try{
             $service =  $this->model->findOrFail($request->record_id);
             $service->delete();
+            if(Session::has('nav_services')) {
+                Session::forget("nav_services");
+            }
             flash()->success("Deleted Has Been Done");
             return back();
         }catch(\Exception $ex){

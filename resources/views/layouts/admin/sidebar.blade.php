@@ -103,6 +103,36 @@
                     </li>
                 </ul>
             </li>
+            <li>
+                <a href="#"><i class="fa fa-wrench fa-fw"></i> Settings<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="{{route('admin/settings/index')}}">Settings</a>
+                    </li>
+                    <li>
+                        <a href="{{route('admin/settings/create')}}">Add Setting</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-wrench fa-fw"></i> About Section<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="{{route('admin/about-section/index')}}">About Section</a>
+                    </li>
+                    <li>
+                        <a href="{{route('admin/about-section/create')}}">Add About Section</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-wrench fa-fw"></i> Contacts Us<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="{{route('admin/contact-us/index')}}">Contacts Us</a>
+                    </li>
+                </ul>
+            </li>
             <!-- <li>
                 <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">

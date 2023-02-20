@@ -5,6 +5,7 @@ namespace App\Http\Repository\Eloquent;
 use App\Models\Article;
 use Illuminate\Validation\Rule;
 use DB;
+use Illuminate\Support\Facades\Session;
 
 class ArticleRepository extends AbstractRepository
 {
@@ -34,6 +35,9 @@ class ArticleRepository extends AbstractRepository
             if (!$request->hasFile('image') == null) {
                 $file = uploadIamge( $request->file('image'), 'articles'); // function on helper file to upload file
                 $article->image = $file;
+            }
+            if(Session::has('nav_articles')) {
+                Session::forget("nav_articles");
             }
             $article->is_activate = 1; 
             $article->added_by = auth()->guard('admin')->user()->id;
@@ -80,6 +84,9 @@ class ArticleRepository extends AbstractRepository
                 $file = uploadIamge( $request->file('image'), 'articles'); // function on helper file to upload file
                 $article->image = $file;
             }
+            if(Session::has('nav_articles')) {
+                Session::forget("nav_articles");
+            }
             $article->edited_by = auth()->guard('admin')->user()->id;
             $article->save();
             flash()->success("Edited Has Been Done");
@@ -99,6 +106,9 @@ class ArticleRepository extends AbstractRepository
             }else{
                 $article->update(['is_activate' => 0]);
             }
+            if(Session::has('nav_articles')) {
+                Session::forget("nav_articles");
+            }
             flash()->success("The Change Has Been Done");
             return back();
         }catch(\Exception $ex){
@@ -113,6 +123,9 @@ class ArticleRepository extends AbstractRepository
             $article =  $this->model->findOrFail($request->record_id);
             $article->deleteTranslations();
             $article->delete();
+            if(Session::has('nav_articles')) {
+                Session::forget("nav_articles");
+            }
             flash()->success("Deleted Has Been Done");
             return back();
         }catch(\Exception $ex){

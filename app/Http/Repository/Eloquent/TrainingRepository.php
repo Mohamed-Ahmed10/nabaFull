@@ -6,6 +6,7 @@ use App\Models\Training;
 use Illuminate\Validation\Rule;
 use DB;
 use Illuminate\Support\Facades\File as FacadesFile;
+use Illuminate\Support\Facades\Session;
 
 class TrainingRepository extends AbstractRepository
 {
@@ -46,6 +47,9 @@ class TrainingRepository extends AbstractRepository
             $training->date_to = $request->date_to;
             $training->is_activate = 1; 
             $training->added_by = auth()->guard('admin')->user()->id;
+            if(Session::has('nav_services')) {
+                Session::forget("nav_services");
+            }
             $training->save();
             flash()->success("Added Has Been Done");
             return back();
@@ -98,6 +102,9 @@ class TrainingRepository extends AbstractRepository
             $training->date_from = $request->date_from;
             $training->date_to = $request->date_to;
             $training->edited_by = auth()->guard('admin')->user()->id;
+            if(Session::has('nav_services')) {
+                Session::forget("nav_services");
+            }
             $training->save();
             flash()->success("Edited Has Been Done");
             return back();
@@ -116,6 +123,9 @@ class TrainingRepository extends AbstractRepository
             }else{
                 $training->update(['is_activate' => 0]);
             }
+            if(Session::has('nav_services')) {
+                Session::forget("nav_services");
+            }
             flash()->success("The Change Has Been Done");
             return back();
         }catch(\Exception $ex){
@@ -133,6 +143,9 @@ class TrainingRepository extends AbstractRepository
             }
             $training->deleteTranslations();
             $training->delete();
+            if(Session::has('nav_services')) {
+                Session::forget("nav_services");
+            }
             flash()->success("Deleted Has Been Done");
             return back();
         }catch(\Exception $ex){

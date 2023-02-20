@@ -19,55 +19,56 @@
 								<li><a href="{{route('front/products')}}">Products</a>
 									<ul class="sub-menu">
 										<li><a href="{{route('front/products')}}">All products</a></li>
-										<li><a href="show-product.html">ElMohtaref for contracting companies</a></li>
-										<li><a href="show-product.html">ElMohtaref for real estate investment</a></li>
-										<li><a href="show-product.html">ElMohtaref for educational institutions</a></li>
-										<li><a href="show-product.html">ElMohtaref for human resources</a></li>
-										<li><a href="show-product.html">ElMohtaref for production and factories</a></li>
-										<li><a href="show-product.html">ElMohtaref for manage transportation
-												companies</a></li>
-										<li><a href="show-product.html">ElMohtaref for charitable institutions and
-												endowments</a></li>
+										<?php $nav_products = session()->get('nav_products'); ?>
+										@if(count($nav_products) > 0)
+											@foreach($nav_products as $nav_product)
+												<li><a href="{{route('front/product', $nav_product->id)}}">ElMohtaref for {{$nav_product->title}}</a></li>
+											@endforeach
+										@endif
 									</ul>
 								</li>
 								<li><a href="{{route('front/articles')}}">Articles </a>
 									<ul class="sub-menu">
 										<li><a href="{{route('front/articles')}}">All articles</a></li>
-										<li><a href="show-article.html">article</a></li>
-										<li><a href="show-article.html">article</a></li>
-										<li><a href="show-article.html">article</a></li>
-										<li><a href="show-article.html">article</a></li>
-										<li><a href="show-article.html">article</a></li>
+										<?php $nav_trainings = session()->get('nav_trainings'); ?>
+										@if(count($nav_trainings) > 0)
+											@foreach($nav_trainings as $nav_article)
+												<li><a href="{{route('front/article', $nav_article->id)}}">{{$nav_article->title}}</a></li>
+											@endforeach
+										@endif
 									</ul>
 								</li>
 								<li><a href="{{route('front/webinars')}}">Webinars </a>
 									<ul class="sub-menu">
 										<li><a href="{{route('front/webinars')}}">All webinars</a></li>
-										<li><a href="show-webinar.html">webinar</a></li>
-										<li><a href="show-webinar.html">webinar</a></li>
-										<li><a href="show-webinar.html">webinar</a></li>
-										<li><a href="show-webinar.html">webinar</a></li>
-										<li><a href="show-webinar.html">webinar</a></li>
+										<?php $nav_webinars = session()->get('nav_webinars'); ?>
+										@if(count($nav_webinars) > 0)
+											@foreach($nav_webinars as $nav_webinar)
+												<li><a href="{{route('front/webinar', $nav_webinar->id)}}">{{$nav_webinar->name}}</a></li>
+											@endforeach
+										@endif
 									</ul>
 								</li>
 								<li><a href="{{route('front/services')}}">Services</a>
 									<ul class="sub-menu">
 										<li><a href="{{route('front/services')}}">All services</a></li>
-										<li><a href="show-service.html">Employee training</a></li>
-										<li><a href="show-service.html">Fully operational</a></li>
-										<li><a href="show-service.html">Technical support</a></li>
-										<li><a href="show-service.html">Software tests</a></li>
-										<li><a href="show-service.html">Consulting</a></li>
+										<?php $nav_services = session()->get('nav_services'); ?>
+										@if(count($nav_services) > 0)
+											@foreach($nav_services as $service)
+												<li><a href="{{route('front/service', $service->id)}}">{{$service->title}}</a></li>
+											@endforeach
+										@endif
 									</ul>
 								</li>
 								<li><a href="{{route('front/trainings')}}">Training </a>
 									<ul class="sub-menu">
 										<li><a href="{{route('front/trainings')}}">All Trainings</a></li>
-										<li><a href="show-training.html">training</a></li>
-										<li><a href="show-training.html">training</a></li>
-										<li><a href="show-training.html">training</a></li>
-										<li><a href="show-training.html">training</a></li>
-										<li><a href="show-training.html">training</a></li>
+										<?php $nav_trainings = session()->get('nav_trainings'); ?>
+										@if(count($nav_trainings) > 0)
+											@foreach($nav_trainings as $nav_training)
+												<li><a href="{{route('front/training', $nav_training->id)}}">{{$nav_training->name}}</a></li>
+											@endforeach
+										@endif
 									</ul>
 								</li>
 								<li><a href="#">Language </a>

@@ -19,7 +19,7 @@ class AuthController extends Controller
         try{
 
             // validation
-            $admin = Admin::where('email', $request->email)->first();
+            $admin = Admin::where('email', strtolower(trim($request->email)))->first();
             if($admin){
                 if(FacadesHash::check($request->password, $admin->password)){
                     if($admin->is_activate == 1){

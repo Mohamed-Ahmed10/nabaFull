@@ -19,7 +19,7 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 // });
 Route::group([
     'prefix' => LaravelLocalization::setLocale(),
-    'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+    'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'checkDataForHeader' ]
 ], function(){ 
     Route::group([ 'namespace' => 'App\Http\Controllers\Front' ],function(){
 
@@ -40,5 +40,7 @@ Route::group([
 
         Route::get('/trainings', 'TrainingsController@trainings')->name('front/trainings');
         Route::get('/training-details/{id}', 'TrainingsController@training')->name('front/training');
+
+        Route::post('/contact-us', 'ContactUsController@contact_us')->name('front/contact-us');
     });
 });

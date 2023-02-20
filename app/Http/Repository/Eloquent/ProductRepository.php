@@ -5,6 +5,7 @@ namespace App\Http\Repository\Eloquent;
 use App\Models\Product;
 use Illuminate\Validation\Rule;
 use DB;
+use Illuminate\Support\Facades\Session;
 
 class ProductRepository extends AbstractRepository
 {
@@ -56,6 +57,9 @@ class ProductRepository extends AbstractRepository
             // $product->category_id = $request->category_id;
             $product->added_by = auth()->guard('admin')->user()->id;
             $product->is_activate = 1;
+            if(Session::has('nav_products')) {
+                Session::forget("nav_products");
+            }
             $product->save();
             flash()->success("Added Has Been Done");
             return back();
@@ -125,6 +129,9 @@ class ProductRepository extends AbstractRepository
             $product->video_link = $request->video_link;
             // $product->category_id = $request->category_id;
             $product->edited_by = auth()->guard('admin')->user()->id;
+            if(Session::has('nav_products')) {
+                Session::forget("nav_products");
+            }
             $product->save();
             flash()->success("Edited Has Been Done");
             return back();
@@ -143,6 +150,9 @@ class ProductRepository extends AbstractRepository
             }else{
                 $product->update(['is_activate' => 0]);
             }
+            if(Session::has('nav_products')) {
+                Session::forget("nav_products");
+            }
             flash()->success("The Change Has Been Done");
             return back();
         }catch(\Exception $ex){
@@ -157,6 +167,9 @@ class ProductRepository extends AbstractRepository
             $product =  $this->model->findOrFail($request->record_id);
             $product->deleteTranslations();
             $product->delete();
+            if(Session::has('nav_products')) {
+                Session::forget("nav_products");
+            }
             flash()->success("Deleted Has Been Done");
             return back();
         }catch(\Exception $ex){

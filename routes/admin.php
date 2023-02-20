@@ -126,6 +126,32 @@ Route::group([ 'namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin' 
         Route::post('trainings/getMore', 'TrainingsController@getMore')->name('admin/trainings/getMore');
         Route::post('trainings/search', 'TrainingsController@search')->name('admin/trainings/search');
 
+        // setting routes 
+        Route::get('settings/index', 'SettingController@index')->name('admin/settings/index');
+        Route::get('settings/create', 'SettingController@create')->name('admin/settings/create');
+        Route::post('settings/create', 'SettingController@store')->name('admin/settings/store');
+        Route::get('settings/edit/{id?}', 'SettingController@edit')->name('admin/settings/edit');
+        Route::post('settings/edit/{id}', 'SettingController@update')->name('admin/settings/update');
+        Route::get('settings/delete', 'SettingController@delete')->name('admin/settings/delete');
+        Route::post('settings/getMore', 'SettingController@getMore')->name('admin/settings/getMore');
+        Route::post('settings/search', 'SettingController@search')->name('admin/settings/search');
+
+        // about-section routes 
+        Route::get('about-section/index', 'AboutSectionController@index')->name('admin/about-section/index');
+        Route::get('about-section/create', 'AboutSectionController@create')->name('admin/about-section/create');
+        Route::post('about-section/create', 'AboutSectionController@store')->name('admin/about-section/store');
+        Route::get('about-section/edit/{id?}', 'AboutSectionController@edit')->name('admin/about-section/edit');
+        Route::post('about-section/edit/{id}', 'AboutSectionController@update')->name('admin/about-section/update');
+        Route::get('about-section/activate', 'AboutSectionController@activate')->name('admin/about-section/activate');
+        Route::get('about-section/delete', 'AboutSectionController@delete')->name('admin/about-section/delete');
+        Route::post('about-section/getMore', 'AboutSectionController@getMore')->name('admin/about-section/getMore');
+        Route::post('about-section/search', 'AboutSectionController@search')->name('admin/about-section/search');
+
+        // contact-us routes 
+        Route::get('contact-us/index', 'ContactUsController@index')->name('admin/contact-us/index');
+        Route::post('contact-us/getMore', 'ContactUsController@getMore')->name('admin/contact-us/getMore');
+        Route::post('contact-us/search', 'ContactUsController@search')->name('admin/contact-us/search');
+
     });
 
 });

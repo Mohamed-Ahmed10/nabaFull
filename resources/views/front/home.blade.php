@@ -71,66 +71,21 @@
 	<div class="list-section pt-80 pb-80">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-					<div class="list-box m-4 d-flex align-items-center">
-						<div class="list-icon">
-							<i class="fas fa-binoculars"></i>
+				@isset($about_section)
+					@foreach($about_section as $about)
+						<div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+							<div class="list-box m-4 d-flex align-items-center">
+								<div class="list-icon">
+									<!-- <i class="fas fa-binoculars"></i> -->
+									<img src="{{asset($about->image)}}" width="65" alt="">
+								</div>
+								<div class="content">
+									<h3>{{$about->title}}</h3>
+								</div>
+							</div>
 						</div>
-						<div class="content">
-							<h3>integrated vision</h3>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-					<div class="list-box m-4 d-flex align-items-center">
-						<div class="list-icon">
-							<i class="fas fa-phone-volume"></i>
-						</div>
-						<div class="content">
-							<h3>24/7 Support</h3>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="list-box m-4 d-flex justify-content-start align-items-center">
-						<div class="list-icon">
-							<i class="fas fa-sync"></i>
-						</div>
-						<div class="content">
-							<h3>use the latest technology</h3>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="list-box m-4 d-flex justify-content-start align-items-center">
-						<div class="list-icon">
-							<i class="fas fa-headset"></i>
-						</div>
-						<div class="content">
-							<h3>Technical support team </h3>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="list-box m-4 d-flex justify-content-start align-items-center">
-						<div class="list-icon">
-							<i class="fas fa-phone-volume"></i>
-						</div>
-						<div class="content">
-							<h3>Quick response</h3>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6">
-					<div class="list-box m-4 d-flex justify-content-start align-items-center">
-						<div class="list-icon">
-							<i class="fas fa-building"></i>
-						</div>
-						<div class="content">
-							<h3>Our branches are the closest to you</h3>
-						</div>
-					</div>
-				</div>
+					@endforeach
+				@endisset
 			</div>
 
 		</div>
@@ -149,57 +104,20 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-lg-4 col-md-6 text-center">
-					<div class="single-product-item">
-						<div class="product-image">
-							<a href="single-product.html"><img src="{{asset('front/assets/img/products/construction.jpeg')}}"
-									alt="construction"></a>
+				@isset($products)
+					@foreach($products as $product)
+						<div class="col-lg-4 col-md-6 text-center">
+							<div class="single-product-item">
+								<div class="product-image">
+									<a href="{{route('front/product', $product->id)}}"><img src="{{asset($product->image)}}" alt="construction"></a>
+								</div>
+								<h3>{{$product->title}}</h3>
+								<p class="product-price"><span>{{$product->description}}</span> </p>
+								<a href="{{route('front/product', $product->id)}}" class="cart-btn"> Show more</a>
+							</div>
 						</div>
-						<h3>construction</h3>
-						<p class="product-price"><span>What Happens When you Grow From 10 to 1000 Projects? Old Method
-								Doesn’t Really Work As you
-								Start to Grow & Need to Start Getting More Organized. You need to Know Exactly Where
-								your
-								Money are Going. The Professional ERP Construction System Gives you Complete Visibility
-								to
-								Track your Time and Costs. </span> </p>
-						<a href="single-product.html" class="cart-btn"> Show more</a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 text-center">
-					<div class="single-product-item">
-						<div class="product-image">
-							<a href="single-product.html"><img src="{{asset('front/assets/img/products/estate_investment.jpeg')}}"
-									alt="estate_investment"></a>
-						</div>
-						<h3>estate investment</h3>
-						<p class="product-price"><span>What Happens When you Grow From 10 to 1000 Projects? Old Method
-								Doesn’t Really Work As you
-								Start to Grow & Need to Start Getting More Organized. You need to Know Exactly Where
-								your
-								Money are Going. The Professional ERP Construction System Gives you Complete Visibility
-								to
-								Track your Time and Costs. </span> </p>
-						<a href="single-product.html" class="cart-btn"> Show more</a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 text-center">
-					<div class="single-product-item">
-						<div class="product-image">
-							<a href="single-product.html"><img src="{{asset('front/assets/img/products/production_and_factories.jpeg')}}"
-									alt="production_and_factories"></a>
-						</div>
-						<h3>production and factories</h3>
-						<p class="product-price"><span>What Happens When you Grow From 10 to 1000 Projects? Old Method
-								Doesn’t Really Work As you
-								Start to Grow & Need to Start Getting More Organized. You need to Know Exactly Where
-								your
-								Money are Going. The Professional ERP Construction System Gives you Complete Visibility
-								to
-								Track your Time and Costs. </span> </p>
-						<a href="single-product.html" class="cart-btn"> Show more</a>
-					</div>
-				</div>
+					@endforeach
+				@endisset
 			</div>
 		</div>
 	</div>
@@ -208,23 +126,24 @@
 	<!-- advertisement section -->
 	<div class="abt-section pt-5">
 		<div class="container">
-			<div class="row">
-				<div class="col-lg-6 col-md-12">
-					<div class="abt-bg">
-						<a href="https://www.youtube.com/watch?v=EuPDCOxuXjA" class="video-play-btn popup-youtube"><i
-								class="fas fa-play"></i></a>
+			@isset($setting)
+				<div class="row">
+					<div class="col-lg-6 col-md-12">
+						<div class="abt-bg">
+							<a href="{{$setting->video_link}}" class="video-play-btn popup-youtube"><i
+									class="fas fa-play"></i></a>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-12">
+						<div class="abt-text">
+							<p class="top-sub">Since Year 2000</p>
+							<h2>We are <span class="orange-text">{{$setting->title}}</span></h2>
+							<p>{{$setting->second_title}}</p>
+							<a href="about.html" class="boxed-btn mt-4">know more</a>
+						</div>
 					</div>
 				</div>
-				<div class="col-lg-6 col-md-12">
-					<div class="abt-text">
-						<p class="top-sub">Since Year 2000</p>
-						<h2>We are <span class="orange-text">Naba</span></h2>
-						<p>NABA was established in 2000. We provides information systems, technical support, research,
-							hardware, systematic and network</p>
-						<a href="about.html" class="boxed-btn mt-4">know more</a>
-					</div>
-				</div>
-			</div>
+			@endisset
 		</div>
 	</div>
 	<!-- cart banner section -->
@@ -239,11 +158,11 @@
 					</div>
 					<div id="form_status"></div>
 					<div class="contact-form">
-						<form type="POST" id="fruitkha-contact">
+						<form role="form" action="{{url(route('front/contact-us'))}}" method="post">
+							@csrf
 							<div class="m-3">
 								<input type="text" placeholder="Name" name="name" id="name" required>
-								<input type="text" placeholder="Company name" name="company_name" id="company_name"
-									required>
+								<input type="text" placeholder="Company name" name="company_name" id="company_name"	required>
 								<input type="email" placeholder="Email" name="email" id="email" required>
 							</div>
 							<div class="m-3">
@@ -266,13 +185,12 @@
 									<option value="Syrian">Syrian</option>
 									<option value="Palestine">Palestine</option>
 									<option value="Lebanon">Lebanon</option>
-									<option value="Other - Record the international phone number">Other - Record the
-										international phone number</option>
+									<option value="Other - Record the international phone number">Other - Record the international phone number</option>
 								</select>
 								<input type="tel" placeholder="Mobile number" name="phone" id="phone" required>
 							</div>
 							<div class="m-3">
-								<textarea name="" id="" cols="30" rows="10" placeholder="Enter your message"></textarea>
+								<textarea name="notes" id="" cols="30" rows="10" placeholder="Enter your message"></textarea>
 							</div>
 							<div class="m-3">
 								<input type="submit" value="Submit">
