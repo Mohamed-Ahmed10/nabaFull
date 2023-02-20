@@ -78,6 +78,20 @@
                                 </div>
                                 <div class="form-group input-group">
                                     <span class="input-group-addon" style="color: red;">*</span>
+                                    <input name="days" type="text" class="form-control" placeholder="Days" value="{{ old('days') }}">
+                                    @error('days')
+                                        <span class="text-danger">{{$message}}</span>
+                                    @enderror
+                                </div>
+                                <div class="form-group input-group">
+                                    <span class="input-group-addon" style="color: red;">*</span>
+                                    <input name="time_started" type="text" class="form-control" placeholder="Time Started" value="{{ old('time_started') }}">
+                                    @error('time_started')
+                                        <span class="text-danger">{{$message}}</span>
+                                    @enderror
+                                </div>
+                                <div class="form-group input-group">
+                                    <span class="input-group-addon" style="color: red;">*</span>
                                     <input name="cost" type="number" class="form-control" placeholder="Cost" value="{{ old('cost') }}">
                                     @error('cost')
                                         <span class="text-danger">{{$message}}</span>

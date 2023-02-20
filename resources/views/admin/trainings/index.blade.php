@@ -41,6 +41,8 @@
                                     <th>Image</th>
                                     <th>Name</th>
                                     <th>Cost</th>
+                                    <th>Start Time</th>
+                                    <th>Days</th>
                                     <th>Activation</th>
                                     <th>Actions</th>
                                 </tr>
@@ -57,6 +59,8 @@
                                             </td>
                                             <td>{{ $training->name }}</td>
                                             <td>{{ $training->cost }}</td>
+                                            <td>{{ $training->time_started }}</td>
+                                            <td>{{ $training->days }}</td>
                                             <?php 
                                                 if($training->is_activate == 1){$activate = '<span class="badge badge-info">active</span>';}
                                                 else{$activate = '<span class="badge badge-danger">un active</span>';} 
@@ -206,6 +210,8 @@
                                             </td>
                                             <td>${data[i].name}</td>
                                             <td>${data[i].cost}</td>
+                                            <td>${data[i].time_started}</td>
+                                            <td>${data[i].days}</td>
                                             <td>${data[i].is_activate == 1 ? '<span class="badge badge-info">active</span>' : '<span class="badge badge-danger">un active</span>'}</td>
                                             <td>
                                                 <ul class="nav navbar-center navbar-top-links" style="border-radius: 15px;">
@@ -282,6 +288,8 @@
                                     </td>
                                     <td>${data[i].name}</td>
                                     <td>${data[i].cost}</td>
+                                    <td>${data[i].time_started}</td>
+                                    <td>${data[i].days}</td>
                                     <td>${data[i].is_activate == 1 ? '<span class="badge badge-info">active</span>' : '<span class="badge badge-danger">un active</span>'}</td>
                                     <td>
                                         <ul class="nav navbar-center navbar-top-links" style="border-radius: 15px;">

@@ -45,6 +45,8 @@ class TrainingRepository extends AbstractRepository
             $training->instructor = $request->instructor;
             $training->date_from = $request->date_from;
             $training->date_to = $request->date_to;
+            $training->days = $request->days;
+            $training->time_started = $request->time_started;
             $training->is_activate = 1; 
             $training->added_by = auth()->guard('admin')->user()->id;
             if(Session::has('nav_services')) {
@@ -72,6 +74,11 @@ class TrainingRepository extends AbstractRepository
             $validator = validator()->make($request->all(),[
                 'name_ar' => ['required'],
                 'description_ar' => ['required'],
+                'date_from' => ['required'],
+                'date_to' => ['required'],
+                'time_started' => ['required'],
+                'days' => ['required'],
+                'instructor' => ['required'],
             ]);
             if($validator->fails()){
                 flash()->error($validator->errors()->first());
@@ -101,6 +108,8 @@ class TrainingRepository extends AbstractRepository
             $training->instructor = $request->instructor;
             $training->date_from = $request->date_from;
             $training->date_to = $request->date_to;
+            $training->days = $request->days;
+            $training->time_started = $request->time_started;
             $training->edited_by = auth()->guard('admin')->user()->id;
             if(Session::has('nav_services')) {
                 Session::forget("nav_services");

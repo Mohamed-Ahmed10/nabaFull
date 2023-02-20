@@ -12,7 +12,7 @@ class Training extends Model implements TranslatableContract
 
 	protected $table = 'trainings';
 	public $timestamps = true;
-	protected $fillable = array('image', 'instructor', 'date_from', 'date_to', 'cost', 'is_activate');
+	protected $fillable = array('image', 'instructor', 'date_from', 'date_to', 'time_started', 'days', 'cost', 'is_activate');
     protected $translatedAttributes = ['name', 'title', 'description'];
     protected $hidden = ['translations'];
 

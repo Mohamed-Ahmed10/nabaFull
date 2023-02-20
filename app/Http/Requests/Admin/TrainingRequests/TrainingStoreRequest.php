@@ -29,6 +29,8 @@ class TrainingStoreRequest extends FormRequest
             'date_from' => 'required',
             'date_to' => 'required',
             'name_ar' => 'required',
+            'time_started' => 'required',
+            'days' => 'required',
             // 'title_ar' => 'required',
             'description_ar' => 'required',
         ];

@@ -21,17 +21,21 @@
 					<div class="media my-5">
 						<div class="row">
 							<div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
-								<img src="./assets/img/products/construction.jpeg" width="400" class="mr-3"
+								<img src="{{asset($training->image)}}" width="400" class="mr-3"
 									alt="Article image">
 							</div>
 							<div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
 								<div class="media-body">
 									<h2>{{$training->name}}</h2>
                                     <!-- <h3>{{$training->title}}</h3> -->
-									<div class="date"><i class="fas fa-calendar"></i> {{$training->date_from}}</div>
-									<div class="date"><i class="far fa-clock"></i> 12:00 PM</div>
-									<div class="date"><i class="fas fa-hourglass-start"></i></i></i> 4 Days</div>
-									<h6><span class="badge badge-warning">Paid</span> 16 $</h6>
+									<div class="date"><i class="fas fa-calendar"></i> {{$training->date_from}} - {{$training->date_to}}</div>
+									<div class="date"><i class="far fa-clock"></i> {{$training->time_started}}</div>
+									<div class="date"><i class="fas fa-hourglass-start"></i></i></i> {{$training->days}}</div>
+									<?php 
+										if((int)$training->cost > 0){ $cost = '<h6><span class="badge badge-warning">Paid</span> $ '. $training->cost .'</h6>'; }
+										else{ $cost = '<h6><span class="badge badge-success">Free</span></h6>'; }
+									?>
+									{!! $cost !!}
 									<p>{{$training->description}}</p>
 								</div>
 								<button type="button" class="btn btn-outline-secondary mt-2 mb-2" tn
