@@ -33,12 +33,12 @@
                 <div class="panel-body">
                     @isset($article)
                         <form role="form" action="{{url(route('admin/articles/update', $article->id))}}" method="post" enctype="multipart/form-data">
-                            <div class="form-group input-group row">
-                                <div class="m-2 d-flex">
-                                    <img src="{{asset($article->image)}}" alt="" class="img-fluid img-50 rounded-circle blur-up lazyloaded">
+                            <div class="row">
+                                <div class="col-lg-6 text-center">
+                                    <img src="{{asset($article->image)}}" alt="" class="img-fluid img-50 rounded-circle blur-up lazyloaded" width="150">
                                 </div>
-                                <div class="m-2 d-flex">
-                                    <img src="{{asset($article->second_image)}}" alt="" class="img-fluid img-50 rounded-circle blur-up lazyloaded">
+                                <div class="col-lg-6 text-center">
+                                    <img src="{{asset($article->second_image)}}" alt="" class="img-fluid img-50 rounded-circle blur-up lazyloaded" width="150">
                                 </div>
                             </div>
                             <div class="tab-content">

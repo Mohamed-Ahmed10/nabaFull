@@ -56,9 +56,9 @@
                                             <td>{{$product_section->id}}</td>
                                             <td>{{$product_section->title}}</td>
                                             <td>{{$product_section->section_no}}</td>
-                                            <?php 
+                                            <?php
                                                 if($product_section->is_activate == 1){$activate = '<span class="badge badge-info">active</span>';}
-                                                else{$activate = '<span class="badge badge-danger">un active</span>';} 
+                                                else{$activate = '<span class="badge badge-danger">un active</span>';}
                                             ?>
                                             <td class="center">{!! $activate !!}</td>
                                             <td class="center">

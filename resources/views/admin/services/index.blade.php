@@ -51,13 +51,13 @@
                                             <td>{{$service->id}}</td>
                                             <td>
                                                 <div class="ml-2 d-flex">
-                                                    <img src="{{asset($service->image)}}" alt="" class="img-fluid img-50 rounded-circle blur-up lazyloaded">
+                                                    <img src="{{asset($service->image)}}" alt="" class="img-fluid img-50 rounded-circle blur-up lazyloaded" width="100">
                                                 </div>
                                             </td>
                                             <td>{{ $service->title }}</td>
-                                            <?php 
+                                            <?php
                                                 if($service->is_activate == 1){$activate = '<span class="badge badge-info">active</span>';}
-                                                else{$activate = '<span class="badge badge-danger">un active</span>';} 
+                                                else{$activate = '<span class="badge badge-danger">un active</span>';}
                                             ?>
                                             <td class="center">{!! $activate !!}</td>
                                             <td class="center">
@@ -251,7 +251,7 @@
                 }
             });
         });
-        
+
         $(document).on('keyup', '#data_search', function() {
             var query = $(this).val();
             var _token = $('input[name="_token"]').val();

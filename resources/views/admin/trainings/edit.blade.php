@@ -35,7 +35,7 @@
                         <form role="form" action="{{url(route('admin/trainings/update', $training->id))}}" method="post" enctype="multipart/form-data">
                             <div class="form-group input-group">
                                 <div class="m-2 d-flex">
-                                    <img src="{{asset($training->image)}}" alt="" class="img-fluid img-50 rounded-circle blur-up lazyloaded">
+                                    <img src="{{asset($training->image)}}" alt="" class="img-fluid img-50 rounded-circle blur-up lazyloaded" width="100">
                                 </div>
                             </div>
                             <div class="tab-content">
