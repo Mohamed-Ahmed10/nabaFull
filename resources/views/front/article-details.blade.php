@@ -32,7 +32,7 @@
 									btn-outline-secondary mt-2 mb-2" onclick="copyArticleUrl()"> Copy link of article <i
 										class="fas fa-share"></i></button>
 								<a class="fb-xfbml-parse-ignore btn btn-primary" target="_blank"
-									href="https://www.facebook.com/sharer/sharer.php?u=https://YOUR-SITE-HERE.com">Share
+									href="https://www.facebook.com/sharer/sharer.php?u={{url(route('front/article', $article->id))}}">Share
 									with facebook</a>
 								<div class="sidebar-section">
 									<div class="recent-posts">

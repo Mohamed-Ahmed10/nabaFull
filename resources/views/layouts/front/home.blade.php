@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<?php if (App::getLocale() == 'en'){ $lang = "en"; }else{ $lang = "ar"; } ?>
+<html lang="{{$lang}}">
     <head>
         <meta charset="UTF-8" />
         <!--Responsive needs & IE-->
@@ -17,7 +18,7 @@
             content="NABA was established in 2000. We provides information systems, technical support, research, hardware, systematic and network" />
 
         <!-- meta(http-equiv="refresh", content="0; url=index.html")-->
-        <meta name="auther" content="Eng - Mohamed Ahmed" />
+        <meta name="auther" content="NABA" />
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
         <!--Windows phone-->
         <meta content="#" name="msapplication-navbutton-color" />
@@ -83,8 +84,7 @@
         <link rel="stylesheet" href="{{asset('front/assets/css/responsive.css')}}">
 
     </head>
-    <?php if (App::getLocale() == 'en'){ $lang = "en"; }else{ $lang = "ar"; } ?>
-    <body lang="{{$lang}}">
+    <body>
         <!--PreLoader-->
         <div class="loader">
             <div class="loader-inner">

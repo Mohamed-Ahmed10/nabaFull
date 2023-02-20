@@ -103,6 +103,9 @@
 							<p class="text-primary">
 								Watch next video for a quick idea about The Professional® ERP Construction system
 							</p>
+							<a class="fb-xfbml-parse-ignore btn btn-primary" target="_blank"
+									href="https://www.facebook.com/sharer/sharer.php?u={{route('front/product', $product->id)}}">
+									Share with facebook</a>
 					</div>
 				</div>
 			</div>
