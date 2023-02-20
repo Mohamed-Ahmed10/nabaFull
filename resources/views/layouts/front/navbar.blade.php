@@ -19,7 +19,11 @@
 								<li><a href="{{route('front/products')}}">Products</a>
 									<ul class="sub-menu">
 										<li><a href="{{route('front/products')}}">All products</a></li>
-										<?php $nav_products = session()->get('nav_products'); ?>
+										<?php
+											use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+											// $nav_products = session()->get('nav_products');
+											$nav_products = \App\Models\Product::translatedIn(LaravelLocalization::setLocale())->active()->get(); 
+										?>
 										@if(count($nav_products) > 0)
 											@foreach($nav_products as $nav_product)
 												<li><a href="{{route('front/product', $nav_product->id)}}">ElMohtaref for {{$nav_product->title}}</a></li>
@@ -30,7 +34,10 @@
 								<li><a href="{{route('front/articles')}}">Articles </a>
 									<ul class="sub-menu">
 										<li><a href="{{route('front/articles')}}">All articles</a></li>
-										<?php $nav_trainings = session()->get('nav_trainings'); ?>
+										<?php 
+											// $nav_trainings = session()->get('nav_trainings'); 
+											$nav_trainings = \App\Models\Article::translatedIn(LaravelLocalization::setLocale())->active()->get()
+										?>
 										@if(count($nav_trainings) > 0)
 											@foreach($nav_trainings as $nav_article)
 												<li><a href="{{route('front/article', $nav_article->id)}}">{{$nav_article->title}}</a></li>
@@ -41,7 +48,10 @@
 								<li><a href="{{route('front/webinars')}}">Webinars </a>
 									<ul class="sub-menu">
 										<li><a href="{{route('front/webinars')}}">All webinars</a></li>
-										<?php $nav_webinars = session()->get('nav_webinars'); ?>
+										<?php 
+											// $nav_webinars = session()->get('nav_webinars'); 
+											$nav_webinars = \App\Models\Webinar::translatedIn(LaravelLocalization::setLocale())->active()->get(); 
+										?>
 										@if(count($nav_webinars) > 0)
 											@foreach($nav_webinars as $nav_webinar)
 												<li><a href="{{route('front/webinar', $nav_webinar->id)}}">{{$nav_webinar->name}}</a></li>
@@ -52,7 +62,10 @@
 								<li><a href="{{route('front/services')}}">Services</a>
 									<ul class="sub-menu">
 										<li><a href="{{route('front/services')}}">All services</a></li>
-										<?php $nav_services = session()->get('nav_services'); ?>
+										<?php 
+											// $nav_services = session()->get('nav_services'); 
+											$nav_services = \App\Models\Service::translatedIn(LaravelLocalization::setLocale())->active()->get(); 
+										?>
 										@if(count($nav_services) > 0)
 											@foreach($nav_services as $service)
 												<li><a href="{{route('front/service', $service->id)}}">{{$service->title}}</a></li>
@@ -63,7 +76,10 @@
 								<li><a href="{{route('front/trainings')}}">Training </a>
 									<ul class="sub-menu">
 										<li><a href="{{route('front/trainings')}}">All Trainings</a></li>
-										<?php $nav_trainings = session()->get('nav_trainings'); ?>
+										<?php 
+											// $nav_trainings = session()->get('nav_trainings'); 
+											$nav_trainings = \App\Models\Training::translatedIn(LaravelLocalization::setLocale())->active()->get(); 
+										?>
 										@if(count($nav_trainings) > 0)
 											@foreach($nav_trainings as $nav_training)
 												<li><a href="{{route('front/training', $nav_training->id)}}">{{$nav_training->name}}</a></li>
