@@ -660,3 +660,8 @@ table.dataTable thead .sorting:after {
 .breadcrumb_container {
     margin-top: 50px;
 }
+
+
+.breadcrumb {
+    float: right;
+}
