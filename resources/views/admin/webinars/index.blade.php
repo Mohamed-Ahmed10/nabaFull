@@ -53,15 +53,15 @@
                                             <td>{{$webinar->id}}</td>
                                             <td>
                                                 <div class="ml-2 d-flex">
-                                                    <img src="{{asset($webinar->image)}}" alt="" class="img-fluid img-50 rounded-circle blur-up lazyloaded">
+                                                    <img src="{{asset($webinar->image)}}" alt="" class="img-fluid img-50 rounded-circle blur-up lazyloaded" width="100">
                                                 </div>
                                             </td>
                                             <td>{{ $webinar->name }}</td>
                                             <td>{{ $webinar->title }}</td>
                                             <td>{{ $webinar->cost }}</td>
-                                            <?php 
+                                            <?php
                                                 if($webinar->is_activate == 1){$activate = '<span class="badge badge-info">active</span>';}
-                                                else{$activate = '<span class="badge badge-danger">un active</span>';} 
+                                                else{$activate = '<span class="badge badge-danger">un active</span>';}
                                             ?>
                                             <td class="center">{!! $activate !!}</td>
                                             <td class="center">
@@ -255,7 +255,7 @@
                 }
             });
         });
-        
+
         $(document).on('keyup', '#data_search', function() {
             var query = $(this).val();
             var _token = $('input[name="_token"]').val();

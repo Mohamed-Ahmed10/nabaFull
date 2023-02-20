@@ -10,17 +10,27 @@
 @section('content')
 
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-8">
             <h1 class="page-header">Sliders</h1>
         </div>
-        <!-- /.col-lg-12 -->
+        <div class="col-lg-4">
+            <div class="breadcrumb_container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Library</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Data</li>
+                </ol>
+            </nav>
+            </div>
+        </div>        <!-- /.col-lg-12 -->
     </div>
     <!-- /.row -->
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Sliders Viwes
+                    Sliders Views
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
@@ -52,14 +62,14 @@
                                             <td>{{$slider->id}}</td>
                                             <td>
                                                 <div class="ml-2 d-flex">
-                                                    <img src="{{asset($slider->image)}}" alt="" class="img-fluid img-50 rounded-circle blur-up lazyloaded">
+                                                    <img src="{{asset($slider->image)}}" alt="" class="img-fluid img-50 rounded-circle blur-up lazyloaded" width="100">
                                                 </div>
                                             </td>
                                             <td>{{$slider->title}}</td>
                                             <td>{{$slider->link}}</td>
-                                            <?php 
+                                            <?php
                                                 if($slider->is_activate == 1){$activate = '<span class="badge badge-info">active</span>';}
-                                                else{$activate = '<span class="badge badge-danger">un active</span>';} 
+                                                else{$activate = '<span class="badge badge-danger">un active</span>';}
                                             ?>
                                             <td class="center">{!! $activate !!}</td>
                                             <td class="center">
@@ -254,7 +264,7 @@
                 }
             });
         });
-        
+
         $(document).on('keyup', '#data_search', function() {
             var query = $(this).val();
             var _token = $('input[name="_token"]').val();

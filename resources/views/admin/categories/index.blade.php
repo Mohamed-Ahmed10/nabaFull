@@ -49,9 +49,9 @@
                                         <tr class="odd gradeX">
                                             <td>{{$category->id}}</td>
                                             <td>{{$category->name}}</td>
-                                            <?php 
+                                            <?php
                                                 if($category->is_activate == 1){$activate = '<span class="badge badge-info">active</span>';}
-                                                else{$activate = '<span class="badge badge-danger">un active</span>';} 
+                                                else{$activate = '<span class="badge badge-danger">un active</span>';}
                                             ?>
                                             <td class="center">{!! $activate !!}</td>
                                             <td class="center">
@@ -239,7 +239,7 @@
                 }
             });
         });
-        
+
         $(document).on('keyup', '#data_search', function() {
             var query = $(this).val();
             var _token = $('input[name="_token"]').val();
