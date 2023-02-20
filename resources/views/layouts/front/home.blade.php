@@ -83,7 +83,8 @@
         <link rel="stylesheet" href="{{asset('front/assets/css/responsive.css')}}">
 
     </head>
-    <body>
+    <?php if (App::getLocale() == 'en'){ $lang = "en"; }else{ $lang = "ar"; } ?>
+    <body lang="{{$lang}}">
         <!--PreLoader-->
         <div class="loader">
             <div class="loader-inner">
