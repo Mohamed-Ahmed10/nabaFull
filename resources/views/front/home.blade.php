@@ -13,57 +13,28 @@
     <div class="homepage-slider">
         <!-- Amr needs -->
 		<!-- single home slider -->
-		<div class="single-homepage-slider homepage-bg-1"  style="background-image: url({{asset('front/assets/img/products/construction.jpeg')}})">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12 col-lg-7 offset-lg-1 offset-xl-0">
-						<div class="hero-text">
-							<div class="hero-text-tablecell">
-								<p class="subtitle">Fresh & Organic</p>
-								<h1>Delicious Seasonal Fruits</h1>
-								<div class="hero-btns">
-									<a href="contact.html" class="boxed-btn">Contact Us</a>
+
+		@isset($sliders)
+			@foreach($sliders as $slider)
+				<div class="single-homepage-slider homepage-bg-1"  style="background-image: url({{asset($slider->image)}})">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12 col-lg-7 offset-lg-1 offset-xl-0">
+								<div class="hero-text">
+									<div class="hero-text-tablecell">
+										<p class="subtitle">{{$slider->title}}</p>
+										<h1>{{$slider->description}}</h1>
+										<div class="hero-btns">
+											<a href="{{$slider->link}}" class="boxed-btn">Contact Us</a>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-        <div class="single-homepage-slider homepage-bg-1" style="background-image: url({{asset('front/assets/img/products/estate_investment.jpeg')}})">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12 col-lg-7 offset-lg-1 offset-xl-0">
-						<div class="hero-text">
-							<div class="hero-text-tablecell">
-								<p class="subtitle">Fresh & Organic</p>
-								<h1>Delicious Seasonal Fruits</h1>
-								<div class="hero-btns">
-									<a href="contact.html" class="boxed-btn">Contact Us</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-        <div class="single-homepage-slider homepage-bg-1" style="background-image: url({{asset('front/assets/img/products/production_and_factories.jpeg')}})">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12 col-lg-7 offset-lg-1 offset-xl-0">
-						<div class="hero-text">
-							<div class="hero-text-tablecell">
-								<p class="subtitle">Fresh & Organic</p>
-								<h1>Delicious Seasonal Fruits</h1>
-								<div class="hero-btns">
-									<a href="contact.html" class="boxed-btn">Contact Us</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+			@endforeach
+		@endisset
 
 	</div>
 	<!-- end home page slider -->

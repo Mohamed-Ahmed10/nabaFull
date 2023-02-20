@@ -18,6 +18,18 @@ class AuthController extends Controller
     public function check_login(AdminLoginRequest $request){
         try{
 
+            $rules = [
+                'g-recaptcha-response' => 'required|captcha',
+            ];
+            $messages = [
+                'g-recaptcha-response.required' => __('Google reCaptcha is required field'),
+                'g-recaptcha-response.captcha' => __('Google reCaptcha Must Be Captcha field'),
+            ];
+            $validatorCaptcha = validator()->make($request->all(), $rules, $messages);
+            if ($validatorCaptcha->fails()) {
+                flash()->error($validatorCaptcha->errors()->first());
+                return back();
+            }
             // validation
             $admin = Admin::where('email', strtolower(trim($request->email)))->first();
             if($admin){

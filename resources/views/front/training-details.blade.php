@@ -12,8 +12,8 @@
 
 
 	@isset($training)
-		@include('flash::message')
-		<!-- single article section -->
+
+	<!-- single article section -->
 		<div class="mt-150 mb-50">
 		<div class="container">
 			<div class="row">
@@ -28,7 +28,7 @@
 								<div class="media-body">
 									<h2>{{$training->name}}</h2>
                                     <!-- <h3>{{$training->title}}</h3> -->
-									<div class="date"><i class="fas fa-calendar"></i> 30 - 12 - 2023</div>
+									<div class="date"><i class="fas fa-calendar"></i> {{$training->date_from}}</div>
 									<div class="date"><i class="far fa-clock"></i> 12:00 PM</div>
 									<div class="date"><i class="fas fa-hourglass-start"></i></i></i> 4 Days</div>
 									<h6><span class="badge badge-warning">Paid</span> 16 $</h6>
@@ -50,6 +50,7 @@
 		<hr>
 	@endisset
 
+	@include('flash::message')
 	<!-- contact form -->
 	@include('front.comm.contact_us')
 	<!-- end contact form -->

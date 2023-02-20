@@ -24,6 +24,18 @@ class ContactUsController extends Controller
                 flash()->error($validator->errors()->first());
                 return back();
             }
+            $rules = [
+                'g-recaptcha-response' => 'required|captcha',
+            ];
+            $messages = [
+                'g-recaptcha-response.required' => __('Google reCaptcha is required field'),
+                'g-recaptcha-response.captcha' => __('Google reCaptcha Must Be Captcha field'),
+            ];
+            $validatorCaptcha = validator()->make($request->all(), $rules, $messages);
+            if ($validatorCaptcha->fails()) {
+                flash()->error($validatorCaptcha->errors()->first());
+                return back();
+            }
             $contact = new ContactUs();
             $contact->name = strtolower(trim($request->name));
             $contact->company_name = strtolower(trim($request->company_name));

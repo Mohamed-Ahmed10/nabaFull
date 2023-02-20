@@ -32,7 +32,7 @@
 				</div>
 			</div>
 		</div>
-		@include('flash::message')
+
 		<!-- single article section -->
 		<div class="pt-5 pb-5 text-center product-section">
 			<div class="container">
@@ -108,6 +108,8 @@
 			</div>
 		</section>
 		<hr>
+
+		@include('flash::message')
 		<!-- contact form -->
 		@include('front.comm.contact_us')
 		<!-- end contact form -->

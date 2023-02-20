@@ -166,6 +166,8 @@ return [
          * Package Service Providers...
          */
         Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider::class,
+        Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
@@ -231,6 +233,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'LaravelLocalization' => Mcamara\LaravelLocalization\Facades\LaravelLocalization::class,
+        'NoCaptcha' => Anhskohbo\NoCaptcha\Facades\NoCaptcha::class,
     ],
 
 ];

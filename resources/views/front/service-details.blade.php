@@ -13,10 +13,6 @@
 
 	@isset($service)
 
-
-
-		@include('flash::message')
-
 	<div class="mt-150 mb-50">
 		<div class="container">
 			<div class="row">
@@ -46,10 +42,11 @@
 			</div>
 		</div>
 	</div>
-		<hr>
+	<hr>
 
 	@endisset
 
+	@include('flash::message')
 	<!-- contact form -->
 	@include('front.comm.contact_us')
 	<!-- end contact form -->

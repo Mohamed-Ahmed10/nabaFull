@@ -59,7 +59,11 @@
                             @error('notes')
                                 <span class="text-danger">{{$message}}</span>
                             @enderror
-                        </div>
+                        </div> 
+                        <div class="m-3">
+                            {!! NoCaptcha::renderJs() !!}
+                            {!! NoCaptcha::display() !!}
+                        </div> 
                         <div class="m-3">
                             <input type="submit" value="Submit">
                         </div>
