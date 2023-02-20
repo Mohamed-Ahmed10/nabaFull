@@ -9,7 +9,10 @@
 
 @endsection
 @section('content')
-
+<div class="vat">
+		<img src="{{asset('front/assets/img/1.png')}}" alt="Vat" height="100">
+		<img src="{{asset('front/assets/img/vat-21.png')}}"  alt="Vat" height="100">
+	</div>
 	@isset($product)
 		<!-- breadcrumb-section -->
 		<div class="breadcrumb-section">
@@ -19,7 +22,8 @@
 				<div class="row">
 					<div class="col-lg-8 offset-lg-2 text-center">
 						<div class="breadcrumb-text">
-							<span>{{$product->title}}®</span>
+                            <!-- Amr needs  -->
+							<span style="color:#F00">{{$product->title}}®</span>
 							<h1>{{$product->second_title}}</h1>
 							<p>{{$product->description}}</p>
 							<a href="#join" class="btn btn-primary btn-lg">Join us</a>

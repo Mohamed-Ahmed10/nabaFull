@@ -11,8 +11,9 @@
 
     <!-- home page slider -->
     <div class="homepage-slider">
+        <!-- Amr needs -->
 		<!-- single home slider -->
-		<div class="single-homepage-slider homepage-bg-1">
+		<div class="single-homepage-slider homepage-bg-1"  style="background-image: url({{asset('front/assets/img/products/construction.jpeg')}})">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12 col-lg-7 offset-lg-1 offset-xl-0">
@@ -29,7 +30,7 @@
 				</div>
 			</div>
 		</div>
-        <div class="single-homepage-slider homepage-bg-1">
+        <div class="single-homepage-slider homepage-bg-1" style="background-image: url({{asset('front/assets/img/products/estate_investment.jpeg')}})">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12 col-lg-7 offset-lg-1 offset-xl-0">
@@ -46,7 +47,7 @@
 				</div>
 			</div>
 		</div>
-        <div class="single-homepage-slider homepage-bg-1">
+        <div class="single-homepage-slider homepage-bg-1" style="background-image: url({{asset('front/assets/img/products/production_and_factories.jpeg')}})">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12 col-lg-7 offset-lg-1 offset-xl-0">
