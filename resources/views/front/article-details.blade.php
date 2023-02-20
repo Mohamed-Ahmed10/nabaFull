@@ -14,6 +14,7 @@
     <div class="mt-150 mb-80">
         <div class="container">
             <div class="row">
+            @isset($article)
                 <div class="col-lg-12">
                     <div class="media my-5">
                         <div class="row">
