@@ -23,33 +23,8 @@
 							</div>
 							<div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
 								<div class="media-body">
-									<h2 class="mt-0">Article title</h2>
-									<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut, laboriosam repellat
-										fugiat eos error nostrum a sint eaque, eum voluptas quidem! Exercitationem animi
-										voluptatem cumque perferendis deserunt cum, ipsam modi. Lorem ipsum dolor sit,
-										amet consectetur adipisicing elit. Doloremque ad non ea qui, error rem unde
-										maxime molestias vitae et perferendis at asperiores, voluptatum quod
-										exercitationem labore sint iste repellendus. Lorem ipsum, dolor sit amet
-										consectetur adipisicing elit. Ut, laboriosam repellat
-										fugiat eos error nostrum a sint eaque, eum voluptas quidem! Exercitationem animi
-										voluptatem cumque perferendis deserunt cum, ipsam modi. Lorem ipsum dolor sit,
-										amet consectetur adipisicing elit. Doloremque ad non ea qui, error rem unde
-										maxime molestias vitae et perferendis at asperiores, voluptatum quod
-										exercitationem labore sint iste repellendus.
-										Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut, laboriosam
-										repellat
-										fugiat eos error nostrum a sint eaque, eum voluptas quidem! Exercitationem animi
-										voluptatem cumque perferendis deserunt cum, ipsam modi. Lorem ipsum dolor sit,
-										amet consectetur adipisicing elit. Doloremque ad non ea qui, error rem unde
-										maxime molestias vitae et perferendis at asperiores, voluptatum quod
-										exercitationem labore sint iste repellendus.
-										Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut, laboriosam
-										repellat
-										fugiat eos error nostrum a sint eaque, eum voluptas quidem! Exercitationem animi
-										voluptatem cumque perferendis deserunt cum, ipsam modi. Lorem ipsum dolor sit,
-										amet consectetur adipisicing elit. Doloremque ad non ea qui, error rem unde
-										maxime molestias vitae et perferendis at asperiores, voluptatum quod
-										exercitationem labore sint iste repellendus.</p>
+									<h2 class="mt-0">{{$article->title}}</h2>
+									<p>{{$article->description}}</p>
 									<img src="{{asset('front/assets/img/products/estate_investment.jpeg')}}" class="mr-3" alt="Article image">
 								</div>
 								<button type="button" class="btn btn-outline-secondary mt-2 mb-2" tn
