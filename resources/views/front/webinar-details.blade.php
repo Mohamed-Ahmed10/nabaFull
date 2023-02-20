@@ -12,45 +12,67 @@
 
 
 	@isset($webinar)
-		<!-- breadcrumb-section -->
-		<div class="breadcrumb-section breadcrumb-bg">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-8 offset-lg-2 text-center">
-						<div class="breadcrumb-text">
-							<h1>{{$webinar->name}}</h1>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- end breadcrumb section -->
+
 
 		@include('flash::message')
 		<!-- single article section -->
-		<div class="mt-100 mb-50">
-			<div class="container">
-				<div class="row">
-					<div class="col">
-						<div class="single-article-section">
-							<div class="single-article-text">
-								<div class="single-artcile-bg"></div>
-								<h2>{{$webinar->title}}</h2>
-								<div class="date"><i class="fas fa-calendar"></i> {{$webinar->date}}</div>
-								<div class="date"><i class="far fa-clock"></i> {{$webinar->time_started}}</div>
-								<div class="date"><i class="fas fa-stopwatch"></i></i> {{$webinar->hours}}</div>
-								<?php
-									if((int)$webinar->cost > 0){ $cost = '<h6><span class="badge badge-warning">Paid</span> $ '. $webinar->cost .'</h6>'; }
-									else{ $cost = '<h6><span class="badge badge-success">Free</span></h6>'; }
-								?>
-								{!! $cost !!}
-								<p>{{$webinar->description}}</p>
+        <div class="mt-150 mb-50">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="media my-5">
+						<div class="row">
+							<div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+								<img src="{{asset('front/assets/img/products/estate_investment.jpeg')}}" width="400" class="mr-3"
+									alt="Article image">
+							</div>
+							<div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
+								<div class="media-body">
+									<h2>{{$webinar->name}}</h2>
+									<div class="date"><i class="fas fa-calendar"></i> 30 - 12 - 2023</div>
+									<div class="date"><i class="far fa-clock"></i> 12:00 PM</div>
+									<div class="date"><i class="fas fa-stopwatch"></i></i></i> 4 Days</div>
+									<h6><span class="badge badge-warning">Paid</span> 16 $</h6>
+									<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut, laboriosam repellat
+										fugiat eos error nostrum a sint eaque, eum voluptas quidem! Exercitationem animi
+										voluptatem cumque perferendis deserunt cum, ipsam modi. Lorem ipsum dolor sit,
+										amet consectetur adipisicing elit. Doloremque ad non ea qui, error rem unde
+										maxime molestias vitae et perferendis at asperiores, voluptatum quod
+										exercitationem labore sint iste repellendus. Lorem ipsum, dolor sit amet
+										consectetur adipisicing elit. Ut, laboriosam repellat
+										fugiat eos error nostrum a sint eaque, eum voluptas quidem! Exercitationem animi
+										voluptatem cumque perferendis deserunt cum, ipsam modi. Lorem ipsum dolor sit,
+										amet consectetur adipisicing elit. Doloremque ad non ea qui, error rem unde
+										maxime molestias vitae et perferendis at asperiores, voluptatum quod
+										exercitationem labore sint iste repellendus.
+										Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut, laboriosam
+										repellat
+										fugiat eos error nostrum a sint eaque, eum voluptas quidem! Exercitationem animi
+										voluptatem cumque perferendis deserunt cum, ipsam modi. Lorem ipsum dolor sit,
+										amet consectetur adipisicing elit. Doloremque ad non ea qui, error rem unde
+										maxime molestias vitae et perferendis at asperiores, voluptatum quod
+										exercitationem labore sint iste repellendus.
+										Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ut, laboriosam
+										repellat
+										fugiat eos error nostrum a sint eaque, eum voluptas quidem! Exercitationem animi
+										voluptatem cumque perferendis deserunt cum, ipsam modi. Lorem ipsum dolor sit,
+										amet consectetur adipisicing elit. Doloremque ad non ea qui, error rem unde
+										maxime molestias vitae et perferendis at asperiores, voluptatum quod
+										exercitationem labore sint iste repellendus.</p>
+								</div>
+								<button type="button" class="btn btn-outline-secondary mt-2 mb-2" tn
+									btn-outline-secondary mt-2 mb-2" onclick="copyArticleUrl()">Copy link of webinar <i
+										class="fas fa-share"></i></button>
+								<a class="fb-xfbml-parse-ignore btn btn-primary" target="_blank"
+									href="https://www.facebook.com/sharer/sharer.php?u=https://YOUR-SITE-HERE.com">Share
+									with facebook</a>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 		<!-- end single article section -->
 		<hr>
 	@endisset

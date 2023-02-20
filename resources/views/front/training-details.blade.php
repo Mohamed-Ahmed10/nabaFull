@@ -12,54 +12,41 @@
 
 
 	@isset($training)
-
-	<!-- breadcrumb-section -->
-		<div class="breadcrumb-section breadcrumb-bg">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-8 offset-lg-2 text-center">
-						<div class="breadcrumb-text">
-							<p>Read the Details</p>
-							<h1>{{$training->name}}</h1>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- end breadcrumb section -->
-
 		@include('flash::message')
 		<!-- single article section -->
-		<div class="mt-100 mb-50">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-8">
-						<div class="single-article-section">
-							<div class="single-article-text">
-								<div class="single-artcile-bg"></div>
-								<h2>{{$training->title}}</h2>
-								<p>{{$training->description}}</p>
+		<div class="mt-150 mb-50">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="media my-5">
+						<div class="row">
+							<div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+								<img src="./assets/img/products/construction.jpeg" width="400" class="mr-3"
+									alt="Article image">
 							</div>
-						</div>
-					</div>
-					<div class="col-lg-4">
-						<div class="sidebar-section">
-							<div class="recent-posts">
-								<h4>Recent Posts</h4>
-								<ul>
-									<li><a href="#">You will vainly look for fruit on it in autumn.</a></li>
-									<li><a href="#">A man's worth has its season, like tomato.</a></li>
-									<li><a href="#">Good thoughts bear good fresh juicy fruit.</a></li>
-									<li><a href="#">Fall in love with the fresh orange</a></li>
-									<li><a href="#">Why the berries always look delecious</a></li>
-								</ul>
+							<div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
+								<div class="media-body">
+									<h2>{{$training->name}}</h2>
+                                    <!-- <h3>{{$training->title}}</h3> -->
+									<div class="date"><i class="fas fa-calendar"></i> 30 - 12 - 2023</div>
+									<div class="date"><i class="far fa-clock"></i> 12:00 PM</div>
+									<div class="date"><i class="fas fa-hourglass-start"></i></i></i> 4 Days</div>
+									<h6><span class="badge badge-warning">Paid</span> 16 $</h6>
+									<p>{{$training->description}}</p>
+								</div>
+								<button type="button" class="btn btn-outline-secondary mt-2 mb-2" tn
+									btn-outline-secondary mt-2 mb-2" onclick="copyArticleUrl()"> Copy link of training
+									<i class="fas fa-share"></i></button>
+								<a class="fb-xfbml-parse-ignore btn btn-primary" target="_blank"
+									href="https://www.facebook.com/sharer/sharer.php?u=https://YOUR-SITE-HERE.com">Share
+									with facebook</a>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<!-- end single article section -->
+	</div>
 		<hr>
 	@endisset
 

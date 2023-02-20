@@ -10,18 +10,18 @@
             responsive: {
                 0: {
                     items: 1,
-                    nav: false
+                    nav: false,
                 },
                 600: {
                     items: 1,
-                    nav: false
+                    nav: false,
                 },
                 1000: {
                     items: 1,
                     nav: false,
-                    loop: true
-                }
-            }
+                    loop: true,
+                },
+            },
         });
 
         // homepage slider
@@ -33,25 +33,25 @@
             dots: false,
             navText: [
                 '<i class="fas fa-angle-left"></i>',
-                '<i class="fas fa-angle-right"></i>'
+                '<i class="fas fa-angle-right"></i>',
             ],
             responsive: {
                 0: {
                     items: 1,
                     nav: false,
-                    loop: true
+                    loop: true,
                 },
                 600: {
                     items: 1,
                     nav: true,
-                    loop: true
+                    loop: true,
                 },
                 1000: {
                     items: 1,
                     nav: true,
-                    loop: true
-                }
-            }
+                    loop: true,
+                },
+            },
         });
 
         // logo carousel
@@ -63,18 +63,18 @@
             responsive: {
                 0: {
                     items: 1,
-                    nav: false
+                    nav: false,
                 },
                 600: {
                     items: 3,
-                    nav: false
+                    nav: false,
                 },
                 1000: {
                     items: 4,
                     nav: false,
-                    loop: true
-                }
-            }
+                    loop: true,
+                },
+            },
         });
 
         // count down
@@ -104,7 +104,7 @@
             var selector = $(this).attr("data-filter");
 
             $(".product-lists").isotope({
-                filter: selector
+                filter: selector,
             });
         });
 
@@ -118,7 +118,7 @@
             mainClass: "mfp-fade",
             removalDelay: 160,
             preloader: false,
-            fixedContentPos: false
+            fixedContentPos: false,
         });
 
         // light box
@@ -127,44 +127,44 @@
             closeOnContentClick: true,
             mainClass: "mfp-img-mobile",
             image: {
-                verticalFit: true
-            }
+                verticalFit: true,
+            },
         });
 
         // homepage slides animations
         $(".homepage-slider").on("translate.owl.carousel", function () {
             $(".hero-text-tablecell .subtitle")
                 .removeClass("animated fadeInUp")
-                .css({opacity: "0"});
+                .css({ opacity: "0" });
             $(".hero-text-tablecell h1")
                 .removeClass("animated fadeInUp")
-                .css({opacity: "0", "animation-delay": "0.3s"});
+                .css({ opacity: "0", "animation-delay": "0.3s" });
             $(".hero-btns")
                 .removeClass("animated fadeInUp")
-                .css({opacity: "0", "animation-delay": "0.5s"});
+                .css({ opacity: "0", "animation-delay": "0.5s" });
         });
 
         $(".homepage-slider").on("translated.owl.carousel", function () {
             $(".hero-text-tablecell .subtitle")
                 .addClass("animated fadeInUp")
-                .css({opacity: "0"});
+                .css({ opacity: "0" });
             $(".hero-text-tablecell h1")
                 .addClass("animated fadeInUp")
-                .css({opacity: "0", "animation-delay": "0.3s"});
+                .css({ opacity: "0", "animation-delay": "0.3s" });
             $(".hero-btns")
                 .addClass("animated fadeInUp")
-                .css({opacity: "0", "animation-delay": "0.5s"});
+                .css({ opacity: "0", "animation-delay": "0.5s" });
         });
 
         // stikcy js
         $("#sticker").sticky({
-            topSpacing: 0
+            topSpacing: 0,
         });
 
         //mean menu
         $(".main-menu").meanmenu({
             meanMenuContainer: ".mobile-menu",
-            meanScreenWidth: "992"
+            meanScreenWidth: "992",
         });
 
         // search form
@@ -183,8 +183,10 @@
 })(jQuery);
 function copyArticleUrl() {
     // Copy the text inside the text field
-    navigator.clipboard.writeText(window.location.href);
+    var pageLink = navigator.clipboard.writeText(window.location.href);
 
     // Alert the copied text
     alert("Copied the text: " + window.location.href);
+
+    return pageLink;
 }

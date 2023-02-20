@@ -13,57 +13,39 @@
 
 	@isset($service)
 
-		<!-- breadcrumb-section -->
-		<div class="breadcrumb-section breadcrumb-bg">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-8 offset-lg-2 text-center">
-						<div class="breadcrumb-text">
-							<h1>{{$service->title}}</h1>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- end breadcrumb section -->
+
 
 		@include('flash::message')
-		<div class="mt-50 mb-80">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="media my-5">
-							<div class="row">
-								<div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
-									<img src="{{asset($service->image)}}" width="400" class="mr-3"
-										alt="Article image">
-								</div>
-								<div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
-									<div class="media-body">
-										<h5 class="mt-0">{{$service->title}}</h5>
-										<p>{{$service->description}}</p>
-									</div>
-								</div>
+
+	<div class="mt-150 mb-50">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="media my-5">
+						<div class="row">
+							<div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+								<img src="{{asset($service->image)}}" width="400" class="mr-3"
+									alt="Article image">
 							</div>
-						</div>
-					</div>
-					<div class="col-lg-4">
-						<div class="sidebar-section">
-							<div class="recent-posts">
-								<h4>Other services</h4>
-								<ul>
-									<li><a href="#">Service link</a></li>
-									<li><a href="#">Service link </a></li>
-									<li><a href="#">Service link </a></li>
-									<li><a href="#">Service link </a></li>
-									<li><a href="#">Service link</a></li>
-								</ul>
+							<div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
+								<div class="media-body">
+									<h2 class="mt-0">{{$service->title}}</h5>
+										<p>{{$service->description}}</p>
+								</div>
+								<button type="button" class="btn btn-outline-secondary mt-2 mb-2" tn
+									btn-outline-secondary mt-2 mb-2" onclick="copyArticleUrl()">Copy link of service <i
+										class="fas fa-share"></i></button>
+								<a class="fb-xfbml-parse-ignore btn btn-primary" target="_blank"
+									href="https://www.facebook.com/sharer/sharer.php?u=https://YOUR-SITE-HERE.com">Share
+									with facebook</a>
+
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 		<hr>
 
 	@endisset
@@ -147,3 +129,5 @@
 <!-- custom js -->
 @section('script')
 @endsection
+
+
