@@ -12,9 +12,20 @@
 @section('content')
 
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-8">
             <h1 class="page-header">Add New Product</h1>
         </div>
+        <div class="col-lg-4">
+            <div class="breadcrumb_container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{route('admin/index')}}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('admin/products/index')}}">Products</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Add</li>
+                </ol>
+            </nav>
+            </div>
+        </div> 
         <!-- /.col-lg-12 -->
     </div>
     <!-- /.row -->

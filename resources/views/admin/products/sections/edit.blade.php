@@ -10,9 +10,23 @@
 @section('content')
 
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-8">
             <h1 class="page-header">Product Option Edit</h1>
         </div>
+        <div class="col-lg-4">
+            <div class="breadcrumb_container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{route('admin/index')}}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('admin/products/index')}}">Products</a></li>
+                    @isset($product_section)
+                        <li class="breadcrumb-item"><a href="{{route('admin/products/section/index', $product_section->product_id)}}">Options</a></li>
+                    @endisset
+                    <li class="breadcrumb-item active" aria-current="page">Edit</li>
+                </ol>
+            </nav>
+            </div>
+        </div> 
         <!-- /.col-lg-12 -->
     </div>
     <!-- /.row -->

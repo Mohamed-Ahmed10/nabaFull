@@ -26,6 +26,23 @@ class ArticleController extends Controller
         try{
             // $ip = $request->ip();
             // $data = \Location::get("213.212.201.226");
+            // Stevebauman\Location\Position {#476 ▼
+            //     +ip: "213.212.201.226"
+            //     +countryName: "Egypt"
+            //     +countryCode: "EG"
+            //     +regionCode: "C"
+            //     +regionName: "Cairo Governorate"
+            //     +cityName: "Cairo"
+            //     +zipCode: ""
+            //     +isoCode: null
+            //     +postalCode: null
+            //     +latitude: "30.0588"
+            //     +longitude: "31.2268"
+            //     +metroCode: null
+            //     +areaCode: "C"
+            //     +timezone: "Africa/Cairo"
+            //     +driver: "Stevebauman\Location\Drivers\IpApi"
+            //   }
             // dd($data->countryName);
             $article = Article::active()->find($id);
             return view('front.article-details', compact('article'));

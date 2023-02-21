@@ -11,9 +11,20 @@
 
 
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-8">
         <h1 class="page-header">Setting Edit</h1>
         </div>
+        <div class="col-lg-4">
+            <div class="breadcrumb_container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{route('admin/index')}}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('admin/settings/index')}}">Settings</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Edit</li>
+                </ol>
+            </nav>
+            </div>
+        </div> 
         <!-- /.col-lg-12 -->
     </div>
     <!-- /.row -->

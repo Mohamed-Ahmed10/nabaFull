@@ -11,9 +11,20 @@
 
 
     <div class="row">
-        <div class="col-lg-12">
-        <h1 class="page-header">About Section Edit</h1>
+        <div class="col-lg-8">
+            <h1 class="page-header">About Section Edit</h1>
         </div>
+        <div class="col-lg-4">
+            <div class="breadcrumb_container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{route('admin/index')}}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('admin/about-section/index')}}">About Section</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Edit</li>
+                </ol>
+            </nav>
+            </div>
+        </div> 
         <!-- /.col-lg-12 -->
     </div>
     <!-- /.row -->
@@ -35,7 +46,7 @@
                         <form role="form" action="{{url(route('admin/about-section/update', $about_section->id))}}" method="post" enctype="multipart/form-data">
                             <div class="form-group input-group">
                                 <div class="m-2 d-flex">
-                                    <img src="{{asset($about_section->image)}}" alt="" class="img-fluid img-50 rounded-circle blur-up lazyloaded">
+                                    <img src="{{asset($about_section->image)}}" alt="" class="img-fluid img-50 rounded-circle blur-up lazyloaded" width="100">
                                 </div>
                             </div>
                             <div class="tab-content">

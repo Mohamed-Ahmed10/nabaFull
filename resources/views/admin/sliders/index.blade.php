@@ -17,9 +17,9 @@
             <div class="breadcrumb_container">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Library</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Data</li>
+                    <li class="breadcrumb-item"><a href="{{route('admin/index')}}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{route('admin/sliders/index')}}">Sliders</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Index</li>
                 </ol>
             </nav>
             </div>
