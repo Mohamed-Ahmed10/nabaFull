@@ -81,7 +81,7 @@ class ViewRepository extends AbstractRepository
                             END
                         ) viewable_name
                     FROM views V 
-                    WHERE V.id > 0 $setions_items_rep
+                    WHERE V.id > 0 $setions_items_rep $sql
                     GROUP BY V.viewable_id, V.section_no
                     ORDER BY count_ids DESC
                 ");
