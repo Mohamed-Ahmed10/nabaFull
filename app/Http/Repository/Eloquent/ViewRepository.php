@@ -54,7 +54,7 @@ class ViewRepository extends AbstractRepository
 
             $views = NULL;
             if($sql != '' || $sql_group != '' || $sql_fill_sections > 0){
-                $views = FacadesDB::select("SELECT V.section_no, COUNT(V.section_no) count_ids $sql_select FROM views V WHERE V.id > 0 $sql GROUP BY V.section_no $sql_group");
+                $views = FacadesDB::select("SELECT V.section_no, COUNT(V.section_no) count_ids $sql_select FROM views V WHERE V.id > 0 $sql GROUP BY V.section_no $sql_group ORDER BY count_ids DESC");
                 // $views = FacadesDB::select("SELECT DISTINCT V.section_no, V.country_name, V.viewable_type, V.hour, (SELECT COUNT(Su_V.id) FROM views Su_V WHERE Su_V.id > 0 AND V.section_no = Su_V.section_no $sql_sub ) count_ids FROM views V WHERE V.id > 0 $sql");
             }else{
                 $views = FacadesDB::select("SELECT COUNT(V.id) count_ids FROM views V WHERE V.id > 0");
