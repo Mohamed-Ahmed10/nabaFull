@@ -86,6 +86,11 @@
                                         <input name="pages" type="checkbox" value="1">Pages
                                     </div>
                                 </div>
+                                <div class="col-xs-1">
+                                    <div class="checkbox">
+                                        <input name="setions_items_rep" type="checkbox" value="1">Setion Items
+                                    </div>
+                                </div>
                                 <button type="submit" class="btn btn-success btn-sm">Submit</button>
                                 <a href="{{route('admin/views/index')}}" class="btn btn-primary btn-sm">Reset</a>
                             </div>
@@ -188,6 +193,13 @@
                             else if (data[i].hour == 3) { hour = 'مساء بعد الظهر' }
                             else if (data[i].hour == 4) { hour = 'مساء بعد الخامسه ليلا' }
 
+                            if(typeof(data[i].viewable_name) == 'undefined'){
+                            }else{
+                                console.log("section_no :" + section_no);
+                                section_no = section_no + ' ( ' + data[i].viewable_name + ' )'
+                                console.log("section_no_2 :" + section_no);
+
+                            }
                             records += `
                                 <tr>
                                     <td>${section_no}</td>
