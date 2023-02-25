@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\View;
 use Exception;
 
 class HomeController extends Controller
@@ -27,6 +28,23 @@ class HomeController extends Controller
             }
             return response()->json($categories);
         }catch(Exception $ex){
+            return response()->json(['error' => 'There IS Something Wrong , Please Concat Technical Support']);
+        }
+    }
+
+    public function countries(Request $request)
+    {
+        try{
+            $query = $request->get('q');
+            $categories = NULL;
+            if($query != ''){
+                $categories = View::latest()->select('country_name')->distinct()->Where('country_name', 'LIKE', '%'. $query .'%')->get();
+            }else{
+                $categories = View::latest()->select('country_name')->distinct()->get();
+            }
+            return response()->json($categories);
+        }catch(Exception $ex){
+            return $ex;
             return response()->json(['error' => 'There IS Something Wrong , Please Concat Technical Support']);
         }
     }

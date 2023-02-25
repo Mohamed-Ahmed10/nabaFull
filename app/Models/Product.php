@@ -35,4 +35,8 @@ class Product extends Model implements TranslatableContract
 		return $this->hasMany(ProductSection::class, 'product_id')->where('section_no', 2);
 	}
 
+	public function views()
+	{
+		return $this->morphMany(View::class, 'viewable');
+	}
 }

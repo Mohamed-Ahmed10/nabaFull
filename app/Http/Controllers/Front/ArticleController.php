@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Article;
 use Illuminate\Http\Request;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
-use Location;
 
 class ArticleController extends Controller
 {
@@ -24,27 +23,32 @@ class ArticleController extends Controller
     public function article(Request $request, $id)
     {
         try{
-            // $ip = $request->ip();
-            // $data = \Location::get("213.212.201.226");
-            // Stevebauman\Location\Position {#476 ▼
-            //     +ip: "213.212.201.226"
-            //     +countryName: "Egypt"
-            //     +countryCode: "EG"
-            //     +regionCode: "C"
-            //     +regionName: "Cairo Governorate"
-            //     +cityName: "Cairo"
-            //     +zipCode: ""
-            //     +isoCode: null
-            //     +postalCode: null
-            //     +latitude: "30.0588"
-            //     +longitude: "31.2268"
-            //     +metroCode: null
-            //     +areaCode: "C"
-            //     +timezone: "Africa/Cairo"
-            //     +driver: "Stevebauman\Location\Drivers\IpApi"
-            //   }
-            // dd($data->countryName);
             $article = Article::active()->find($id);
+
+            if(empty($request->session()->get('get_user_ip_before_article'.$article->id))) {
+                // $ip = $request->ip();
+                $ip = "194.227.162.197";
+                if(date('H') < 8){ $hour = 1; }
+                elseif(date('H') < 12){ $hour = 2; }
+                elseif(date('H') < 17){ $hour = 3; }
+                else{ $hour = 4; }
+                $location_data = \Location::get($ip);
+                if($location_data){
+                    $data_store = [
+                        'ip' => $ip,
+                        'country_name' => $location_data->countryName,
+                        'country_code' => $location_data->countryCode,
+                        'city_name' => $location_data->cityName,
+                        'latitude' => $location_data->latitude,
+                        'longitude' => $location_data->longitude,
+                        'timezone' => $location_data->timezone,
+                        'section_no' => 2,
+                        'hour' => $hour
+                    ];
+                    $article->views()->create($data_store);
+                    $request->session()->put("get_user_ip_before_article".$article->id, 1, now()->addDay(1));
+                }
+            }
             return view('front.article-details', compact('article'));
         }catch(\Exception $ex){
             flash()->error("There Is Something Wrong , Please Concatt Technical Support");

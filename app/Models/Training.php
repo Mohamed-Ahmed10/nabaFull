@@ -20,4 +20,9 @@ class Training extends Model implements TranslatableContract
 		return $query->where('is_activate', 1);
 	}
 
+	public function views()
+	{
+		return $this->morphMany(View::class, 'viewable');
+	}
+
 }

@@ -24,6 +24,7 @@ Route::group([
         Route::post('login', 'AuthController@check_login')->name('admin/check-login');
         
         Route::get('get/categories', 'HomeController@categories')->name('get/categories');
+        Route::get('get/countries', 'HomeController@countries')->name('get/views/countries');
         Route::group(['middleware' => 'adminLogin'],function(){
             
             Route::get('/home', 'HomeController@home')->name('admin/index');
@@ -156,6 +157,10 @@ Route::group([
             Route::get('contact-us/index', 'ContactUsController@index')->name('admin/contact-us/index');
             Route::post('contact-us/getMore', 'ContactUsController@getMore')->name('admin/contact-us/getMore');
             Route::post('contact-us/search', 'ContactUsController@search')->name('admin/contact-us/search');
+
+            // views routes 
+            Route::get('views/index', 'ViewsController@index')->name('admin/views/index');
+            Route::post('views/search', 'ViewsController@search')->name('admin/views/search');
 
         });
 
