@@ -75,45 +75,25 @@
 				<div class="carousel-inner">
 					<div class="carousel-item active">
 						<div class="row">
-							<div class="col-6">
-								<div class="card-body">
-									<img src="{{asset('front/assets/img/naba_logo.jpeg')}}" width="70" alt="">
-									TODO list
-								</div>
-								<div class="card-body">
-									<img src="{{asset('front/assets/img/naba_logo.jpeg')}}" width="70" alt="">
-									TODO list
-								</div>
-							</div>
-							<div class="col-6">
-								<div class="card-body">
-									<img src="{{asset('front/assets/img/naba_logo.jpeg')}}" width="70" alt="">
-									TODO list
-								</div>
+							<div class="col-3">
 								<div class="card-body">
 									<img src="{{asset('front/assets/img/naba_logo.jpeg')}}" width="70" alt="">
 									TODO list
 								</div>
 							</div>
-						</div>
-					</div>
-					<div class="carousel-item">
-						<div class="row">
-							<div class="col-6">
-								<div class="card-body">
-									<img src="{{asset('front/assets/img/naba_logo.jpeg')}}" width="70" alt="">
-									TODO list
-								</div>
+							<div class="col-3">
 								<div class="card-body">
 									<img src="{{asset('front/assets/img/naba_logo.jpeg')}}" width="70" alt="">
 									TODO list
 								</div>
 							</div>
-							<div class="col-6">
+                            <div class="col-3">
 								<div class="card-body">
 									<img src="{{asset('front/assets/img/naba_logo.jpeg')}}" width="70" alt="">
 									TODO list
 								</div>
+							</div>
+							<div class="col-3">
 								<div class="card-body">
 									<img src="{{asset('front/assets/img/naba_logo.jpeg')}}" width="70" alt="">
 									TODO list
@@ -123,21 +103,53 @@
 					</div>
 					<div class="carousel-item">
 						<div class="row">
-							<div class="col-6">
-								<div class="card-body">
-									<img src="{{asset('front/assets/img/naba_logo.jpeg')}}" width="70" alt="">
-									TODO list
-								</div>
+							<div class="col-3">
 								<div class="card-body">
 									<img src="{{asset('front/assets/img/naba_logo.jpeg')}}" width="70" alt="">
 									TODO list
 								</div>
 							</div>
-							<div class="col-6">
+							<div class="col-3">
 								<div class="card-body">
 									<img src="{{asset('front/assets/img/naba_logo.jpeg')}}" width="70" alt="">
 									TODO list
 								</div>
+							</div>
+                            <div class="col-3">
+								<div class="card-body">
+									<img src="{{asset('front/assets/img/naba_logo.jpeg')}}" width="70" alt="">
+									TODO list
+								</div>
+							</div>
+							<div class="col-3">
+								<div class="card-body">
+									<img src="{{asset('front/assets/img/naba_logo.jpeg')}}" width="70" alt="">
+									TODO list
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<div class="row">
+							<div class="col-3">
+								<div class="card-body">
+									<img src="{{asset('front/assets/img/naba_logo.jpeg')}}" width="70" alt="">
+									TODO list
+								</div>
+							</div>
+							<div class="col-3">
+								<div class="card-body">
+									<img src="{{asset('front/assets/img/naba_logo.jpeg')}}" width="70" alt="">
+									TODO list
+								</div>
+							</div>
+                            <div class="col-3">
+								<div class="card-body">
+									<img src="{{asset('front/assets/img/naba_logo.jpeg')}}" width="70" alt="">
+									TODO list
+								</div>
+							</div>
+							<div class="col-3">
 								<div class="card-body">
 									<img src="{{asset('front/assets/img/naba_logo.jpeg')}}" width="70" alt="">
 									TODO list
