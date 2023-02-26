@@ -66,24 +66,87 @@
 		<div class="logo-carousel-section">
 			<div class="container">
 				<h4 class="text-center">THOSE ARE JUST A FEW MAIN FEATURES, THERE ARE PLENTY MORE</h4>
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="logo-carousel-inner">
-							@isset($options_section_two_data)
-								@foreach($options_section_two_data as $option_two)
-									<div class="single-logo-item">
-										<div class="card m-4">
-											<div class="card-body">
-												<i class="fas fa-th-list"></i>
-												TODO list
-											</div>
-										</div>
-									</div>
-								@endforeach
-							@endisset
+				<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+				<ol class="carousel-indicators">
+					<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+					<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+					<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+				</ol>
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<div class="row">
+							<div class="col-6">
+								<div class="card-body">
+									<img src="{{asset('front/assets/img/naba_logo.jpeg')}}" width="70" alt="">
+									TODO list
+								</div>
+								<div class="card-body">
+									<img src="{{asset('front/assets/img/naba_logo.jpeg')}}" width="70" alt="">
+									TODO list
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="card-body">
+									<img src="{{asset('front/assets/img/naba_logo.jpeg')}}" width="70" alt="">
+									TODO list
+								</div>
+								<div class="card-body">
+									<img src="{{asset('front/assets/img/naba_logo.jpeg')}}" width="70" alt="">
+									TODO list
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<div class="row">
+							<div class="col-6">
+								<div class="card-body">
+									<img src="{{asset('front/assets/img/naba_logo.jpeg')}}" width="70" alt="">
+									TODO list
+								</div>
+								<div class="card-body">
+									<img src="{{asset('front/assets/img/naba_logo.jpeg')}}" width="70" alt="">
+									TODO list
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="card-body">
+									<img src="{{asset('front/assets/img/naba_logo.jpeg')}}" width="70" alt="">
+									TODO list
+								</div>
+								<div class="card-body">
+									<img src="{{asset('front/assets/img/naba_logo.jpeg')}}" width="70" alt="">
+									TODO list
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="carousel-item">
+						<div class="row">
+							<div class="col-6">
+								<div class="card-body">
+									<img src="{{asset('front/assets/img/naba_logo.jpeg')}}" width="70" alt="">
+									TODO list
+								</div>
+								<div class="card-body">
+									<img src="{{asset('front/assets/img/naba_logo.jpeg')}}" width="70" alt="">
+									TODO list
+								</div>
+							</div>
+							<div class="col-6">
+								<div class="card-body">
+									<img src="{{asset('front/assets/img/naba_logo.jpeg')}}" width="70" alt="">
+									TODO list
+								</div>
+								<div class="card-body">
+									<img src="{{asset('front/assets/img/naba_logo.jpeg')}}" width="70" alt="">
+									TODO list
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
+			</div>
 			</div>
 		</div>
 		<!-- end logo carousel -->

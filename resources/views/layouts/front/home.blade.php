@@ -56,7 +56,7 @@
         <meta content="text/css" http-equiv="content-style-type" />
         <meta name="copyright" content="Copyright 2023 Nabasoft.com, Inc." />
         <meta name="image" content="{{asset('front/assets/img/naba_logo.jpeg')}}" />
-        <meta name="twitter:creator" content="@mohamedahmed" />
+        <meta name="twitter:creator" content="@naba-soft.com" />
         <meta name="twitter:image:src" content="{{asset('front/assets/img/naba_logo.jpeg')}}" />
         <!-- title -->
         <!-- <title>Naba soft company</title> -->
