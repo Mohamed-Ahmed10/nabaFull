@@ -23,7 +23,7 @@
                 </ol>
             </nav>
             </div>
-        </div> 
+        </div>
         <!-- /.col-lg-12 -->
     </div>
     <!-- /.row -->
@@ -70,9 +70,9 @@
                                             <td>{{$admin->name}}</td>
                                             <td>{{$admin->email}}</td>
                                             <td>{{$admin->phone}}</td>
-                                            <?php 
+                                            <?php
                                                 if($admin->is_activate == 1){$activate = '<span class="badge badge-info">active</span>';}
-                                                else{$activate = '<span class="badge badge-danger">un active</span>';} 
+                                                else{$activate = '<span class="badge badge-danger">un active</span>';}
                                             ?>
                                             <td class="center">{!! $activate !!}</td>
                                             <td class="center">
@@ -82,7 +82,7 @@
                                                             <i class="fa-align-justify"></i> actions <b class="caret"></b>
                                                         </a>
                                                         <ul class="dropdown-menu dropdown-user">
-                                                            <li>
+                                                            <li >
                                                                 <button class="dropdown-item btn btn-danger openDeleteFrom" data-toggle="modal" data-target="#myModalDelete" data-id="{{$admin->id}}">
                                                                     delete
                                                                 </button>
@@ -220,7 +220,7 @@
                                                             <i class="fa-align-justify"></i> actions <b class="caret"></b>
                                                         </a>
                                                         <ul class="dropdown-menu dropdown-user">
-                                                            <li>
+                                                            <li >
                                                                 <button class="dropdown-item btn btn-danger openDeleteFrom" data-toggle="modal" data-target="#myModalDelete" data-id="${data[i].id}">
                                                                     delete
                                                                 </button>
@@ -254,7 +254,7 @@
                 }
             });
         });
-        
+
         $(document).on('keyup', '#data_search', function() {
             var query = $(this).val();
             var _token = $('input[name="_token"]').val();

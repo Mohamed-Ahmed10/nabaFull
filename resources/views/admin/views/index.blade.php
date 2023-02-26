@@ -25,7 +25,7 @@
                 </ol>
             </nav>
             </div>
-        </div> 
+        </div>
         <!-- /.col-lg-12 -->
     </div>
     <!-- /.row -->
@@ -38,18 +38,19 @@
                 <!-- /.panel-heading -->
                 <div class="panel-body">
                     @include('flash::message')
+                    <div class="container-fluid">
                     <div class="row">
                         <form onsubmit="event.preventDefault()" class="expert_search">
                             <div class="tab-content">
                                 @csrf
-                                <div class="col-xs-2">
+                                <div class="col-xs-3">
                                     <div id="dataTables-example_filter" class="dataTables_filter">
                                         <select class="form-control" name="country_name" id="countries" aria-controls="dataTables-example">
                                             <option value="">Countries</option>
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-xs-2">
+                                <div class="col-xs-3">
                                     <div id="dataTables-example_filter" class="dataTables_filter">
                                         <select class="form-control" name="section" aria-controls="dataTables-example">
                                             <option value="">Sections</option>
@@ -61,40 +62,48 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-xs-2">
+                                <div class="col-xs-3">
                                     <div id="dataTables-example_filter" class="dataTables_filter">
                                         <input  name="date_from" type="date" class="form-control input-sm" aria-controls="dataTables-example">
                                     </div>
                                 </div>
-                                <div class="col-xs-2">
+                                <div class="col-xs-3">
                                     <div id="dataTables-example_filter" class="dataTables_filter">
                                         <input  name="date_to" type="date" class="form-control input-sm" aria-controls="dataTables-example">
                                     </div>
                                 </div>
-                                <div class="col-xs-1">
-                                    <div class="checkbox">
-                                        <input name="peak_time" type="checkbox" value="1">PeakTime
-                                    </div>
-                                </div>
-                                <div class="col-xs-1">
-                                    <div class="checkbox">
-                                        <input name="countries" type="checkbox" value="1">Countries
-                                    </div>
-                                </div>
-                                <div class="col-xs-1">
-                                    <div class="checkbox">
-                                        <input name="pages" type="checkbox" value="1">Pages
-                                    </div>
-                                </div>
-                                <div class="col-xs-1">
-                                    <div class="checkbox">
-                                        <input name="setions_items_rep" type="checkbox" value="1">Setion Items
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn btn-success btn-sm">Submit</button>
-                                <a href="{{route('admin/views/index')}}" class="btn btn-primary btn-sm">Reset</a>
+
                             </div>
                         </form>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <div class="checkbox">
+                                <input name="peak_time" type="checkbox" value="1">PeakTime
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <div class="checkbox">
+                                <input name="countries" type="checkbox" value="1">Countries
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <div class="checkbox">
+                                <input name="pages" type="checkbox" value="1">Pages
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <div class="checkbox">
+                                <input name="setions_items_rep" type="checkbox" value="1">Setion Items
+                            </div>
+                        </div>
+                        <div class="col-xs-2" style="margin-top: 8px;">
+                        <button type="submit" class="btn btn-success btn-sm">Submit</button>
+                        </div>
+                        <div class="col-xs-2" style="margin-top: 8px;">
+                        <a href="{{route('admin/views/index')}}" class="btn btn-primary btn-sm">Reset</a>
+                        </div>
+                    </div>
                     </div>
                     <br/>
                     <div class="dataTable_wrapper">
@@ -103,13 +112,13 @@
                             <thead>
                                 <tr>
                                     <th>Section</th>
-                                    <th>Country</th> 
+                                    <th>Country</th>
                                     <th>Time</th>
                                     <th>Views</th>
                                 </tr>
                             </thead>
                             <tbody id="tableShowData">
-                                
+
                             </tbody>
                         </table>
                         <!-- <div style="margin-top: 20px; font-weight: 600; font-size: 16px;">
@@ -153,7 +162,7 @@
         // let showItems = document.getElementById("showItems");
         // showItems.innerHTML = dataLen.length
         // let length = dataLen.length
-        
+
         $('.expert_search').on('submit', function(event){
             var _token = $('input[name="_token"]').val();
             let hour = ''

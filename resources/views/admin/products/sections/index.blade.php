@@ -26,7 +26,7 @@
                 </ol>
             </nav>
             </div>
-        </div> 
+        </div>
         <!-- /.col-lg-12 -->
     </div>
     <!-- /.row -->
@@ -43,7 +43,7 @@
                         <div class="col-sm-6"></div>
                         <div class="col-sm-6 text-right">
                             <div id="dataTables-example_filter" class="dataTables_filter mb-3">
-                                <a href="{{route('admin/products/section/create', $id)}}" style="text-decoration: none; color: white; width: 64px;" class="btn btn-success">
+                                <a href="{{route('admin/products/section/create', $id)}}" style="text-decoration: none; color: white; width: 64px;margin:auto" class="btn btn-success">
                                     create
                                 </a>
                                 <!-- <label><input id="data_search" placeholder="search" type="search" class="form-control input-sm" aria-controls="dataTables-example"></label> -->
@@ -83,12 +83,12 @@
                                                         </a>
                                                         <ul class="dropdown-menu dropdown-user">
                                                             <li>
-                                                                <a href="{{route('admin/products/section/edit', $product_section->id)}}" style="text-decoration: none; color: white; width: 64px;" class="btn btn-success">
+                                                                <a href="{{route('admin/products/section/edit', $product_section->id)}}" style="text-decoration: none; color: white; width: 64px;margin:auto" class="btn btn-success">
                                                                     edit
                                                                 </a>
                                                             </li>
                                                             <li class="divider"></li>
-                                                            <li>
+                                                            <li >
                                                                 <button class="dropdown-item btn btn-danger openDeleteFrom" data-toggle="modal" data-target="#myModalDelete" data-id="{{$product_section->id}}">
                                                                     delete
                                                                 </button>

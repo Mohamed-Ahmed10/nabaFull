@@ -11,6 +11,10 @@ body[lang="ar"] {
     direction: rtl;
 }
 
+.openDeleteFrom {
+    margin-left: 25%;
+}
+
 input,
 textarea {
     outline: none;
@@ -490,4 +494,3 @@ a.cart-btn {
         -o-transform: translateY(0);
     }
 }
-

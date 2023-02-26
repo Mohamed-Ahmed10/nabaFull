@@ -23,7 +23,7 @@
                 </ol>
             </nav>
             </div>
-        </div> 
+        </div>
         <!-- /.col-lg-12 -->
     </div>
     <!-- /.row -->
@@ -79,12 +79,12 @@
                                                         </a>
                                                         <ul class="dropdown-menu dropdown-user">
                                                             <li>
-                                                                <a href="{{route('admin/articles/edit', $article->id)}}" style="text-decoration: none; color: white; width: 64px;" class="btn btn-success">
+                                                                <a href="{{route('admin/articles/edit', $article->id)}}" style="text-decoration: none; color: white; width: 64px;margin:auto" class="btn btn-success">
                                                                     edit
                                                                 </a>
                                                             </li>
                                                             <li class="divider"></li>
-                                                            <li>
+                                                            <li >
                                                                 <button class="dropdown-item btn btn-danger openDeleteFrom" data-toggle="modal" data-target="#myModalDelete" data-id="{{$article->id}}">
                                                                     delete
                                                                 </button>
@@ -223,12 +223,12 @@
                                                         </a>
                                                         <ul class="dropdown-menu dropdown-user">
                                                             <li>
-                                                                <a href="${edit_route}" style="text-decoration: none; color: white; width: 64px;" class="btn btn-success">
+                                                                <a href="${edit_route}" style="text-decoration: none; color: white; width: 64px;margin:auto" class="btn btn-success">
                                                                     edit
                                                                 </a>
                                                             </li>
                                                             <li class="divider"></li>
-                                                            <li>
+                                                            <li >
                                                                 <button class="dropdown-item btn btn-danger openDeleteFrom" data-toggle="modal" data-target="#myModalDelete" data-id="${data[i].id}">
                                                                     delete
                                                                 </button>
@@ -298,7 +298,7 @@
                                                 </a>
                                                 <ul class="dropdown-menu dropdown-user">
                                                     <li>
-                                                        <a href="${edit_route}" style="text-decoration: none; color: white; width: 64px;" class="btn btn-success">
+                                                        <a href="${edit_route}" style="text-decoration: none; color: white; width: 64px;margin:auto" class="btn btn-success">
                                                             edit
                                                         </a>
                                                     </li>
