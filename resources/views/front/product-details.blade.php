@@ -81,7 +81,11 @@
 					<?php $loop_index = 0; ?>
 					@isset($options_section_two_data)
 						@for ($i = 0; $i < count($options_section_two_data); $i++)
-							<div class="carousel-item ">
+							<?php
+								$active = ''; 
+								if($loop_index == 0 ){ $active = 'active'; } 
+							?>
+							<div class="carousel-item {{$active}}">
 								<div class="row">
 									<div class="card-body">
 										<img src="{{asset($options_section_two_data[$i]['icon'])}}" width="70" alt="">
