@@ -85,12 +85,12 @@
 							<div class="carousel-item {{$active}}">
 								<div class="row">
 									<div class="card-body">
-										<img src="" width="70" alt="">
+										<img src="{{asset($options_section_two_data[$i]['icon'])}}" width="70" alt="">
 										
 									</div>
 									<?php $i++; ?>
 									<div class="card-body">
-										<img src="" width="70" alt="">
+										<img src="{{asset($options_section_two_data[$i]['icon'])}}" width="70" alt="">
 										
 									</div>
 								</div>
