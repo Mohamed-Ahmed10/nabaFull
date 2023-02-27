@@ -82,7 +82,7 @@
                                         <select class="form-control" name="section_no" id="section_no">
                                             <option value="" disabled>Section</option>
                                             <option value="1">Section ONE</option>
-                                            <option value="2">Section TOW</option>
+                                            <option value="2">Section TWO</option>
                                         </select>
                                         @error('section_no')
                                             <span class="text-danger">{{$message}}</span>

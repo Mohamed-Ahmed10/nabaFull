@@ -73,8 +73,8 @@ nav.main-menu {
         ul.sub-menu {
             position: absolute;
             background-color: $white-color;
-            min-width: 200px;
-            padding: 15px 15px;
+            min-width: 100px;
+            padding: 10px;
             margin: 0;
             left: 0;
             top: 50px;
@@ -194,16 +194,21 @@ nav.mean-nav>ul>li:first-child>a {
 nav.main-menu {
     ul {
         ul.sub-menu li {
-            &:hover {
-                background-color: #555;
-            }
-
-            a {
+            &:hover a {
                 background-color: #FFF;
                 // color: #555;
                 // padding: 8px;
                 font-size: 13px;
                 font-weight: 600;
+            }
+
+
+            &.active {
+                background-color: #555555;
+
+                a {
+                    color: #FFF
+                }
             }
 
             display: block;
@@ -250,6 +255,7 @@ nav.main-menu {
     top: 0;
     width: 100%;
     z-index: 999 !important;
+    direction: ltr;
 
     &.is-sticky .top-header-area {
         background-color: $text-color;

@@ -26,7 +26,7 @@
                 </ol>
             </nav>
             </div>
-        </div> 
+        </div>
         <!-- /.col-lg-12 -->
     </div>
     <!-- /.row -->
@@ -82,8 +82,8 @@
                                         <select class="form-control" name="section_no" id="section_no">
                                             <option value="">Section</option>
                                             <option value="1" <?php if( (int)$product_section->section_no == 1 ){ echo "selected"; } ?> >Section ONE</option>
-                                            <option value="2" <?php if( (int)$product_section->section_no == 2 ){ echo "selected"; } ?> >Section TOW</option>
-                                        </select>                                      
+                                            <option value="2" <?php if( (int)$product_section->section_no == 2 ){ echo "selected"; } ?> >Section TWO</option>
+                                        </select>
                                         @error('section_no')
                                             <span class="text-danger">{{$message}}</span>
                                         @enderror

@@ -17,7 +17,7 @@
 	<div class="show_all_header">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-8 offset-lg-2 text-center">
+				<div class="col-lg-12 text-center">
 					<div class="breadcrumb-text">
 						<h1>Naba webinars</h1>
 					</div>
@@ -45,7 +45,7 @@
 										<div class="date"><i class="fas fa-calendar"></i> {{$webinar->date}}</div>
 										<div class="date"><i class="far fa-clock"></i> {{$webinar->time_started}}</div>
 										<div class="date"><i class="fas fa-stopwatch"></i></i> {{$webinar->hours}}</div>
-										<?php 
+										<?php
 											if((int)$webinar->cost > 0){ $cost = '<h6><span class="badge badge-warning">Paid</span> $ '. $webinar->cost .'</h6>'; }
 											else{ $cost = '<h6><span class="badge badge-success">Free</span></h6>'; }
 										?>
