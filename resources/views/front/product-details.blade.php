@@ -81,23 +81,35 @@
 					<?php $loop_index = 0; ?>
 					@isset($options_section_two_data)
 						@for ($i = 0; $i < count($options_section_two_data); $i++)
-							<?php
-								$active = ''; 
-								if($loop_index == 0 ){ $active = 'active'; } 
-							?>
-							<div class="carousel-item {{$active}}">
-								<div class="row">
-									<div class="card-body">
-										<img src="{{asset($options_section_two_data[$i]['icon'])}}" width="70" alt="">
-										{{$options_section_two_data[$i]['title']}}
-									</div>
-									<?php $i++; ?>
-									<div class="card-body">
-										<img src="{{asset($options_section_two_data[$i]['icon'])}}" width="70" alt="">
-										{{$options_section_two_data[$i]['title']}}
+							@if ($loop_index == 0){ 								
+								<div class="carousel-item active">
+									<div class="row">
+										<div class="card-body">
+											<img src="{{asset($options_section_two_data[$i]['icon'])}}" width="70" alt="">
+											{{$options_section_two_data[$i]['title']}}
+										</div>
+										<?php $i++; ?>
+										<div class="card-body">
+											<img src="{{asset($options_section_two_data[$i]['icon'])}}" width="70" alt="">
+											{{$options_section_two_data[$i]['title']}}
+										</div>
 									</div>
 								</div>
-							</div>
+							@else
+								<div class="carousel-item">
+									<div class="row">
+										<div class="card-body">
+											<img src="{{asset($options_section_two_data[$i]['icon'])}}" width="70" alt="">
+											{{$options_section_two_data[$i]['title']}}
+										</div>
+										<?php $i++; ?>
+										<div class="card-body">
+											<img src="{{asset($options_section_two_data[$i]['icon'])}}" width="70" alt="">
+											{{$options_section_two_data[$i]['title']}}
+										</div>
+									</div>
+								</div>
+							@endif
 							<?php $loop_index++; ?>
 						@endfor
 					@endisset
