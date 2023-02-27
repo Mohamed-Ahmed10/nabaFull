@@ -85,13 +85,13 @@
 								<div class="carousel-item active">
 									<div class="row">
 										<div class="card-body">
-											<img src="{{asset($options_section_two_data[$i]['icon'])}}" width="70" alt="">
-											{{$options_section_two_data[$i]['title']}}
+											<img src="{{asset($options_section_two_data[$i]->icon)}}" width="70" alt="">
+											{{$options_section_two_data[$i]->title}}
 										</div>
 										<?php $i++; ?>
 										<div class="card-body">
-											<img src="{{asset($options_section_two_data[$i]['icon'])}}" width="70" alt="">
-											{{$options_section_two_data[$i]['title']}}
+											<img src="{{asset($options_section_two_data[$i]->icon)}}" width="70" alt="">
+											{{$options_section_two_data[$i]->title}}
 										</div>
 									</div>
 								</div>
@@ -99,13 +99,13 @@
 								<div class="carousel-item">
 									<div class="row">
 										<div class="card-body">
-											<img src="{{asset($options_section_two_data[$i]['icon'])}}" width="70" alt="">
-											{{$options_section_two_data[$i]['title']}}
+											<img src="{{asset($options_section_two_data[$i]->icon)}}" width="70" alt="">
+											{{$options_section_two_data[$i]->title}}
 										</div>
 										<?php $i++; ?>
 										<div class="card-body">
-											<img src="{{asset($options_section_two_data[$i]['icon'])}}" width="70" alt="">
-											{{$options_section_two_data[$i]['title']}}
+											<img src="{{asset($options_section_two_data[$i]->icon)}}" width="70" alt="">
+											{{$options_section_two_data[$i]->title}}
 										</div>
 									</div>
 								</div>
