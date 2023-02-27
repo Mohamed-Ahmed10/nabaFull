@@ -69,94 +69,35 @@
 				<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 				<ol class="carousel-indicators">
 					<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-					<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-					<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+					
+					@isset($options_section_two_data)
+						<?php $loop_count = count($options_section_two_data) / 2; ?>
+						@for ($ii = 1; $ii < round($loop_count); $ii++) 
+							<li data-target="#carouselExampleIndicators" data-slide-to="{{$ii}}"></li>
+						@endfor
+					@endisset
 				</ol>
 				<div class="carousel-inner">
-					<div class="carousel-item active">
-						<div class="row">
-							<div class="col-3">
-								<div class="card-body">
-									<img src="{{asset('front/assets/img/naba_logo.jpeg')}}" width="70" alt="">
-									TODO list
+					<?php $loop_index = 0; ?>
+					@isset($options_section_two_data)
+						@for ($i = 0; $i < count($options_section_two_data) - 1; $i++)
+							<?php if($loop_index == 0 ){ $active = 'active'; }else{ $active = ''; } ?>
+							<div class="carousel-item {{$active}}">
+								<div class="row">
+									<div class="card-body">
+										<img src="{{asset($options_section_two_data[$i]['icon'])}}" width="70" alt="">
+										{{$options_section_two_data[$i]['title']}}
+									</div>
+									<?php $i++; ?>
+									<div class="card-body">
+										<img src="{{asset($options_section_two_data[$i]['icon'])}}" width="70" alt="">
+										{{$options_section_two_data[$i]['title']}}
+									</div>
 								</div>
 							</div>
-							<div class="col-3">
-								<div class="card-body">
-									<img src="{{asset('front/assets/img/naba_logo.jpeg')}}" width="70" alt="">
-									TODO list
-								</div>
-							</div>
-                            <div class="col-3">
-								<div class="card-body">
-									<img src="{{asset('front/assets/img/naba_logo.jpeg')}}" width="70" alt="">
-									TODO list
-								</div>
-							</div>
-							<div class="col-3">
-								<div class="card-body">
-									<img src="{{asset('front/assets/img/naba_logo.jpeg')}}" width="70" alt="">
-									TODO list
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="carousel-item">
-						<div class="row">
-							<div class="col-3">
-								<div class="card-body">
-									<img src="{{asset('front/assets/img/naba_logo.jpeg')}}" width="70" alt="">
-									TODO list
-								</div>
-							</div>
-							<div class="col-3">
-								<div class="card-body">
-									<img src="{{asset('front/assets/img/naba_logo.jpeg')}}" width="70" alt="">
-									TODO list
-								</div>
-							</div>
-                            <div class="col-3">
-								<div class="card-body">
-									<img src="{{asset('front/assets/img/naba_logo.jpeg')}}" width="70" alt="">
-									TODO list
-								</div>
-							</div>
-							<div class="col-3">
-								<div class="card-body">
-									<img src="{{asset('front/assets/img/naba_logo.jpeg')}}" width="70" alt="">
-									TODO list
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="carousel-item">
-						<div class="row">
-							<div class="col-3">
-								<div class="card-body">
-									<img src="{{asset('front/assets/img/naba_logo.jpeg')}}" width="70" alt="">
-									TODO list
-								</div>
-							</div>
-							<div class="col-3">
-								<div class="card-body">
-									<img src="{{asset('front/assets/img/naba_logo.jpeg')}}" width="70" alt="">
-									TODO list
-								</div>
-							</div>
-                            <div class="col-3">
-								<div class="card-body">
-									<img src="{{asset('front/assets/img/naba_logo.jpeg')}}" width="70" alt="">
-									TODO list
-								</div>
-							</div>
-							<div class="col-3">
-								<div class="card-body">
-									<img src="{{asset('front/assets/img/naba_logo.jpeg')}}" width="70" alt="">
-									TODO list
-								</div>
-							</div>
-						</div>
-					</div>
+							<?php $loop_index++; ?>
+						@endfor
+					@endisset
 				</div>
 			</div>
 			</div>

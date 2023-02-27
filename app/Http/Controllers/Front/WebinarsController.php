@@ -25,8 +25,8 @@ class WebinarsController extends Controller
         try{
             $webinar = Webinar::active()->find($id);
             if(empty($request->session()->get('get_user_ip_before_webinar'.$webinar->id))) {
-                // $ip = $request->ip();
-                $ip = "194.227.162.197";
+                $ip = $request->ip();
+                // $ip = "194.227.162.197";
                 if(date('H') < 8){ $hour = 1; }
                 elseif(date('H') < 12){ $hour = 2; }
                 elseif(date('H') < 17){ $hour = 3; }

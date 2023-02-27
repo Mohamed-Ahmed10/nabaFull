@@ -29,8 +29,8 @@ class ProductController extends Controller
             $options_section_two_data = $product->options_section_two;
 
             if(empty($request->session()->get('get_user_ip_before_product'.$product->id))) {
-                // $ip = $request->ip();
-                $ip = "194.227.162.197";
+                $ip = $request->ip();
+                // $ip = "194.227.162.197";
                 if(date('H') < 8){ $hour = 1; }
                 elseif(date('H') < 12){ $hour = 2; }
                 elseif(date('H') < 17){ $hour = 3; }
