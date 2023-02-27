@@ -70,12 +70,7 @@
 				<ol class="carousel-indicators">
 					<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
 					
-					@isset($options_section_two_data)
-						<?php $loop_count = count($options_section_two_data) / 2; ?>
-						@for ($ii = 1; $ii < $loop_count; $ii++)
-							<li data-target="#carouselExampleIndicators" data-slide-to="{{$ii}}"></li>
-						@endfor
-					@endisset
+					
 				</ol>
 				<div class="carousel-inner">
 					<?php $loop_index = 0; ?>
