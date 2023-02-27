@@ -81,7 +81,7 @@
 					<?php $loop_index = 0; ?>
 					@isset($options_section_two_data)
 						@for ($i = 0; $i < count($options_section_two_data); $i++)
-							@if ($loop_index == 0){ 								
+							@if ($loop_index == 0)							
 								<div class="carousel-item active">
 									<div class="row">
 										<div class="card-body">
