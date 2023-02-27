@@ -19,6 +19,7 @@
 								<li><a href="{{route('front/products')}}">Products</a>
 									<ul class="sub-menu">
 										<li><a href="{{route('front/products')}}">All products</a></li>
+                                        <hr>
 										<?php
 											use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 											// $nav_products = session()->get('nav_products');

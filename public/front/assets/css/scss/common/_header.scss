@@ -194,8 +194,13 @@ nav.mean-nav>ul>li:first-child>a {
 nav.main-menu {
     ul {
         ul.sub-menu li {
+            &:hover {
+                background-color: #555;
+            }
+
             a {
-                color: #555;
+                background-color: #FFF;
+                // color: #555;
                 // padding: 8px;
                 font-size: 13px;
                 font-weight: 600;
@@ -210,12 +215,23 @@ nav.main-menu {
     }
 
     li {
+        transition: 0.3s all ease-in-out;
+        -webkit-transition: 0.3s all ease-in-out;
+        -moz-transition: 0.3s all ease-in-out;
+        -ms-transition: 0.3s all ease-in-out;
+        -o-transition: 0.3s all ease-in-out;
+
         &:hover>a {
             color: $primary-color;
+            font-weight: bold !important;
         }
 
         a {
-            transition: 0.3s;
+            transition: 0.3s all ease-in-out;
+            -webkit-transition: 0.3s all ease-in-out;
+            -moz-transition: 0.3s all ease-in-out;
+            -ms-transition: 0.3s all ease-in-out;
+            -o-transition: 0.3s all ease-in-out;
         }
     }
 }

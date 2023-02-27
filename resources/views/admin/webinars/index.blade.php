@@ -83,7 +83,7 @@
                                                         </a>
                                                         <ul class="dropdown-menu dropdown-user">
                                                             <li>
-                                                                <a href="{{route('admin/webinars/edit', $webinar->id)}}" style="text-decoration: none; color: white; width: 64px;margin:auto" class="btn btn-success">
+                                                                <a href="{{route('admin/webinars/edit', $webinar->id)}}" style="text-decoration: none; color: white; width: 75px;margin:auto" class="btn btn-success">
                                                                     edit
                                                                 </a>
                                                             </li>
@@ -227,7 +227,7 @@
                                                         </a>
                                                         <ul class="dropdown-menu dropdown-user">
                                                             <li>
-                                                                <a href="${edit_route}" style="text-decoration: none; color: white; width: 64px;margin:auto" class="btn btn-success">
+                                                                <a href="${edit_route}" style="text-decoration: none; color: white; width: 75px;margin:auto" class="btn btn-success">
                                                                     edit
                                                                 </a>
                                                             </li>
@@ -304,7 +304,7 @@
                                                 </a>
                                                 <ul class="dropdown-menu dropdown-user">
                                                     <li>
-                                                        <a href="${edit_route}" style="text-decoration: none; color: white; width: 64px;margin:auto" class="btn btn-success">
+                                                        <a href="${edit_route}" style="text-decoration: none; color: white; width: 75px;margin:auto" class="btn btn-success">
                                                             edit
                                                         </a>
                                                     </li>
