@@ -78,25 +78,6 @@
 					@endisset
 				</ol>
 				<div class="carousel-inner">
-					<?php $loop_index = 0; ?>
-					@isset($options_section_two_data)
-						@for ($i = 0; $i < count($options_section_two_data); $i++)
-							<div class="carousel-item <?php if($loop_index == 0 ){ echo 'active'; } ?>">
-								<div class="row">
-									<div class="card-body">
-										<img src="{{asset($options_section_two_data[$i]['icon'])}}" width="70" alt="">
-										{{$options_section_two_data[$i]['title']}}
-									</div>
-									<?php $i++; ?>
-									<div class="card-body">
-										<img src="{{asset($options_section_two_data[$i]['icon'])}}" width="70" alt="">
-										{{$options_section_two_data[$i]['title']}}
-									</div>
-								</div>
-							</div>
-							<?php $loop_index++; ?>
-						@endfor
-					@endisset
 				</div>
 			</div>
 			</div>
