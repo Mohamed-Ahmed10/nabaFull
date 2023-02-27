@@ -72,7 +72,7 @@
 					
 					@isset($options_section_two_data)
 						<?php $loop_count = count($options_section_two_data) / 2; ?>
-						@for ($ii = 1; $ii < $loop_count; $ii++)
+						@for ($ii = 1; $ii < round($loop_count); $ii++)
 							<li data-target="#carouselExampleIndicators" data-slide-to="{{$ii}}"></li>
 						@endfor
 					@endisset
