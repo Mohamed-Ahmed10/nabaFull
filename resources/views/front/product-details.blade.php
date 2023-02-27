@@ -69,24 +69,33 @@
 				<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 				<ol class="carousel-indicators">
 					<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-					<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-					<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+					
+					@isset($options_section_two_data)
+						@for ($i = 1; $i < COUNT($options_section_two_data) / 2; $i++)
+							<li data-target="#carouselExampleIndicators" data-slide-to="{{$i}}"></li>
+						@endfor
+					@endisset
 				</ol>
 				<div class="carousel-inner">
-					<div class="carousel-item active">
-						<div class="row">
-						@isset($options_section_two_data)
-							@foreach($options_section_two_data as $option_two)
-								<div class="col-3">
+					<?php $loop_index = 0; ?>
+					@isset($options_section_two_data)
+						@for ($i = 0; $i < COUNT($options_section_two_data); $i++)
+							<div class="carousel-item <?php if($loop_index == 0 ){ echo 'active'; } ?>">
+								<div class="row">
 									<div class="card-body">
-										<img src="{{asset($option_two->icon)}}" width="70" alt="">
-										{{$option_two->title}}
+										<img src="{{asset($options_section_two_data[$i]['icon'])}}" width="70" alt="">
+										{{$options_section_two_data[$i]['title']}}
+									</div>
+									<?php $i++ ?>
+									<div class="card-body">
+										<img src="{{asset($options_section_two_data[$i]['icon'])}}" width="70" alt="">
+										{{$options_section_two_data[$i]['title']}}
 									</div>
 								</div>
-							@endforeach
-						@endisset
-						</div>
-					</div>
+							</div>
+							<?php $loop_index++ ?>
+						@endfor
+					@endisset
 				</div>
 			</div>
 			</div>
