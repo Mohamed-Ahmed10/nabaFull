@@ -80,18 +80,18 @@
 				<div class="carousel-inner">
 					<?php $loop_index = 0; ?>
 					@isset($options_section_two_data)
-						@for ($i = 0; $i < count($options_section_two_data); $i++)
+						@for ($i = 0; $i < count($options_section_two_data) - 1; $i++)
 							<?php if($loop_index == 0 ){ $active = 'active'; }else{ $active = ''; } ?>
 							<div class="carousel-item {{$active}}">
 								<div class="row">
 									<div class="card-body">
-										<img src="<?php echo asset($options_section_two_data[$i]['icon']) ?>" width="70" alt="">
-										<?php echo $options_section_two_data[$i]['title'] ?>
+										<img src="{{asset($options_section_two_data[$i]['icon'])}}" width="70" alt="">
+										{{$options_section_two_data[$i]['title']}}
 									</div>
 									<?php $i++; ?>
 									<div class="card-body">
-										<img src="<?php echo asset($options_section_two_data[$i]['icon']) ?>" width="70" alt="">
-										<?php echo $options_section_two_data[$i]['title'] ?>
+										<img src="{{asset($options_section_two_data[$i]['icon'])}}" width="70" alt="">
+										{{$options_section_two_data[$i]['title']}}
 									</div>
 								</div>
 							</div>
