@@ -72,8 +72,8 @@
 					
 					@isset($options_section_two_data)
 						<?php $loop_count = COUNT($options_section_two_data) / 2; ?>
-						@for ($i = 1; $i < $loop_count; $i++)
-							<li data-target="#carouselExampleIndicators" data-slide-to="{{$i}}"></li>
+						@for ($ii = 1; $ii < $loop_count; $ii++)
+							<li data-target="#carouselExampleIndicators" data-slide-to="{{$ii}}"></li>
 						@endfor
 					@endisset
 				</ol>
