@@ -26,7 +26,7 @@
                 </ol>
             </nav>
             </div>
-        </div> 
+        </div>
         <!-- /.col-lg-12 -->
     </div>
     <!-- /.row -->
@@ -80,10 +80,10 @@
                                     <div class="form-group input-group">
                                         <span class="input-group-addon" style="color: red;">*</span>
                                         <select class="form-control" name="section_no" id="section_no">
-                                            <option value="">Section</option>
+                                            <option value="" disabled>Section</option>
                                             <option value="1">Section ONE</option>
                                             <option value="2">Section TOW</option>
-                                        </select>                                      
+                                        </select>
                                         @error('section_no')
                                             <span class="text-danger">{{$message}}</span>
                                         @enderror
