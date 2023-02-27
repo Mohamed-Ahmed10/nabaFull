@@ -71,7 +71,7 @@
 					<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
 					
 					@isset($options_section_two_data)
-						<?php $loop_count = COUNT($options_section_two_data) / 2; ?>
+						<?php $loop_count = count($options_section_two_data) / 2; ?>
 						@for ($ii = 1; $ii < $loop_count; $ii++)
 							<li data-target="#carouselExampleIndicators" data-slide-to="{{$ii}}"></li>
 						@endfor
@@ -80,7 +80,7 @@
 				<div class="carousel-inner">
 					<?php $loop_index = 0; ?>
 					@isset($options_section_two_data)
-						@for ($i = 0; $i < COUNT($options_section_two_data); $i++)
+						@for ($i = 0; $i < count($options_section_two_data); $i++)
 							<div class="carousel-item <?php if($loop_index == 0 ){ echo 'active'; } ?>">
 								<div class="row">
 									<div class="card-body">
