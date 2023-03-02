@@ -17,7 +17,7 @@
 	<div class="show_all_header">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-8 offset-lg-2 text-center">
+				<div class="col-lg-12 text-center">
 					<div class="breadcrumb-text">
 						<h1>Naba trainings</h1>
 					</div>
@@ -44,7 +44,7 @@
 										<div class="author"><i class="fas fa-user"></i>  {{$training->instructor}}</div>
 										<div class="date"><i class="fas fa-calendar"></i>  From : {{$training->date_from}}</div>
 										<div class="date"><i class="fas fa-calendar"></i>  To : {{$training->date_to}}</div>
-										<?php 
+										<?php
 											if((int)$training->cost > 0){ $cost = '<h6><span class="badge badge-warning">Paid</span> $ '. $training->cost .'</h6>'; }
 											else{ $cost = '<h6><span class="badge badge-success">Free</span></h6>'; }
 										?>

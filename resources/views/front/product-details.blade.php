@@ -20,7 +20,7 @@
 			<video class="video_bg" src="https://construction.nabasoft.com/9.mp4" autoplay muted loop></video>
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="col-lg-12 text-center">
 						<div class="breadcrumb-text">
                             <!-- Amr needs  -->
 							<span style="color: {{$product->color_title}}">{{$product->title}}®</span>
@@ -69,10 +69,10 @@
 				<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 				<ol class="carousel-indicators">
 					<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-					
+
 					@isset($options_section_two_data)
 						<?php $loop_count = count($options_section_two_data) / 2; ?>
-						@for ($ii = 1; $ii < round($loop_count); $ii++) 
+						@for ($ii = 1; $ii < round($loop_count); $ii++)
 							<li data-target="#carouselExampleIndicators" data-slide-to="{{$ii}}"></li>
 						@endfor
 					@endisset

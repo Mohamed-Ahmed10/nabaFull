@@ -17,7 +17,7 @@
 	<div class="show_all_header">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-8 offset-lg-2 text-center">
+				<div class="col-lg-12 text-center">
 					<div class="breadcrumb-text">
 						<h1>Naba Articles</h1>
 					</div>

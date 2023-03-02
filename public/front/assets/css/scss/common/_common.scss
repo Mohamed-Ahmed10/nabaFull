@@ -7,12 +7,16 @@
     scroll-behavior: smooth;
 }
 
-body[lang="ar"] {
+html[lang="ar"] {
     direction: rtl;
 }
 
 .openDeleteFrom {
     margin-left: 25%;
+}
+
+.homepage-slider {
+    direction: ltr;
 }
 
 hr {
