@@ -154,7 +154,7 @@ input[type="submit"] {
     position: relative;
     z-index: 1;
 
-    @media(max-width:900px) {
+    @media(max-width:600px) {
         background-size: contain;
         background-position: initial;
     }
@@ -182,6 +182,20 @@ div.owl-controls,
 
 .homepage-slider {
     position: relative;
+
+    &.small {
+        display: none;
+    }
+
+    @media (max-width:600px) {
+        &.owl-carousel.owl-loaded {
+            display: none;
+        }
+
+        &.small.owl-carousel.owl-loaded {
+            display: block;
+        }
+    }
 }
 
 .owl-prev {
