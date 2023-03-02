@@ -45,6 +45,19 @@ class ContactUsController extends Controller
             if(!$request->notes == NULL){
                 $contact->notes = strtolower(trim($request->notes));
             }
+            if(!$request->item_id == NULL){
+                $contact->sectionable_id = strtolower(trim($request->item_id));
+            }
+            if(!$request->section_no == NULL){
+                $section = '';
+                if($request->section_no == 1){ $section = "App\Models\Product"; }
+                elseif($request->section_no == 2){ $section = "App\Models\Article"; }
+                elseif($request->section_no == 3){ $section = "App\Models\Webinar"; }
+                elseif($request->section_no == 4){ $section = "App\Models\Service"; }
+                elseif($request->section_no == 5){ $section = "App\Models\Training"; }
+                $contact->section_no = strtolower(trim($request->section_no));
+                $contact->sectionable_type = $section;
+            }
             $contact->save();
             flash()->success("Success");
             return back();

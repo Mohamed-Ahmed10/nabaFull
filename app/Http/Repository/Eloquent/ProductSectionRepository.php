@@ -18,8 +18,9 @@ class ProductSectionRepository extends AbstractRepository
     public function GetProductSectionAll($id)
     {
         try{
-            $product_sections = $this->model->where('product_id', $id)->get();
-            return view('admin.products.sections.index', compact(['product_sections', 'id']));
+            $product_sections_one = $this->model->where([['product_id', $id], ['section_no', 1]])->get();
+            $product_sections_tow = $this->model->where([['product_id', $id], ['section_no', 2]])->get();
+            return view('admin.products.sections.index', compact(['product_sections_one', 'product_sections_tow', 'id']));
         }catch(\Exception $ex){
             flash()->error("There Is Something Wrong , Please Contact Technical Support");
             return back();

@@ -204,10 +204,7 @@
 
                             if(typeof(data[i].viewable_name) == 'undefined'){
                             }else{
-                                console.log("section_no :" + section_no);
                                 section_no = section_no + ' ( ' + data[i].viewable_name + ' )'
-                                console.log("section_no_2 :" + section_no);
-
                             }
                             records += `
                                 <tr>

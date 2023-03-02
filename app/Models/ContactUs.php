@@ -9,6 +9,12 @@ class ContactUs extends Model
 
 	protected $table = 'contacts_us';
 	public $timestamps = true;
-	protected $fillable = array('name', 'company_name', 'email', 'country', 'phone', 'notes');
+	protected $fillable = array('sectionable_id', 'sectionable_type', 'name', 'company_name', 'email', 'country', 'phone', 'notes');
+
+
+	public function sectionable()
+    {
+        return $this->morphTo();
+    }
 
 }

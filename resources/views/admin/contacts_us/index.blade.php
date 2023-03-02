@@ -37,7 +37,45 @@
                 <div class="panel-body">
                     @include('flash::message')
                     <div class="row">
-                        <div class="col-sm-6"></div>
+                        <div class="col-sm-6">
+                            <form onsubmit="event.preventDefault()" class="expert_search">
+                                <div class="tab-content">
+                                    @csrf
+                                    <div class="col-xs-3">
+                                        <div id="dataTables-example_filter" class="dataTables_filter">
+                                            SECTION
+                                            <select class="form-control" name="section" aria-controls="dataTables-example">
+                                                <option value="">all</option>
+                                                <option value="6">Home Concats</option>
+                                                <option value="1">Products</option>
+                                                <option value="2">Articles</option>
+                                                <option value="3">Webinars</option>
+                                                <option value="4">Services</option>
+                                                <option value="5">Trainings</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <div id="dataTables-example_filter" class="dataTables_filter">
+                                            FROM 
+                                            <input  name="date_from" type="date" class="form-control input-sm" aria-controls="dataTables-example">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <div id="dataTables-example_filter" class="dataTables_filter">
+                                            TO 
+                                            <input  name="date_to" type="date" class="form-control input-sm" aria-controls="dataTables-example">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <div id="dataTables-example_filter" class="dataTables_filter">
+                                            <button type="submit" class="btn btn-success btn-sm">Submit</button>
+                                            <a href="{{route('admin/contact-us/index')}}" class="btn btn-primary btn-sm">Reset</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                         <div class="col-sm-6 text-right">
                             <div id="dataTables-example_filter" class="dataTables_filter">
                                 <label><input id="data_search" placeholder="search" type="search" class="form-control input-sm" aria-controls="dataTables-example"></label>
@@ -50,6 +88,7 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
+                                    <th>Section</th>
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Phone</th>
@@ -62,7 +101,16 @@
                                 @isset($contacts_us)
                                     @foreach($contacts_us as $contact)
                                         <tr class="odd gradeX">
+                                            <?php 
+                                                $section_no = '';
+                                                if($contact->section_no == 1){ $section_no = 'products ( ' . $contact->sectionable->title .' )'  ; }
+                                                elseif($contact->section_no == 2){ $section_no = 'articles ( ' . $contact->sectionable->title .' )'  ; } 
+                                                elseif($contact->section_no == 3){ $section_no = 'webinars ( ' . $contact->sectionable->title .' )'  ; } 
+                                                elseif($contact->section_no == 4){ $section_no = 'services ( ' . $contact->sectionable->title .' )'  ; } 
+                                                elseif($contact->section_no == 5){ $section_no = 'trainings ( ' . $contact->sectionable->name .' )'  ; } 
+                                            ?> 
                                             <td>{{$contact->id}}</td>
+                                            <td>{{$section_no}}</td>
                                             <td>{{$contact->name}}</td>
                                             <td>{{$contact->email}}</td>
                                             <td>{{$contact->phone}}</td>
@@ -108,6 +156,7 @@
                 var _token = $('input[name="_token"]').val();
                 var id = $(this).attr('data-id');
                 let lastId = ''
+                let section_no_td = ''
                 $('#load_more_button').html('<b>Loading... </b>');
                 load_data(id, _token);
 
@@ -122,10 +171,16 @@
                         success: function(data) {
                             if (data.length > 0) {
                                 for (let i = 0; i < data.length; i++) {
+                                    if (typeof(data[i].section_no) == 'undefined' || data[i].section_no == null || data[i].section_no == '0') {
+                                        section_no_td = '( )'
+                                    }else{
+                                        section_no_td = data[i].section_no + ' ( ' + data[i].section_no + ' )'
+                                    }
                                     lastId = data[i].id
                                     records += `
                                         <tr>
                                             <td>${data[i].id}</td>
+                                            <td>${section_no_td}</td>
                                             <td>${data[i].name}</td>
                                             <td>${data[i].email}</td>
                                             <td>${data[i].phone}</td>
@@ -156,6 +211,7 @@
             var query = $(this).val();
             var _token = $('input[name="_token"]').val();
             let records = ``
+            let section_no_td = ''
             event.preventDefault();
             $.ajax({
                 url: "{{ route('admin/contact-us/search') }}",
@@ -167,9 +223,15 @@
                 success: function(data) {
                     if (data.length > 0) {
                         for (let i = 0; i < data.length; i++) {
+                            if (typeof(data[i].section_no) == 'undefined' || data[i].section_no == null || data[i].section_no == '0') {
+                                section_no_td = '( )'
+                            }else{
+                                section_no_td = data[i].section_no + ' ( ' + data[i].section_no + ' )'
+                            }
                             records += `
                                 <tr>
                                     <td>${data[i].id}</td>
+                                    <td>${section_no_td}</td>
                                     <td>${data[i].name}</td>
                                     <td>${data[i].email}</td>
                                     <td>${data[i].phone}</td>
@@ -195,6 +257,68 @@
                         document.getElementById("tableShowData").style.display = 'none'
                         let btnNoData = `<button type="button" name="load_more_button" style="width: 350px;" class="btn btn-primary form-control px-5" id="load_more_button_remove">No Data</button>`
                         document.getElementById("load_more").innerHTML = btnNoData
+                    }
+                }
+            })
+        });
+    </script>
+    <script>
+        $('.expert_search').on('submit', function(event){
+            var _token = $('input[name="_token"]').val();
+            let section_no = ''
+            let records = ``
+            event.preventDefault();
+            $.ajax({
+                url:"{{ route('admin/contact-us/form/search') }}",
+                method:"POST",
+                data: new FormData(this),
+                contentType: false,
+                cache:false,
+                processData: false,
+                dataType:"json",
+                success:function(data){
+                    if (data.length > 0) {
+                        console.log("aaaaaa");
+                        for (let i = 0; i < data.length; i++) {
+                            section_no = ''
+
+                            if (typeof(data[i].country_name) == 'undefined') {
+                                country_name = ''
+                            }else{
+                                country_name = data[i].country_name
+                            }
+                            if (data[i].section_no == 1) { section_no = 'products' }
+                            else if (data[i].section_no == 2) { section_no = 'articles' }
+                            else if (data[i].section_no == 3) { section_no = 'webinars' }
+                            else if (data[i].section_no == 4) { section_no = 'services' }
+                            else if (data[i].section_no == 5) { section_no = 'trainings' }
+
+                            if(typeof(data[i].sectionable_name) == 'undefined'){
+                            }else{
+                                section_no = section_no + ' ( ' + data[i].sectionable_name + ' )'
+                            }
+                            records += `
+                                <tr>
+                                    <td>${data[i].id}</td>
+                                    <td>${section_no}</td>
+                                    <td>${data[i].name}</td>
+                                    <td>${data[i].email}</td>
+                                    <td>${data[i].phone}</td>
+                                    <td>${data[i].country}</td>
+                                    <td>${data[i].company_name}</td>
+                                    <td>${data[i].notes}</td>
+                                </tr>
+                            `
+                        }
+                        document.getElementById("tableShowData").style.display = null
+                        document.getElementById("tableShowData").innerHTML = records
+                        length = data.length
+                        showItems.innerHTML = Number(length)
+                    } else if (data.length === 0) {
+                        console.log("null");
+                        length = data.length
+                        showItems.innerHTML = Number(length)
+                        document.getElementById("tableShowData").style.display = 'none'
                     }
                 }
             })

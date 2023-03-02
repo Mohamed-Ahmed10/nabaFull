@@ -37,4 +37,9 @@ class ContactUsController extends Controller
         return $this->contacts_us->ContactsUsSearch($request);
     }
 
+    public function form_search(Request $request)
+    {
+        return $this->contacts_us->ContactsUsFormSearch($request);
+    }
+
 }

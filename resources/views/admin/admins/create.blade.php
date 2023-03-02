@@ -60,13 +60,13 @@
                                         <span class="text-danger">{{$message}}</span>
                                     @enderror
                                 </div>
-                                <div class="form-group input-group">
+                                <input name="role_id" type="hidden" class="form-control" placeholder="Phone" value="1">
+                                <!-- <div class="form-group input-group">
                                     <span class="input-group-addon" style="color: red;">*</span>
-                                    <input name="role_id" type="number" class="form-control" placeholder="Phone" value="1">
                                     @error('role_id')
                                         <span class="text-danger">{{$message}}</span>
                                     @enderror
-                                </div>
+                                </div> -->
                                 <div class="form-group input-group">
                                     <span class="input-group-addon" style="color: red;">*</span>
                                     <input name="password" type="password" class="form-control" placeholder="Password">

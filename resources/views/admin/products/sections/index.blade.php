@@ -51,6 +51,7 @@
                         </div>
                     </div>
                     <div class="dataTable_wrapper">
+                        <h2>SECTION ONE</h2>
                         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                             <thead>
                                 <tr>
@@ -63,15 +64,15 @@
                                 </tr>
                             </thead>
                             <tbody id="tableShowData">
-                                @isset($product_sections)
-                                    @foreach($product_sections as $product_section)
+                                @isset($product_sections_one)
+                                    @foreach($product_sections_one as $product_section_one)
                                         <tr class="odd gradeX">
-                                            <td>{{$product_section->id}}</td>
-                                            <td>{{$product_section->id}}</td>
-                                            <td>{{$product_section->title}}</td>
-                                            <td>{{$product_section->section_no}}</td>
+                                            <td>{{$product_section_one->id}}</td>
+                                            <td>{{$product_section_one->id}}</td>
+                                            <td>{{$product_section_one->title}}</td>
+                                            <td>{{$product_section_one->section_no}}</td>
                                             <?php
-                                                if($product_section->is_activate == 1){$activate = '<span class="badge badge-info">active</span>';}
+                                                if($product_section_one->is_activate == 1){$activate = '<span class="badge badge-info">active</span>';}
                                                 else{$activate = '<span class="badge badge-danger">un active</span>';}
                                             ?>
                                             <td class="center">{!! $activate !!}</td>
@@ -83,19 +84,19 @@
                                                         </a>
                                                         <ul class="dropdown-menu dropdown-user">
                                                             <li>
-                                                                <a href="{{route('admin/products/section/edit', $product_section->id)}}" style="text-decoration: none; color: white; width: 64px;margin:auto" class="btn btn-success">
+                                                                <a href="{{route('admin/products/section/edit', $product_section_one->id)}}" style="text-decoration: none; color: white; width: 64px;margin:auto" class="btn btn-success">
                                                                     edit
                                                                 </a>
                                                             </li>
                                                             <li class="divider"></li>
                                                             <li >
-                                                                <button class="dropdown-item btn btn-danger openDeleteFrom" data-toggle="modal" data-target="#myModalDelete" data-id="{{$product_section->id}}">
+                                                                <button class="dropdown-item btn btn-danger openDeleteFrom" data-toggle="modal" data-target="#myModalDelete" data-id="{{$product_section_one->id}}">
                                                                     delete
                                                                 </button>
                                                             </li>
                                                             <li class="divider"></li>
                                                             <li>
-                                                                <button class="dropdown-item btn btn-priamry openActivationFrom" data-toggle="modal" data-target="#myModalActivation" data-id="{{$product_section->id}}">
+                                                                <button class="dropdown-item btn btn-priamry openActivationFrom" data-toggle="modal" data-target="#myModalActivation" data-id="{{$product_section_one->id}}">
                                                                     activation
                                                                 </button>
                                                             </li>
@@ -108,9 +109,68 @@
                                 @endisset
                             </tbody>
                         </table>
-                        <div style="margin-top: 20px; font-weight: 600; font-size: 16px;">
+                        <hr>
+                        <h2>SECTION TOW</h2>
+                        <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Icon</th>
+                                    <th>Title</th>
+                                    <th>Section</th>
+                                    <th>Activation</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableShowData">
+                                @isset($product_sections_tow)
+                                    @foreach($product_sections_tow as $product_section_tow)
+                                        <tr class="odd gradeX">
+                                            <td>{{$product_section_tow->id}}</td>
+                                            <td>{{$product_section_tow->id}}</td>
+                                            <td>{{$product_section_tow->title}}</td>
+                                            <td>{{$product_section_tow->section_no}}</td>
+                                            <?php
+                                                if($product_section_tow->is_activate == 1){$activate = '<span class="badge badge-info">active</span>';}
+                                                else{$activate = '<span class="badge badge-danger">un active</span>';}
+                                            ?>
+                                            <td class="center">{!! $activate !!}</td>
+                                            <td class="center">
+                                                <ul class="nav navbar-center navbar-top-links" style="border-radius: 15px;">
+                                                    <li class="dropdown">
+                                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                                            <i class="fa-align-justify"></i> actions <b class="caret"></b>
+                                                        </a>
+                                                        <ul class="dropdown-menu dropdown-user">
+                                                            <li>
+                                                                <a href="{{route('admin/products/section/edit', $product_section_tow->id)}}" style="text-decoration: none; color: white; width: 64px;margin:auto" class="btn btn-success">
+                                                                    edit
+                                                                </a>
+                                                            </li>
+                                                            <li class="divider"></li>
+                                                            <li >
+                                                                <button class="dropdown-item btn btn-danger openDeleteFrom" data-toggle="modal" data-target="#myModalDelete" data-id="{{$product_section_tow->id}}">
+                                                                    delete
+                                                                </button>
+                                                            </li>
+                                                            <li class="divider"></li>
+                                                            <li>
+                                                                <button class="dropdown-item btn btn-priamry openActivationFrom" data-toggle="modal" data-target="#myModalActivation" data-id="{{$product_section_tow->id}}">
+                                                                    activation
+                                                                </button>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                @endisset
+                            </tbody>
+                        </table>
+                        <!-- <div style="margin-top: 20px; font-weight: 600; font-size: 16px;">
                             Showing 1 to <span id="showItems"></span> <span></span> entries
-                        </div>
+                        </div> -->
                         <div class="ltn__pagination-area text-center mt-5">
                             <div class="ltn__pagination text-center">
                                 <div id="load_more">

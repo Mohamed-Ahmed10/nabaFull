@@ -157,6 +157,7 @@ Route::group([
             Route::get('contact-us/index', 'ContactUsController@index')->name('admin/contact-us/index');
             Route::post('contact-us/getMore', 'ContactUsController@getMore')->name('admin/contact-us/getMore');
             Route::post('contact-us/search', 'ContactUsController@search')->name('admin/contact-us/search');
+            Route::post('contact-us/form/search', 'ContactUsController@form_search')->name('admin/contact-us/form/search');
 
             // views routes 
             Route::get('views/index', 'ViewsController@index')->name('admin/views/index');
