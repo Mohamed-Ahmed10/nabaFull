@@ -47,6 +47,9 @@
                                 <div class="m-2 d-flex">
                                     <img src="{{asset($slider->image)}}" alt="" class="img-fluid img-50 rounded-circle blur-up lazyloaded" width="100">
                                 </div>
+                                <div class="m-2 d-flex">
+                                    <img src="{{asset($slider->image_phone)}}" alt="" class="img-fluid img-50 rounded-circle blur-up lazyloaded" width="100">
+                                </div>
                             </div>
                             <div class="tab-content">
                                 @csrf
@@ -76,6 +79,13 @@
                                         <span class="input-group-addon" style="color: red;">*</span>
                                         <input name="image" type="file" class="form-control" placeholder="Upload Image">
                                         @error('image')
+                                            <span class="text-danger">{{$message}}</span>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group input-group">
+                                        <span class="input-group-addon" style="color: red;">Mobile *</span>
+                                        <input name="image_mobile" type="file" class="form-control" placeholder="Upload Mobile Image">
+                                        @error('image_mobile')
                                             <span class="text-danger">{{$message}}</span>
                                         @enderror
                                     </div>

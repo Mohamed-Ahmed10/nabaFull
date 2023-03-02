@@ -20,9 +20,9 @@ class ContactUsRepository extends AbstractRepository
     {
         try{
             if( isset($request->id) && $request->id > 0){
-                $contacts_us = $this->model->latest()->skip($request->id)->limit(PAGINATION_COUNT)->get();
+                $contacts_us = $this->model->latest()->with('sectionable')->skip($request->id)->limit(PAGINATION_COUNT)->get();
             }else{
-                $contacts_us = $this->model->latest()->skip(PAGINATION_COUNT)->limit(PAGINATION_COUNT)->get();
+                $contacts_us = $this->model->latest()->with('sectionable')->skip(PAGINATION_COUNT)->limit(PAGINATION_COUNT)->get();
             }
             $all_data = NULL;
             if($contacts_us && count($contacts_us) > 0){
@@ -46,9 +46,10 @@ class ContactUsRepository extends AbstractRepository
                                                     ->orWhere('phone', 'LIKE', '%'. $query .'%')
                                                     ->orWhere('country', 'LIKE', '%'. $query .'%')
                                                     ->orWhere('company_name', 'LIKE', '%'. $query .'%')
+                                                    ->with('sectionable')
                                                     ->get();
             }else{
-                $contacts_us = $this->model->latest()->limit(PAGINATION_COUNT)->get();
+                $contacts_us = $this->model->latest()->with('sectionable')->limit(PAGINATION_COUNT)->get();
             }
             $all_data = NULL;
             if($contacts_us && count($contacts_us) > 0){

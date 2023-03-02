@@ -48,7 +48,8 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Image</th>
+                                    <th>Image ( PC )</th>
+                                    <th>Image ( Mobile )</th>
                                     <th>Title</th>
                                     <th>link</th>
                                     <th>Activation</th>
@@ -63,6 +64,11 @@
                                             <td>
                                                 <div class="ml-2 d-flex">
                                                     <img src="{{asset($slider->image)}}" alt="" class="img-fluid img-50 rounded-circle blur-up lazyloaded" width="100">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="ml-2 d-flex">
+                                                    <img src="{{asset($slider->image_phone)}}" alt="" class="img-fluid img-50 rounded-circle blur-up lazyloaded" width="100">
                                                 </div>
                                             </td>
                                             <td>{{$slider->title}}</td>
@@ -205,6 +211,7 @@
                                 for (let i = 0; i < data.length; i++) {
                                     lastId = data[i].id
                                     image_path =  "{{ asset('') }}" + data[i].image;
+                                    image_phone_path =  "{{ asset('') }}" + data[i].image_phone;
                                     edit_route =  "{{ route('admin/sliders/edit') }}" + '/' + data[i].id;
                                     records += `
                                         <tr>
@@ -212,6 +219,11 @@
                                             <td>
                                                 <div class="ml-2 d-flex">
                                                     <img src="${image_path}" alt="" class="img-fluid img-50 rounded-circle blur-up lazyloaded">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="ml-2 d-flex">
+                                                    <img src="${image_phone_path}" alt="" class="img-fluid img-50 rounded-circle blur-up lazyloaded">
                                                 </div>
                                             </td>
                                             <td>${data[i].title}</td>
@@ -281,6 +293,7 @@
                     if (data.length > 0) {
                         for (let i = 0; i < data.length; i++) {
                             image_path =  "{{ asset('') }}" + data[i].image;
+                            image_phone_path =  "{{ asset('') }}" + data[i].image_phone;
                             edit_route =  "{{ route('admin/sliders/edit') }}" + '/' + data[i].id;
                             records += `
                                 <tr>
@@ -288,6 +301,11 @@
                                     <td>
                                         <div class="ml-2 d-flex">
                                             <img src="${image_path}" alt="" class="img-fluid img-50 rounded-circle blur-up lazyloaded">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="ml-2 d-flex">
+                                            <img src="${image_phone_path}" alt="" class="img-fluid img-50 rounded-circle blur-up lazyloaded">
                                         </div>
                                     </td>
                                     <td>${data[i].title}</td>

@@ -35,6 +35,11 @@ class SliderRepository extends AbstractRepository
                 $file = uploadIamge( $request->file('image'), 'sliders'); // function on helper file to upload file
                 $slider->image = $file;
             }
+            //save image phone
+            if (!$request->hasFile('image_mobile') == null) {
+                $file = uploadIamge( $request->file('image_mobile'), 'sliders'); // function on helper file to upload file
+                $slider->image_phone = $file;
+            }
             $slider->is_activate = 1;
             $slider->save();
             flash()->success("Added Has Been Done");
@@ -78,6 +83,11 @@ class SliderRepository extends AbstractRepository
             if (!$request->hasFile('image') == null) {
                 $file = uploadIamge( $request->file('image'), 'sliders'); // function on helper file to upload file
                 $slider->image = $file;
+            }
+            //save image phone
+            if (!$request->hasFile('image_mobile') == null) {
+                $file = uploadIamge( $request->file('image_mobile'), 'sliders'); // function on helper file to upload file
+                $slider->image_phone = $file;
             }
             $slider->save();
             flash()->success("Edited Has Been Done");

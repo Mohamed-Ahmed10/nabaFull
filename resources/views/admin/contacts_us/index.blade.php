@@ -102,7 +102,7 @@
                                     @foreach($contacts_us as $contact)
                                         <tr class="odd gradeX">
                                             <?php 
-                                                $section_no = '';
+                                                $section_no = '( --- )';
                                                 if($contact->section_no == 1){ $section_no = 'products ( ' . $contact->sectionable->title .' )'  ; }
                                                 elseif($contact->section_no == 2){ $section_no = 'articles ( ' . $contact->sectionable->title .' )'  ; } 
                                                 elseif($contact->section_no == 3){ $section_no = 'webinars ( ' . $contact->sectionable->title .' )'  ; } 
@@ -156,7 +156,7 @@
                 var _token = $('input[name="_token"]').val();
                 var id = $(this).attr('data-id');
                 let lastId = ''
-                let section_no_td = ''
+                let section_no = ''
                 $('#load_more_button').html('<b>Loading... </b>');
                 load_data(id, _token);
 
@@ -171,16 +171,28 @@
                         success: function(data) {
                             if (data.length > 0) {
                                 for (let i = 0; i < data.length; i++) {
-                                    if (typeof(data[i].section_no) == 'undefined' || data[i].section_no == null || data[i].section_no == '0') {
-                                        section_no_td = '( )'
+                                    section_no = ''
+
+                                    if (data[i].section_no == 1) { section_no = 'products' }
+                                    else if (data[i].section_no == 2) { section_no = 'articles' }
+                                    else if (data[i].section_no == 3) { section_no = 'webinars' }
+                                    else if (data[i].section_no == 4) { section_no = 'services' }
+                                    else if (data[i].section_no == 5) { section_no = 'trainings' }
+
+                                    if(typeof(data[i].sectionable) == 'undefined' || data[i].sectionable == null){
+                                        section_no = '( --- )'
                                     }else{
-                                        section_no_td = data[i].section_no + ' ( ' + data[i].section_no + ' )'
+                                        if (data[i].section_no == 5) { 
+                                            section_no = section_no + ' ( ' + data[i].sectionable.name + ' )'
+                                        }else{
+                                            section_no = section_no + ' ( ' + data[i].sectionable.title + ' )'
+                                        }
                                     }
                                     lastId = data[i].id
                                     records += `
                                         <tr>
                                             <td>${data[i].id}</td>
-                                            <td>${section_no_td}</td>
+                                            <td>${section_no}</td>
                                             <td>${data[i].name}</td>
                                             <td>${data[i].email}</td>
                                             <td>${data[i].phone}</td>
@@ -211,7 +223,7 @@
             var query = $(this).val();
             var _token = $('input[name="_token"]').val();
             let records = ``
-            let section_no_td = ''
+            let section_no = ''
             event.preventDefault();
             $.ajax({
                 url: "{{ route('admin/contact-us/search') }}",
@@ -223,15 +235,27 @@
                 success: function(data) {
                     if (data.length > 0) {
                         for (let i = 0; i < data.length; i++) {
-                            if (typeof(data[i].section_no) == 'undefined' || data[i].section_no == null || data[i].section_no == '0') {
-                                section_no_td = '( )'
+                            section_no = ''
+
+                            if (data[i].section_no == 1) { section_no = 'products' }
+                            else if (data[i].section_no == 2) { section_no = 'articles' }
+                            else if (data[i].section_no == 3) { section_no = 'webinars' }
+                            else if (data[i].section_no == 4) { section_no = 'services' }
+                            else if (data[i].section_no == 5) { section_no = 'trainings' }
+
+                            if(typeof(data[i].sectionable) == 'undefined' || data[i].sectionable == null){
+                                section_no = '( --- )'
                             }else{
-                                section_no_td = data[i].section_no + ' ( ' + data[i].section_no + ' )'
+                                if (data[i].section_no == 5) { 
+                                    section_no = section_no + ' ( ' + data[i].sectionable.name + ' )'
+                                }else{
+                                    section_no = section_no + ' ( ' + data[i].sectionable.title + ' )'
+                                }
                             }
                             records += `
                                 <tr>
                                     <td>${data[i].id}</td>
-                                    <td>${section_no_td}</td>
+                                    <td>${section_no}</td>
                                     <td>${data[i].name}</td>
                                     <td>${data[i].email}</td>
                                     <td>${data[i].phone}</td>
@@ -278,15 +302,9 @@
                 dataType:"json",
                 success:function(data){
                     if (data.length > 0) {
-                        console.log("aaaaaa");
                         for (let i = 0; i < data.length; i++) {
                             section_no = ''
 
-                            if (typeof(data[i].country_name) == 'undefined') {
-                                country_name = ''
-                            }else{
-                                country_name = data[i].country_name
-                            }
                             if (data[i].section_no == 1) { section_no = 'products' }
                             else if (data[i].section_no == 2) { section_no = 'articles' }
                             else if (data[i].section_no == 3) { section_no = 'webinars' }
@@ -315,7 +333,6 @@
                         length = data.length
                         showItems.innerHTML = Number(length)
                     } else if (data.length === 0) {
-                        console.log("null");
                         length = data.length
                         showItems.innerHTML = Number(length)
                         document.getElementById("tableShowData").style.display = 'none'

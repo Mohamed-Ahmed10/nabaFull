@@ -67,9 +67,16 @@
                                     @enderror
                                 </div>
                                 <div class="form-group input-group">
-                                    <span class="input-group-addon" style="color: red;">*</span>
+                                    <span class="input-group-addon" style="color: red;">PC *</span>
                                     <input name="image" type="file" class="form-control" placeholder="Upload Image">
                                     @error('image')
+                                        <span class="text-danger">{{$message}}</span>
+                                    @enderror
+                                </div>
+                                <div class="form-group input-group">
+                                    <span class="input-group-addon" style="color: red;">Mobile *</span>
+                                    <input name="image_mobile" type="file" class="form-control" placeholder="Upload Mobile Image">
+                                    @error('image_mobile')
                                         <span class="text-danger">{{$message}}</span>
                                     @enderror
                                 </div>
