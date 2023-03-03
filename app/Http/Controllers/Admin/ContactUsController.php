@@ -42,4 +42,10 @@ class ContactUsController extends Controller
         return $this->contacts_us->ContactsUsFormSearch($request);
     }
 
+    public function export_excel(Request $request)
+    {
+        return $this->contacts_us->ContactsUsExportExcel($request);
+    }
+
+
 }

@@ -14,9 +14,9 @@
 						<!-- menu start -->
 						<nav class="main-menu">
 							<ul>
-								<li class="current-list-item"><a href="{{route('front/index')}}">Home</a>
+								<li id="home_active"><a href="{{route('front/index')}}">Home</a>
 								</li>
-								<li><a href="{{route('front/products')}}">Products</a>
+								<li id="products_active"><a href="{{route('front/products')}}">Products</a>
 									<ul class="sub-menu">
 										<li><a href="{{route('front/products')}}">All products</a></li>
                                         <hr>
@@ -27,12 +27,12 @@
 										?>
 										@if(count($nav_products) > 0)
 											@foreach($nav_products as $nav_product)
-												<li><a href="{{route('front/product', $nav_product->id)}}">ElMohtaref for {{$nav_product->title}}</a></li> <hr>
+												<li id="product_active_<?php echo $nav_product->id ?>"><a href="{{route('front/product', $nav_product->id)}}">ElMohtaref for {{$nav_product->title}}</a></li> <hr>
 											@endforeach
 										@endif
 									</ul>
 								</li>
-								<li><a href="{{route('front/articles')}}">Articles </a>
+								<li id="articles_active"><a href="{{route('front/articles')}}">Articles </a>
 									<ul class="sub-menu">
 										<li><a href="{{route('front/articles')}}">All articles</a></li>
                                         <hr>
@@ -42,12 +42,12 @@
 										?>
 										@if(count($nav_trainings) > 0)
 											@foreach($nav_trainings as $nav_article)
-												<li><a href="{{route('front/article', $nav_article->id)}}">{{$nav_article->title}}</a></li><hr>
+												<li id="article_active_<?php echo $nav_article->id ?>"><a href="{{route('front/article', $nav_article->id)}}">{{$nav_article->title}}</a></li><hr>
 											@endforeach
 										@endif
 									</ul>
 								</li>
-								<li><a href="{{route('front/webinars')}}">Webinars </a>
+								<li id="webinars_active"><a href="{{route('front/webinars')}}">Webinars </a>
 									<ul class="sub-menu">
 										<li><a href="{{route('front/webinars')}}">All webinars</a></li>
                                         <hr>
@@ -57,12 +57,12 @@
 										?>
 										@if(count($nav_webinars) > 0)
 											@foreach($nav_webinars as $nav_webinar)
-												<li><a href="{{route('front/webinar', $nav_webinar->id)}}">{{$nav_webinar->name}}</a></li><hr>
+												<li id="webinar_active_<?php echo $nav_webinar->id ?>"><a href="{{route('front/webinar', $nav_webinar->id)}}">{{$nav_webinar->name}}</a></li><hr>
 											@endforeach
 										@endif
 									</ul>
 								</li>
-								<li><a href="{{route('front/services')}}">Services</a>
+								<li id="services_active"><a href="{{route('front/services')}}">Services</a>
 									<ul class="sub-menu">
 										<li><a href="{{route('front/services')}}">All services</a></li>
                                         <hr>
@@ -71,13 +71,13 @@
 											$nav_services = \App\Models\Service::translatedIn(LaravelLocalization::setLocale())->active()->get();
 										?>
 										@if(count($nav_services) > 0)
-											@foreach($nav_services as $service)
-												<li><a href="{{route('front/service', $service->id)}}">{{$service->title}}</a></li><hr>
+											@foreach($nav_services as $nav_service)
+												<li id="service_active_<?php echo $nav_service->id ?>"><a href="{{route('front/service', $nav_service->id)}}">{{$nav_service->title}}</a></li><hr>
 											@endforeach
 										@endif
 									</ul>
 								</li>
-								<li><a href="{{route('front/trainings')}}">Training </a>
+								<li id="trainings_active"><a href="{{route('front/trainings')}}">Training </a>
 									<ul class="sub-menu">
 										<li><a href="{{route('front/trainings')}}">All Trainings</a></li>
                                         <hr>
@@ -87,7 +87,7 @@
 										?>
 										@if(count($nav_trainings) > 0)
 											@foreach($nav_trainings as $nav_training)
-												<li><a href="{{route('front/training', $nav_training->id)}}">{{$nav_training->name}}</a></li>
+												<li id="training_active_<?php echo $nav_training->id ?>"><a href="{{route('front/training', $nav_training->id)}}">{{$nav_training->name}}</a></li>
                                                 <hr>
 											@endforeach
 										@endif

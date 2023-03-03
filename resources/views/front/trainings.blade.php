@@ -137,4 +137,7 @@
 @endsection
 <!-- custom js -->
 @section('script')
+<script>
+	$('#trainings_active').addClass('current-list-item');
+</script>
 @endsection

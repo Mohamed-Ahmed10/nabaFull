@@ -203,6 +203,13 @@
 @endsection
 <!-- custom js -->
 @section('script')
+<script>
+	$('#services_active').addClass('current-list-item');
+</script>
+@isset($service)
+<script>
+	$('#service_active_<?php echo $service->id ?>').addClass('active');
+</script>
+@endisset
 @endsection
-
 

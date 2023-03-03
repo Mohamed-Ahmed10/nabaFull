@@ -158,6 +158,7 @@ Route::group([
             Route::post('contact-us/getMore', 'ContactUsController@getMore')->name('admin/contact-us/getMore');
             Route::post('contact-us/search', 'ContactUsController@search')->name('admin/contact-us/search');
             Route::post('contact-us/form/search', 'ContactUsController@form_search')->name('admin/contact-us/form/search');
+            Route::get('contact-us/export/excel', 'ContactUsController@export_excel')->name('admin/contact-us/export/excel');
 
             // views routes 
             Route::get('views/index', 'ViewsController@index')->name('admin/views/index');

@@ -155,5 +155,6 @@
 @section('script')
     <script>
         $('#sticker').removeClass('show_all');
+		$('#home_active').addClass('current-list-item');
     </script>
 @endsection

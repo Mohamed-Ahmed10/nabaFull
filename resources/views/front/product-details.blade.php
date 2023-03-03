@@ -216,4 +216,12 @@
 @endsection
 <!-- custom js -->
 @section('script')
+<script>
+	$('#products_active').addClass('current-list-item');
+</script>
+@isset($product)
+<script>
+	$('#product_active_<?php echo $product->id ?>').addClass('active');
+</script>
+@endisset
 @endsection

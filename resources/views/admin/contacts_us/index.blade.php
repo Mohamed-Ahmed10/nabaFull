@@ -37,14 +37,14 @@
                 <div class="panel-body">
                     @include('flash::message')
                     <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-sm-8">
                             <form onsubmit="event.preventDefault()" class="expert_search">
                                 <div class="tab-content">
                                     @csrf
                                     <div class="col-xs-3">
                                         <div id="dataTables-example_filter" class="dataTables_filter">
                                             SECTION
-                                            <select class="form-control" name="section" aria-controls="dataTables-example">
+                                            <select id="section_input" class="form-control" name="section" aria-controls="dataTables-example">
                                                 <option value="">all</option>
                                                 <option value="6">Home Concats</option>
                                                 <option value="1">Products</option>
@@ -58,25 +58,30 @@
                                     <div class="col-xs-3">
                                         <div id="dataTables-example_filter" class="dataTables_filter">
                                             FROM 
-                                            <input  name="date_from" type="date" class="form-control input-sm" aria-controls="dataTables-example">
+                                            <input id="date_from_input" name="date_from" type="date" class="form-control input-sm" aria-controls="dataTables-example">
                                         </div>
                                     </div>
                                     <div class="col-xs-3">
                                         <div id="dataTables-example_filter" class="dataTables_filter">
                                             TO 
-                                            <input  name="date_to" type="date" class="form-control input-sm" aria-controls="dataTables-example">
+                                            <input id="date_to_input" name="date_to" type="date" class="form-control input-sm" aria-controls="dataTables-example">
                                         </div>
                                     </div>
-                                    <div class="col-xs-3">
+                                    <div class="col-xs-1">
                                         <div id="dataTables-example_filter" class="dataTables_filter">
-                                            <button type="submit" class="btn btn-success btn-sm">Submit</button>
+                                            <button type="button" id="export_excel_button" class="btn btn-success btn-sm">Excel</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <div id="dataTables-example_filter" class="dataTables_filter">
+                                            <button type="submit"  class="btn btn-success btn-sm">Submit</button>
                                             <a href="{{route('admin/contact-us/index')}}" class="btn btn-primary btn-sm">Reset</a>
                                         </div>
                                     </div>
                                 </div>
                             </form>
                         </div>
-                        <div class="col-sm-6 text-right">
+                        <div class="col-sm-4 text-right">
                             <div id="dataTables-example_filter" class="dataTables_filter">
                                 <label><input id="data_search" placeholder="search" type="search" class="form-control input-sm" aria-controls="dataTables-example"></label>
                             </div>
@@ -340,5 +345,16 @@
                 }
             })
         });
+
+        $('#export_excel_button').on('click',function(){
+            var query = {
+                section: $('#section_input').val(),
+                date_from: $('#date_from_input').val(),
+                date_to: $('#date_to_input').val()
+            }
+            var url = "{{URL::to('admin/contact-us/export/excel')}}?" + $.param(query)
+            window.open(url, '_blank');
+        });
+
     </script>
 @endsection

@@ -138,4 +138,7 @@
 @endsection
 <!-- custom js -->
 @section('script')
+<script>
+	$('#webinars_active').addClass('current-list-item');
+</script>
 @endsection

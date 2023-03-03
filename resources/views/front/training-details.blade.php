@@ -211,4 +211,12 @@
 @endsection
 <!-- custom js -->
 @section('script')
+<script>
+	$('#trainings_active').addClass('current-list-item');
+</script>
+@isset($training)
+<script>
+	$('#training_active_<?php echo $training->id ?>').addClass('active');
+</script>
+@endisset
 @endsection

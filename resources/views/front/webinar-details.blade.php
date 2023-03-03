@@ -211,4 +211,12 @@
 @endsection
 <!-- custom js -->
 @section('script')
+<script>
+	$('#webinars_active').addClass('current-list-item');
+</script>
+@isset($webinar)
+<script>
+	$('#webinar_active_<?php echo $webinar->id ?>').addClass('active');
+</script>
+@endisset
 @endsection

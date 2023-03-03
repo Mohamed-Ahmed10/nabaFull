@@ -142,4 +142,12 @@
 @endsection
 <!-- custom js -->
 @section('script')
+<script>
+	$('#articles_active').addClass('current-list-item');
+</script>
+@isset($article)
+<script>
+	$('#article_active_<?php echo $article->id ?>').addClass('active');
+</script>
+@endisset
 @endsection

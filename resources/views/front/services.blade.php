@@ -56,4 +56,7 @@
 @endsection
 <!-- custom js -->
 @section('script')
+<script>
+	$('#services_active').addClass('current-list-item');
+</script>
 @endsection
