@@ -19,7 +19,7 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 // });
 Route::group([
     'prefix' => LaravelLocalization::setLocale(),
-    'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath', 'checkDataForHeader' ]
+    'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
 ], function(){ 
     Route::group([ 'namespace' => 'App\Http\Controllers\Front' ],function(){
 
