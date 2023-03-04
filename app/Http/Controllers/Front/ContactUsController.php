@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\ContactUs;
 use Illuminate\Http\Request;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\Contact;
 
 class ContactUsController extends Controller
 {
@@ -50,7 +52,7 @@ class ContactUsController extends Controller
             }
             if(!$request->section_no == NULL){
                 $section = '';
-                if($request->section_no == 1){ $section = "App\Models\Product"; }
+                if($request->section_no == 1){ $section = "App\Models\Product";  }
                 elseif($request->section_no == 2){ $section = "App\Models\Article"; }
                 elseif($request->section_no == 3){ $section = "App\Models\Webinar"; }
                 elseif($request->section_no == 4){ $section = "App\Models\Service"; }
@@ -59,9 +61,13 @@ class ContactUsController extends Controller
                 $contact->sectionable_type = $section;
             }
             $contact->save();
+            if(!$request->section_no == NULL && ($request->section_no == 1 || $request->section_no == 4)){
+                Mail::to("amrhuusien99@gmail.com")->send(New Contact($contact));
+            }
             flash()->success("Success");
             return back();
         }catch(\Exception $ex){
+            return $ex;
             flash()->error("There Is Something Wrong , Please Concatt Technical Support");
             return back();
         }

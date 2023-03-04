@@ -43,7 +43,7 @@
 
 		@isset($sliders)
 			@foreach($sliders as $slider)
-				<div class="single-homepage-slider homepage-bg-1"  style="background-color:#F00">
+				<div class="single-homepage-slider homepage-bg-1" style="background-image: url({{asset($slider->image_phone)}})">
 					<div class="container">
 						<div class="row">
 							<div class="col-md-12 col-lg-7 offset-lg-1 offset-xl-0">
