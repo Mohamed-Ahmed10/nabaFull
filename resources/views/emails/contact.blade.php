@@ -30,7 +30,7 @@ NABA APPLICATION
         <!-- <p style="color: #222; font-weight: 600; font-size:14px">The link is valid for 24 hours and can be used once only.</p> -->
         <!-- <p style="color: #C7C7C7; margin-top: 50px; font-size:14px">Please note: This e-mail was sent from a notification-only address that cannot accept incoming emails. Please do not reply to this message.</p> -->
     </div>
-</div>
+</div><br>
 
 ,Thanks<br>
 
