@@ -7,7 +7,7 @@ NABA APPLICATION
 
 <div style="text-align: center;font-family: Arial, Helvetica, sans-serif;">
     <!-- <h1 style="font-size: 50px;">ETMAEN GROUP</h1> -->
-    <div style=" background-color: #F2F2F2;width: fit-content;margin: 25px auto 0;padding: 40px 18px;">
+    <div style="background-color: #F2F2F2; margin: 25px auto 0; padding: 40px 18px;">
         <?php 
             if($data->section_no == 1){
                 $item = "Products";
