@@ -13,10 +13,10 @@ NABA APPLICATION
             $item_name = '';
             if($data->section_no == 1){
                 $item = "Products";
-                $item_name = "Product Name: " . $data->sectionable->title;
+                if(!empty($data->sectionable)){ $item_name = "Product Name: " . $data->sectionable->title; }
             }elseif($data->section_no == 4){
                 $item = "Services";
-                $item_name = "Service Name: " . $data->sectionable->title;
+                if(!empty($data->sectionable)){ $item_name = "Service Name: " . $data->sectionable->title; }
             }
         ?>
         <h2 style=" color: #222; font-weight: 600; font-size: 24px;">Mail For {{$item}}</h2>
