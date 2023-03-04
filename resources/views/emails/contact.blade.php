@@ -9,9 +9,10 @@ NABA APPLICATION
     <!-- <h1 style="font-size: 50px;">ETMAEN GROUP</h1> -->
     <div style="background-color: #F2F2F2; margin: 25px auto 0; padding: 40px 18px;">
         <?php 
+            $item = '';
             if($data->section_no == 1){
                 $item = "Products";
-            }elseif($data->section_no == 1){
+            }elseif($data->section_no == 4){
                 $item = "Services";
             }
         ?>
