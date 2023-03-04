@@ -10,13 +10,17 @@ NABA APPLICATION
     <div style="background-color: #F2F2F2; margin: 25px auto 0; padding: 40px 18px;">
         <?php 
             $item = '';
+            $item_name = '';
             if($data->section_no == 1){
                 $item = "Products";
+                $item_name = "Product Name: " . $data->sectionable->title;
             }elseif($data->section_no == 4){
                 $item = "Services";
+                $item_name = "Service Name: " . $data->sectionable->title;
             }
         ?>
         <h2 style=" color: #222; font-weight: 600; font-size: 24px;">Mail For {{$item}}</h2>
+        <p style="color: #222; font-weight: 600; font-size:14px">{{$item_name}}</p>
         <p style="color: #222; font-weight: 600; font-size:14px">Personal Name: {{$data->name}}</p>
         <p style="color: #222; font-weight: 600; font-size:14px">Company Name: {{$data->company_name}}</p>
         <p style="color: #222; font-weight: 600; font-size:14px">Email: {{$data->email}}</p>
