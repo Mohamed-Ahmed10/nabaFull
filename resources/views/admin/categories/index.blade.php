@@ -58,7 +58,7 @@
                                                 <ul class="nav navbar-center navbar-top-links" style="border-radius: 15px;">
                                                     <li class="dropdown">
                                                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                                            <i class="fa-align-justify"></i> actions <b class="caret"></b>
+                                                             actions <b class="caret"></b>
                                                         </a>
                                                         <ul class="dropdown-menu dropdown-user">
                                                             <li>
@@ -196,7 +196,7 @@
                                                 <ul class="nav navbar-center navbar-top-links" style="border-radius: 15px;">
                                                     <li class="dropdown">
                                                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                                            <i class="fa-align-justify"></i> actions <b class="caret"></b>
+                                                             actions <b class="caret"></b>
                                                         </a>
                                                         <ul class="dropdown-menu dropdown-user">
                                                             <li>
@@ -265,7 +265,7 @@
                                         <ul class="nav navbar-center navbar-top-links" style="border-radius: 15px;">
                                             <li class="dropdown">
                                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                                    <i class="fa-align-justify"></i> actions <b class="caret"></b>
+                                                     actions <b class="caret"></b>
                                                 </a>
                                                 <ul class="dropdown-menu dropdown-user">
                                                     <li>

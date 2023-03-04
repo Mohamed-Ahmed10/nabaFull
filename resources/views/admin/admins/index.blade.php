@@ -64,7 +64,7 @@
                                             <td>{{$admin->id}}</td>
                                             <td>
                                                 <div class="ml-2 d-flex">
-                                                    <img src="{{asset($admin->photo)}}" alt="" class="img-fluid img-50 rounded-circle blur-up lazyloaded">
+                                                    <img src="{{asset($admin->photo)}}" alt="" class="img-fluid img-50 rounded-circle blur-up lazyloaded" width="100">
                                                 </div>
                                             </td>
                                             <td>{{$admin->name}}</td>
@@ -79,7 +79,7 @@
                                                 <ul class="nav navbar-center navbar-top-links" style="border-radius: 15px;">
                                                     <li class="dropdown">
                                                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                                            <i class="fa-align-justify"></i> actions <b class="caret"></b>
+                                                             actions <b class="caret"></b>
                                                         </a>
                                                         <ul class="dropdown-menu dropdown-user">
                                                             <li >
@@ -206,7 +206,7 @@
                                             <td>${data[i].id}</td>
                                             <td>
                                                 <div class="ml-2 d-flex">
-                                                    <img src="${data[i].photo}" alt="" class="img-fluid img-50 rounded-circle blur-up lazyloaded">
+                                                    <img src="${data[i].photo}" alt="" class="img-fluid img-50 rounded-circle blur-up lazyloaded" width="100">
                                                 </div>
                                             </td>
                                             <td>${data[i].name}</td>
@@ -217,7 +217,7 @@
                                                 <ul class="nav navbar-center navbar-top-links" style="border-radius: 15px;">
                                                     <li class="dropdown">
                                                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                                            <i class="fa-align-justify"></i> actions <b class="caret"></b>
+                                                             actions <b class="caret"></b>
                                                         </a>
                                                         <ul class="dropdown-menu dropdown-user">
                                                             <li >
@@ -276,7 +276,7 @@
                                     <td>${data[i].id}</td>
                                     <td>
                                         <div class="ml-2 d-flex">
-                                            <img src="${data[i].photo}" alt="" class="img-fluid img-50 rounded-circle blur-up lazyloaded">
+                                            <img src="${data[i].photo}" alt="" class="img-fluid img-50 rounded-circle blur-up lazyloaded" width="100">
                                         </div>
                                     </td>
                                     <td>${data[i].name}</td>
@@ -287,7 +287,7 @@
                                         <ul class="nav navbar-center navbar-top-links" style="border-radius: 15px;">
                                             <li class="dropdown">
                                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                                    <i class="fa-align-justify"></i> actions <b class="caret"></b>
+                                                     actions <b class="caret"></b>
                                                 </a>
                                                 <ul class="dropdown-menu dropdown-user">
                                                     <li>

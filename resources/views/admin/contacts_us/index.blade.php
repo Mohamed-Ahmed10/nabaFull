@@ -23,7 +23,7 @@
                 </ol>
             </nav>
             </div>
-        </div> 
+        </div>
         <!-- /.col-lg-12 -->
     </div>
     <!-- /.row -->
@@ -36,8 +36,8 @@
                 <!-- /.panel-heading -->
                 <div class="panel-body">
                     @include('flash::message')
-                    <div class="row">
-                        <div class="col-sm-8">
+                    <div class="row" style="padding-bottom:20px">
+                        <div class="col-sm-10">
                             <form onsubmit="event.preventDefault()" class="expert_search">
                                 <div class="tab-content">
                                     @csrf
@@ -57,31 +57,25 @@
                                     </div>
                                     <div class="col-xs-3">
                                         <div id="dataTables-example_filter" class="dataTables_filter">
-                                            FROM 
+                                            FROM
                                             <input id="date_from_input" name="date_from" type="date" class="form-control input-sm" aria-controls="dataTables-example">
                                         </div>
                                     </div>
                                     <div class="col-xs-3">
                                         <div id="dataTables-example_filter" class="dataTables_filter">
-                                            TO 
+                                            TO
                                             <input id="date_to_input" name="date_to" type="date" class="form-control input-sm" aria-controls="dataTables-example">
                                         </div>
                                     </div>
-                                    <div class="col-xs-1">
-                                        <div id="dataTables-example_filter" class="dataTables_filter">
-                                            <button type="button" id="export_excel_button" class="btn btn-success btn-sm">Excel</button>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-2">
-                                        <div id="dataTables-example_filter" class="dataTables_filter">
+                                        <div class="col-xs-3" style="margin-top:20px">
+                                        <button type="button" id="export_excel_button" class="btn btn-success btn-sm">Excel</button>
                                             <button type="submit"  class="btn btn-success btn-sm">Submit</button>
                                             <a href="{{route('admin/contact-us/index')}}" class="btn btn-primary btn-sm">Reset</a>
-                                        </div>
                                     </div>
                                 </div>
                             </form>
                         </div>
-                        <div class="col-sm-4 text-right">
+                        <div class="col-sm-2 text-right"style="margin-top:20px">
                             <div id="dataTables-example_filter" class="dataTables_filter">
                                 <label><input id="data_search" placeholder="search" type="search" class="form-control input-sm" aria-controls="dataTables-example"></label>
                             </div>
@@ -106,14 +100,14 @@
                                 @isset($contacts_us)
                                     @foreach($contacts_us as $contact)
                                         <tr class="odd gradeX">
-                                            <?php 
+                                            <?php
                                                 $section_no = '( --- )';
-                                                if($contact->section_no == 1){ $section_no = 'products ( ' . $contact->sectionable->title .' )'  ; }
-                                                elseif($contact->section_no == 2){ $section_no = 'articles ( ' . $contact->sectionable->title .' )'  ; } 
-                                                elseif($contact->section_no == 3){ $section_no = 'webinars ( ' . $contact->sectionable->title .' )'  ; } 
-                                                elseif($contact->section_no == 4){ $section_no = 'services ( ' . $contact->sectionable->title .' )'  ; } 
-                                                elseif($contact->section_no == 5){ $section_no = 'trainings ( ' . $contact->sectionable->name .' )'  ; } 
-                                            ?> 
+                                                if($contact->section_no == 1 && !empty($contact->sectionable) ){ $section_no = 'products ( ' . $contact->sectionable->title .' )'  ; }
+                                                elseif($contact->section_no == 2 && !empty($contact->sectionable) ){ $section_no = 'articles ( ' . $contact->sectionable->title .' )'  ; }
+                                                elseif($contact->section_no == 3 && !empty($contact->sectionable) ){ $section_no = 'webinars ( ' . $contact->sectionable->title .' )'  ; }
+                                                elseif($contact->section_no == 4 && !empty($contact->sectionable) ){ $section_no = 'services ( ' . $contact->sectionable->title .' )'  ; }
+                                                elseif($contact->section_no == 5 && !empty($contact->sectionable) ){ $section_no = 'trainings ( ' . $contact->sectionable->name .' )'  ; }
+                                            ?>
                                             <td>{{$contact->id}}</td>
                                             <td>{{$section_no}}</td>
                                             <td>{{$contact->name}}</td>
@@ -187,7 +181,7 @@
                                     if(typeof(data[i].sectionable) == 'undefined' || data[i].sectionable == null){
                                         section_no = '( --- )'
                                     }else{
-                                        if (data[i].section_no == 5) { 
+                                        if (data[i].section_no == 5) {
                                             section_no = section_no + ' ( ' + data[i].sectionable.name + ' )'
                                         }else{
                                             section_no = section_no + ' ( ' + data[i].sectionable.title + ' )'
@@ -223,7 +217,7 @@
                 }
             });
         });
-        
+
         $(document).on('keyup', '#data_search', function() {
             var query = $(this).val();
             var _token = $('input[name="_token"]').val();
@@ -251,7 +245,7 @@
                             if(typeof(data[i].sectionable) == 'undefined' || data[i].sectionable == null){
                                 section_no = '( --- )'
                             }else{
-                                if (data[i].section_no == 5) { 
+                                if (data[i].section_no == 5) {
                                     section_no = section_no + ' ( ' + data[i].sectionable.name + ' )'
                                 }else{
                                     section_no = section_no + ' ( ' + data[i].sectionable.title + ' )'

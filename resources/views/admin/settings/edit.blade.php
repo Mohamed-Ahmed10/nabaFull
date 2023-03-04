@@ -24,7 +24,7 @@
                 </ol>
             </nav>
             </div>
-        </div> 
+        </div>
         <!-- /.col-lg-12 -->
     </div>
     <!-- /.row -->
@@ -46,7 +46,7 @@
                         <form role="form" action="{{url(route('admin/settings/update', $setting->id))}}" method="post" enctype="multipart/form-data">
                             <div class="form-group input-group">
                                 <div class="m-2 d-flex">
-                                    <img src="{{asset($setting->image)}}" alt="" class="img-fluid img-50 rounded-circle blur-up lazyloaded">
+                                    <img src="{{asset($setting->image)}}" alt="" class="img-fluid img-50 rounded-circle blur-up lazyloaded" width="100">
                                 </div>
                             </div>
                             <div class="tab-content">
