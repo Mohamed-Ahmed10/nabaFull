@@ -186,7 +186,7 @@
                             hour = ''
                             section_no = ''
 
-                            if (typeof(data[i].country_name) == 'undefined') {
+                            if (typeof(data[0].country_name) == 'undefined') {
                                 country_name = ''
                             }else{
                                 country_name = data[i].country_name
