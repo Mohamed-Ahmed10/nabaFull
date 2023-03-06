@@ -74,36 +74,36 @@
                                 </div>
 
                             </div>
+                            <div class="row">
+                                <div class="col-xs-2">
+                                    <div class="checkbox">
+                                        <input name="peak_time" type="checkbox" value="1">PeakTime
+                                    </div>
+                                </div>
+                                <div class="col-xs-2">
+                                    <div class="checkbox">
+                                        <input name="countries" type="checkbox" value="1">Countries
+                                    </div>
+                                </div>
+                                <div class="col-xs-2">
+                                    <div class="checkbox">
+                                        <input name="pages" type="checkbox" value="1">Pages
+                                    </div>
+                                </div>
+                                <div class="col-xs-2">
+                                    <div class="checkbox">
+                                        <input name="setions_items_rep" type="checkbox" value="1">Setion Items
+                                    </div>
+                                </div>
+                                <div class="col-xs-2" style="margin-top: 8px;">
+                                <button type="submit" class="btn btn-success btn-sm">Submit</button>
+                                </div>
+                                <div class="col-xs-2" style="margin-top: 8px;">
+                                <a href="{{route('admin/views/index')}}" class="btn btn-primary btn-sm">Reset</a>
+                                </div>
+                            </div>
                         </form>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-2">
-                            <div class="checkbox">
-                                <input name="peak_time" type="checkbox" value="1">PeakTime
-                            </div>
                         </div>
-                        <div class="col-xs-2">
-                            <div class="checkbox">
-                                <input name="countries" type="checkbox" value="1">Countries
-                            </div>
-                        </div>
-                        <div class="col-xs-2">
-                            <div class="checkbox">
-                                <input name="pages" type="checkbox" value="1">Pages
-                            </div>
-                        </div>
-                        <div class="col-xs-2">
-                            <div class="checkbox">
-                                <input name="setions_items_rep" type="checkbox" value="1">Setion Items
-                            </div>
-                        </div>
-                        <div class="col-xs-2" style="margin-top: 8px;">
-                        <button type="submit" class="btn btn-success btn-sm">Submit</button>
-                        </div>
-                        <div class="col-xs-2" style="margin-top: 8px;">
-                        <a href="{{route('admin/views/index')}}" class="btn btn-primary btn-sm">Reset</a>
-                        </div>
-                    </div>
                     </div>
                     <br/>
                     <div class="dataTable_wrapper">
@@ -164,6 +164,7 @@
         // let length = dataLen.length
 
         $('.expert_search').on('submit', function(event){
+            console.log("aaaa");
             var _token = $('input[name="_token"]').val();
             let hour = ''
             let section_no = ''
