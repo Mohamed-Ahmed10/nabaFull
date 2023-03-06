@@ -32,7 +32,7 @@ NABA APPLICATION
     </div>
 </div><br>
 
-,Thanks<br>
+, Thanks<br>
 
 NABA
 @endcomponent
