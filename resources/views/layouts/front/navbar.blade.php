@@ -93,6 +93,7 @@
 										@endif
 									</ul>
 								</li>
+                                <li><a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a> </li>
 								<li><a href="#">Language </a>
 									<ul class="sub-menu">
 										@foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)

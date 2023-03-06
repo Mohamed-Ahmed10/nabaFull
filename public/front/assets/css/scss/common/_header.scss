@@ -60,7 +60,7 @@ nav.main-menu {
 
             a {
                 color: $white-color;
-                font-weight: 700;
+                // font-weight: 700;
                 display: block;
                 padding: 15px;
             }
@@ -195,11 +195,11 @@ nav.main-menu {
     ul {
         ul.sub-menu li {
             &:hover a {
-                background-color: #FFF;
+                // background-color: #FFF;
                 // color: #555;
                 // padding: 8px;
                 font-size: 13px;
-                font-weight: 600;
+                // font-weight: 600;
             }
 
 
@@ -228,7 +228,7 @@ nav.main-menu {
 
         &:hover>a {
             color: $primary-color;
-            font-weight: bold !important;
+            // font-weight: bold !important;
         }
 
         a {
