@@ -25,4 +25,8 @@ class HomeController extends Controller
             return back();
         }
     }
+
+    public function about() {
+        return view('front.about');
+    }
 }

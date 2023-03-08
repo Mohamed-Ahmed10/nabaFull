@@ -25,6 +25,8 @@ Route::group([
 
         Route::get('/', 'HomeController@home');
         Route::get('/home', 'HomeController@home')->name('front/index');
+        
+        Route::get('/about', 'HomeController@about')->name('front/about');
 
         Route::get('/products', 'ProductController@products')->name('front/products');
         Route::get('/product-details/{id}', 'ProductController@product')->name('front/product');
