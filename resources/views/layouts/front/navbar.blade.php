@@ -93,6 +93,7 @@
 										@endif
 									</ul>
 								</li>
+                                <li id="trainings_active"><a href="{{route('front/about')}}">About </a></li>
 								<li><a href="#">Language </a>
 									<ul class="sub-menu">
 										@foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
