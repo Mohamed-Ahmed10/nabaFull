@@ -34,18 +34,6 @@
 								<a class="fb-xfbml-parse-ignore btn btn-primary" target="_blank"
 									href="https://www.facebook.com/sharer/sharer.php?u={{url(route('front/article', $article->id))}}">Share
 									with facebook</a>
-								<div class="sidebar-section">
-									<div class="recent-posts">
-										<h4>Recent Posts</h4>
-										<ul>
-											<li><a href="#">You will vainly look for fruit on it in autumn.</a></li>
-											<li><a href="#">A man's worth has its season, like tomato.</a></li>
-											<li><a href="#">Good thoughts bear good fresh juicy fruit.</a></li>
-											<li><a href="#">Fall in love with the fresh orange</a></li>
-											<li><a href="#">Why the berries always look delecious</a></li>
-										</ul>
-									</div>
-								</div>
 							</div>
 						</div>
 					</div>
@@ -123,11 +111,11 @@
 								@error('notes')
 									<span class="text-danger">{{$message}}</span>
 								@enderror
-							</div> 
+							</div>
 							<div class="m-3">
 								{!! NoCaptcha::renderJs() !!}
 								{!! NoCaptcha::display() !!}
-							</div> 
+							</div>
 							<div class="m-3">
 								<input type="submit" value="Submit">
 							</div>
