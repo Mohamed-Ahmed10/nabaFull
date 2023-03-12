@@ -13,7 +13,7 @@ class Slider extends Model implements TranslatableContract
 	protected $table = 'sliders';
 	public $timestamps = true;
 	protected $fillable = array('image', 'image_phone', 'link', 'is_activate');
-    protected $translatedAttributes = ['title', 'description'];
+    protected $translatedAttributes = ['title', 'description', 'image', 'image_phone'];
     protected $hidden = ['translations'];
 
 	public function scopeActive($query){
