@@ -39,7 +39,7 @@
 							<div class="single-latest-product">
 								<div class="latest-news-bg news-bg-1"></div>
 								<div class="news-text-box">
-									<h4 class="text-center"><a href="{{route('front/service', $service->id)}}">ElMohtaref <br> {{$service->title}}</a></h4>
+									<h4 class="text-center"><a href="{{route('front/service', $service->id)}}"> <br> {{$service->title}}</a></h4>
 									<img src="{{asset($service->image)}}" alt="sample">
 									<p class="mt-2 article_content">{{$service->description}}</p>
 									<a href="{{route('front/service', $service->id)}}" class="read-more-btn" target="_blank">read more <i class="fas fa-angle-right"></i></a>

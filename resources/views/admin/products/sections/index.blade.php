@@ -110,7 +110,7 @@
                             </tbody>
                         </table>
                         <hr>
-                        <h2>SECTION TOW</h2>
+                        <h2>SECTIONTWO</h2>
                         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                             <thead>
                                 <tr>

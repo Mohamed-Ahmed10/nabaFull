@@ -38,7 +38,7 @@
 							<div class="single-latest-product">
 								<div class="latest-news-bg news-bg-1"></div>
 								<div class="news-text-box">
-									<h4 class="text-center"><a href="{{url(route('front/article', $article->id))}}">ElMohtaref <br> {{$article->title}}</a></h4>
+									<h4 class="text-center"><a href="{{url(route('front/article', $article->id))}}"> <br> {{$article->title}}</a></h4>
 									<img src="{{asset($article->image)}}" alt="sample">
 									<p class="mt-2 article_content">{{$article->description}}</p>
 									<a href="{{url(route('front/article', $article->id))}}" class="read-more-btn" target="_blank">read more <i

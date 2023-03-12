@@ -27,7 +27,7 @@
 										?>
 										@if(count($nav_products) > 0)
 											@foreach($nav_products as $nav_product)
-												<li id="product_active_<?php echo $nav_product->id ?>"><a href="{{route('front/product', $nav_product->id)}}">ElMohtaref for {{$nav_product->title}}</a></li> <hr>
+												<li id="product_active_<?php echo $nav_product->id ?>"><a href="{{route('front/product', $nav_product->id)}}"> {{$nav_product->title}}</a></li> <hr>
 											@endforeach
 										@endif
 									</ul>

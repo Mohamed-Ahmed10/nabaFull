@@ -39,7 +39,7 @@
 							<div class="single-latest-product">
 								<div class="latest-news-bg news-bg-1"></div>
 								<div class="news-text-box">
-									<h4 class="text-center"><a href="{{url(route('front/webinar', $webinar->id))}}">ElMohtaref <br>{{$webinar->name}}</a></h4>
+									<h4 class="text-center"><a href="{{url(route('front/webinar', $webinar->id))}}"> <br>{{$webinar->name}}</a></h4>
 									<img src="{{asset($webinar->image)}}" alt="estate_investment">
 									<p class="blog-meta">
 										<div class="date"><i class="fas fa-calendar"></i> {{$webinar->date}}</div>

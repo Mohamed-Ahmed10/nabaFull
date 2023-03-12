@@ -38,7 +38,7 @@
 							<div class="single-latest-product">
 								<div class="latest-news-bg news-bg-1"></div>
 								<div class="news-text-box">
-									<h4 class="text-center"><a href="{{route('front/training', $training->id)}}">ElMohtaref <br> {{$training->name}}</a></h4>
+									<h4 class="text-center"><a href="{{route('front/training', $training->id)}}"> <br> {{$training->name}}</a></h4>
 									<img src="{{asset($training->image)}}" alt="sample">
 									<p class="blog-meta">
 										<div class="author"><i class="fas fa-user"></i>  {{$training->instructor}}</div>
