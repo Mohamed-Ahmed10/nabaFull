@@ -53,6 +53,9 @@ use Intervention\Image\ImageManagerStatic as Image;
 	function uploadIamge($file, $folder){
 		$path = public_path();
 		$destinationPath = $path . '/admin/assets/images/' . $folder . '/'; // upload path
+        if (!\File::isDirectory($destinationPath)) {
+            \File::makeDirectory($destinationPath);
+        }
 		$photo = $file;
 		$extension = $photo->getClientOriginalExtension(); // getting image extension
 		$name = time() . '' . rand(11111, 99999) . '.' . $extension; //renameing image
